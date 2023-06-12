@@ -1,25 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <!-- exercise 1 -->
-    <!-- exercise 1 -->
+    <link rel="stylesheet" href="../btvn_03/assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- exercise 1: Form lien he -->
+    <form action="" class="form form-contact">
+      <div class="title">
+        <h1 class="form-title">CONTACT US</h1>
+      </div>
+      <div class="form-content">
+        <div class="form-description">
+          <h2 class="sub-title">Contact Info</h2>
+          <div class="form-address">
+            <i class="fa fa-location-dot"></i>
+            <p>321 Awesome Street <br />New York, NY 17022</p>
+          </div>
+          <div class="form-email">
+            <i class="fa fa-regular fa-envelope"></i>
+            <p>info@companyname.com</p>
+          </div>
+          <div class="form-address">
+            <i class="fa fa-solid fa-phone"></i>
+            <p>+1 800 123 1234</p>
+          </div>
+        </div>
 
-    <!-- exercise 1 -->
-    <!-- exercise 1 -->
+        <div class="form-input">
+          <h2 class="sub-title">Having Any Query! Or book an appointment</h2>
+          <div class="input-name">
+            <input type="text" placeholder="Your Name" />
+          </div>
+          <div class="input-name">
+            <input type="email" placeholder="Your Email" />
+          </div>
+          <div class="input-name">
+            <input type="text" placeholder="Subject" />
+          </div>
+          <textarea name="message" id="message">
+  Message
+            </textarea
+          >
+          <button class="form-contact_btn">Send Message</button>
+        </div>
+      </div>
+    </form>
+    <!-- end exercise 1 -->
 
-    <!-- exercise 1 -->
-    <!-- exercise 1 -->
+    <hr />
 
-    <!-- exercise 1 -->
-    <!-- exercise 1 -->
+    <!-- exercise 2: Cam nhan khach hang  -->
+    <section class="testimonials">
+      <div class="testimonials-title">
+        <h1>WHAT OUR CLIENTS SAY</h1>
+      </div>
+      <div class="row">
+        <div class="testimonials-col">
+          <img src="../btvn_02/assets/img/img_02.jpg" alt="" />
+          <div>
+            <p>
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+              ipsam atque rem quidem sunt soluta sequi tempore quaerat"
+            </p>
+            <h3>John Doe</h3>
+          </div>
+        </div>
+        <div class="testimonials-col">
+          <img src="../btvn_02/assets/img/img_01.jpg" alt="" />
+          <div>
+            <p>
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+              ipsam atque rem quidem sunt soluta sequi tempore quaerat"
+            </p>
+            <h3>Johnathan Doe</h3>
+          </div>
+        </div>
+        <div class="testimonials-col">
+          <img src="../btvn_02/assets/img/img_03.jpg" alt="" />
+          <div>
+            <p>
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+              ipsam atque rem quidem sunt soluta sequi tempore quaerat"
+            </p>
+            <h3>John Doe</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="testimonials-col">
+          <img src="../btvn_02/assets/img/img_02.jpg" alt="" />
+          <div>
+            <p>
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+              ipsam atque rem quidem sunt soluta sequi tempore quaerat"
+            </p>
+            <h3>John Doe</h3>
+          </div>
+        </div>
+        <div class="testimonials-col">
+          <img src="../btvn_02/assets/img/img_01.jpg" alt="" />
+          <div>
+            <p>
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+              ipsam atque rem quidem sunt soluta sequi tempore quaerat"
+            </p>
+            <h3>Johnathan Doe</h3>
+          </div>
+        </div>
+        <div class="testimonials-col">
+          <img src="../btvn_02/assets/img/img_03.jpg" alt="" />
+          <div>
+            <p>
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+              ipsam atque rem quidem sunt soluta sequi tempore quaerat"
+            </p>
+            <h3>John Doe</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end exercise 2 -->
 
+    <hr />
+
+    <!-- exercise 3: Form Access Manager  -->
+    <form action="" class="form form-access">
+      <div class="mg form-name">
+        <label for="">Username:</label>
+        <input type="text" />
+      </div>
+      <div class="mg form-password">
+        <label for="">Password:</label>
+        <input type="password" />
+      </div>
+      <div class="mg form-city">
+        <label for="">City of:</label>
+        <input type="text" />
+      </div>
+      <div class="mg form-employment">
+        <label for="">Employment:</label>
+        <input type="text" />
+      </div>
+
+      <div class="mg form-web_server">
+        <label for="">Web server:</label>
+        <select id="form-ewb_server" name="web">
+          <option value="0" hidden>--Choose a server--</option>
+          <option value="1">Apache</option>
+          <option value="2">Nginx</option>
+          <option value="3">Microsoft-IIS</option>
+        </select>
+      </div>
+
+      <div class="mg form-role">
+        <label for="">Please specify your role:</label>
+        <div class="employment-select">
+          <input type="radio" name="employment" />   Admin<br />
+          <input type="radio" name="employment" />   Engineer<br />
+          <input type="radio" name="employment" />   Manager<br />
+          <input type="radio" name="employment" />   Guest
+        </div>
+      </div>
+
+      <div class="mg form-sign_in">
+        <label for="">Single Sign-on to the following:</label>
+        <div class="form-check_box">
+          <input type="checkbox" />   Mail<br />
+          <input type="checkbox" />   Payroll<br />
+          <input type="checkbox" />   Self-service
+        </div>
+      </div>
+      <div class="form-access_btn">
+          <button>login</button>
+          <button>reset</button>
+      </div>
+    </form>
+    <!-- end exercise 3 -->
+
+    <hr />
+
+    <!-- exercise 4: Contact Map -->
+    <section class="map">
+      <nav class="map-nav">
+        <ul class="map-list">
+          <li class="map-items click"><a href="#">United Arab Emirates</a></li>
+          <li class="map-items"><a href="#">London</a></li>
+          <li class="map-items"><a href="#">Singapore</a></li>
+          <li class="map-items"><a href="#">Hong Kong</a></li>
+        </ul>
+      </nav>
+      <div class="map-content">
+        <div class="map-description">
+          <h1>ADS SECURITIES L.L.C</h1>
+          <p>8th floor CI Tower</p>
+          <p>omiche Road PO Box 93894</p>
+          <p>Abu Chabi, United Rafhugu</p>
+          <br />
+          <p>Tel: +971 2675 2300</p>
+          <p>Fax: +971 2675 2300</p>
+          <p>
+            Email: <span><a href="#">info@gmail.com</a></span>
+          </p>
+        </div>
+        <div class="map-img">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14898.357252436374!2d105.79072489668052!3d21.009093490161785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aca120613f6f%3A0x11aab8152a382220!2zVHJ1bmcgSG_DoCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1686551278773!5m2!1svi!2s"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- exercise 4 -->
+
+    <hr />
+
+    <!-- exercise 5: Call To Action -->
+    <section class="cta">
+      <div class="cta-img">190 x 50</div>
+      <h1 class="cta-title">Best <span>Shared Hosting</span> Company</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vitae
+        tenetur laboriosam quod enim. Hic eos incidunt corrupti ipsa quas!
+      </p>
+      <div>
+        <button class="cta-btn">View Plan</button>
+        <button class="cta-btn">All Features</button>
+      </div>
+    </section>
     <!-- exercise 1 -->
-    <!-- exercise 1 -->
-    
-</body>
+  </body>
 </html>
