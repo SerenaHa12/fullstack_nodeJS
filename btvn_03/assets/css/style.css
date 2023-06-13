@@ -104,7 +104,7 @@ textarea{
     content:'';
     width: 60px;
     height: 4px;
-    background: #2558c5;
+    background: linear-gradient(to left, #0b7cc7, #98b1d3);
     display: block;
     margin: auto;
 }
@@ -218,6 +218,8 @@ input[type="radio"] {
   }
 /* end exercise 3 */
     
+/* --------------------------------------------------------------------------------------------------------------------- */
+
 /* exercise 4: Contact Map */
 .map{
     width: 80%;
@@ -232,6 +234,7 @@ nav .map-nav{
 .map-list{
     width: fit-content;
     border:solid 1px #b48020 ;
+    border-radius: 4px;
 }
 .map-nav ul li{
     list-style: none;
@@ -244,6 +247,7 @@ nav .map-nav{
 }
 .map-nav ul li:first-child a{
     color: #fff;
+    text-align: center;
 }
 .click a{
     color: #fff;
@@ -252,6 +256,7 @@ nav .map-nav{
     color: #b48020;
     text-decoration: none;
     font-size: 13px;
+    text-align: center;
 }
 .map-content{
     display: flex;
