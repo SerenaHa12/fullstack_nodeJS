@@ -142,10 +142,10 @@ textarea{
 
 /* exercise 3: Form Access Manager */
 .form-access{
-    width: 25%;
+    width: 22%;
     margin: auto;
     padding: 100px 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 .form-access input, select{
     border: solid 1px #0a96b9;
@@ -156,7 +156,7 @@ textarea{
 }
 .form-access label{
     display: inline-block;
-    width: 130px;
+    width: 30%;
 }
 .form-role{
     display: flex;
@@ -168,7 +168,7 @@ textarea{
 .form-password input, 
 .form-city input, 
 .form-employment input{
-    width: 200px;
+    width: 60%;
 }
 .form-role .employment-select, .form-check_box{
     margin-left: 4px;
@@ -193,6 +193,29 @@ textarea{
     border: solid 1px #0a96b9;
     border-radius: 4px;
 }
+input[type="radio"] {
+    appearance: none;
+    background-color: #e2e2e2;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #0a96b9;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+  }
+  input[type="checkbox"] {
+    appearance: none;
+    background-color: #e2e2e2;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #0a96b9;
+    transform: translateY(-0.075em);
+  }
 /* end exercise 3 */
     
 /* exercise 4: Contact Map */
