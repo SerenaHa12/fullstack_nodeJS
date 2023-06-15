@@ -17,7 +17,7 @@ footer{
     background-color: rgb(74, 114, 163);
 }
 main{
-    height: 500px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,6 +75,15 @@ input[type="radio"]:checked + label {
     width: 150px;
     height: 120px;
     margin: 20px 0 40px 0;
+}
+.product img:last-child {
+    display: none;
+}
+.product:hover img:first-child {
+    display: none;
+}
+.product:hover img:last-child {
+    display: block;
 }
 .product .rating .fa{
     color: rgb(229, 179, 16);
