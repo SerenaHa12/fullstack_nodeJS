@@ -30,6 +30,7 @@ footer{
 .form-subscribe h1{
     color: #fff;
     font-weight: 500;
+    font-size: 28px;
 }
 .form-subscribe h1 span{
     color: #a5742d;
@@ -61,14 +62,14 @@ footer{
 /* hover */
 .form-subscribe:hover input[type="email"]::placeholder {
     color: #a5742d;
-  }
+}
   
-  .form-subscribe:hover input[type="email"] {
+.form-subscribe:hover input[type="email"] {
     background-color: #ddd;
     color: gray;
-  }
+}
   
-  .form-subscribe:hover button {
+.form-subscribe:hover button {
     background-color: #a5742d;
     color: #fff;
-  }
+}
