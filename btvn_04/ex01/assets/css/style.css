@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+header, main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    font-size: 30px;
+    color: #fff;
+}
+header{
+    background-color: burlywood;
+}
+main{
+    background-color: rgb(74, 114, 163);
+}
+footer{
+    height: 500px;
+}
+.form-subscribe{
+    margin: 5% 10%;
+    padding: 2% 2%;
+    justify-content: center;
+    background-color: #334455;
+    border-radius: 8px;
+}
+.form-subscribe h1{
+    color: #fff;
+    font-weight: 500;
+}
+.form-subscribe h1 span{
+    color: #a5742d;
+}
+.form-subscribe p{
+    color: #fff;
+    margin: 10px 0;
+    width: 580px;
+    font-size: 14px;
+    font-weight: 300;
+}
+.form-subscribe input{
+    width: 280px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+}
+.form-subscribe button{
+    width: 210px;
+    height: 40px;
+    padding: auto 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    background-color: #F8DB35;
+}
+/* hover */
+.form-subscribe:hover input[type="email"]::placeholder {
+    color: #a5742d;
+  }
+  
+  .form-subscribe:hover input[type="email"] {
+    background-color: #ddd;
+    color: gray;
+  }
+  
+  .form-subscribe:hover button {
+    background-color: #a5742d;
+    color: #fff;
+  }

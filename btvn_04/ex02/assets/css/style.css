@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Bebas Neue', sans-serif;
+}
+header, footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    font-size: 30px;
+    color: #fff;
+}
+header{
+    background-color: burlywood;
+}
+footer{
+    background-color: rgb(74, 114, 163);
+}
+main{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-booking{
+    margin: 5% 10%;
+    padding: 0 2%;
+    justify-content: center;
+}
+.form-booking p{
+    text-align: center;
+    margin: 30px auto;
+    font-size: 24px;
+    color: #3A2517;
+    font-weight: 700;
+}
+.form-booking h1{
+    text-align: center;
+    margin: 16px auto;
+    font-size: 40px;
+    font-family: 'Alfa Slab One', cursive;
+    color: #3A2517;
+}
+.form-booking .input{
+    display: flex;
+}
+.left-input{
+    display: block;
+}
+.form-booking input{
+    width: 248px;
+    height: 44px;
+    border: solid 1px #c7c7c7;
+    margin: 10px 10px;
+    padding: 0 16px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 18px;
+}
+.form-booking input::placeholder{
+    color: #3b3b3b;
+}
+.form-booking button{
+    width: 280px;
+    height: 44px;
+    border: solid 1px #ddd;
+    margin: 10px 10px;
+    font-family: 'Alfa Slab One', cursive;
+    background-color: #B0332B;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+}
