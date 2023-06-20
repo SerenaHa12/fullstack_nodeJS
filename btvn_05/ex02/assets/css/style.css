@@ -1,70 +1,78 @@
-*{
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container{
-    display: block;
-    margin: 100px 200px;
-    font-size: 12px;
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  margin: 100px auto;
+  width: 80%;
 }
 
 .item {
-    width: 80%;
-    margin-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.item input[type="checkbox"] {
+  display: none;
 }
 
 .item label {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: #d95926;
-    color: #fff;
-    font-size: 16px;
-    padding: 14px 18px;
-    font-weight: 400;
-    user-select: none;
+  display: flex;
+  align-items: center;
+  background-color: #d95926;
+  color: #fff;
+  font-size: 16px;
+  padding: 14px 18px;
+  font-weight: 400;
+  user-select: none;
+  cursor: pointer;
 }
-  
+
 .item label i.fa-minus,
 .item label i.fa-plus {
-    margin-right: 8px;
+  margin-right: 8px;
 }
-  
 
 .item label i.fa-minus {
-    display: none;
+  display: none;
 }
 
 .item .description {
-    padding: 20px;
-    display: none;
+  padding: 20px;
+  display: none;
 }
 
-.item .description p{
-    font-size: 16px;
-    font-weight: 400;
+.item .description p {
+  font-size: 16px;
+  font-weight: 400;
 }
 
-.item .description p span{
-    font-style: bold;
-    font-weight: 700;
+.item .description p span {
+  font-weight: 700;
 }
 
-.item input:checked ~ label i.fa-minus {
-    display: inline-block;
+.item input[type="checkbox"]:checked + label i.fa-minus {
+  display: inline-block;
 }
 
-.item input:checked ~ label i.fa-plus {
-    display: none;
+.item input[type="checkbox"]:checked + label i.fa-plus {
+  display: none;
 }
 
-.item input:checked ~ .description {
-    display: block;
+.item input[type="checkbox"]:checked ~ .description {
+  display: block;
 }
 
-input[type="checkbox"] {
-    display: none;
+.item input[type="checkbox"]:checked ~ .description p {
+  display: block;
 }
+
+.item input[type="checkbox"]:not(:checked) ~ .description {
+  display: none;
+}
+
