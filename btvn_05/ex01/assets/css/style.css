@@ -1,0 +1,240 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    width: 40%;
+    margin: 5% 10%;
+    padding: 2% 2%;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.form h1{
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.form p span{
+    color: #ec584d;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.form p{
+    color: #c3c3c3;
+    width: 571px;
+    font-size: 18px;
+}
+
+.input-name {
+    display: flex;
+    margin: 28px 0;
+}
+  
+.input-icon {
+    padding: 20px;
+    width: 14px;
+    height: 14px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+  
+.input-icon i {
+    font-size: 17px;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+}
+  
+.input-action {
+    position: relative;
+}
+  
+.input-action input {
+    height: 52px;
+    color: #dddddd;
+    width: 530px;
+    padding: 0 10px;
+    border: solid 1px #dddddd;
+    font-size: 16px;
+}
+  
+.input-action i.fa-star {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #dddddd;
+}
+  
+.input-action i.fa-sort {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #dddddd;
+}
+
+.input-message{
+    display: flex;
+}
+
+.mess-icon{
+    padding: 20px 0;
+    width: 54px;
+    height: 240px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+
+.mess-action {
+    position: relative;
+}
+
+.mess-action textarea{
+    height: 278px;
+    color: #dddddd;
+    width: 510px;
+    padding: 0 10px;
+    border: solid 1px #dddddd;
+    font-size: 16px;
+    padding-right: 30px;
+    font-family: 'Lato', sans-serif;
+}
+
+.mess-action i.fa-star {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #dddddd;
+}
+
+.form-action{
+    display: flex;
+    margin: 28px 0;
+}
+
+.form-checkbox input[type="checkbox"] {
+    display: none;
+}
+  
+.form-checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+  
+.form-checkbox .checkbox-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+}
+  
+.form-checkbox .checkbox-custom::after {
+    content: '\2714';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 14px;
+    color: black;
+    opacity: 0;
+}
+  
+.form-checkbox input[type="checkbox"]:checked + label .checkbox-custom::after {
+    opacity: 1;
+}
+  
+.form-checkbox label{
+    color: #b0b0b0;
+    padding-top: 4px;
+    padding-left: 34px;
+}
+  
+.form-btn{
+    margin-left: 244px;
+    
+}
+
+.form-btn button{
+    padding: 8px 38px;
+    background-color: #ec584d;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.fill_reco{
+    position: absolute;
+    left: 9%;
+    top:-120%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    white-space: nowrap;
+    padding:15px 15px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease ;
+}
+
+.fill_reco::before{
+    content: "";
+    position: absolute;
+    left:30%;
+    top: 90%;
+    transform: translateX(-50%);
+    border: 15px solid;
+    border-color: #000 #0000 #0000 #0000;
+}
+
+.input-action:active  .fill_reco{
+    top:-130%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.input-name:hover .input-icon {
+    background-color: #000;
+}
+
+.input-name:hover .input-action input{
+    border: solid 1px #000;
+}
+
+.input-message:hover .fill_reco{
+    top:-25%;
+    visibility: visible;
+    opacity: 1;
+}
+.input-message:hover .mess-icon{
+    background-color: #000;
+}
+
+.input-message:hover .mess-action textarea{
+    border: solid 1px #000;
+}
+
+  

@@ -1,0 +1,70 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: block;
+    margin: 100px 200px;
+    font-size: 12px;
+}
+
+.item {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.item label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #d95926;
+    color: #fff;
+    font-size: 16px;
+    padding: 14px 18px;
+    font-weight: 400;
+    user-select: none;
+}
+  
+.item label i.fa-minus,
+.item label i.fa-plus {
+    margin-right: 8px;
+}
+  
+
+.item label i.fa-minus {
+    display: none;
+}
+
+.item .description {
+    padding: 20px;
+    display: none;
+}
+
+.item .description p{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.item .description p span{
+    font-style: bold;
+    font-weight: 700;
+}
+
+.item input:checked ~ label i.fa-minus {
+    display: inline-block;
+}
+
+.item input:checked ~ label i.fa-plus {
+    display: none;
+}
+
+.item input:checked ~ .description {
+    display: block;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
