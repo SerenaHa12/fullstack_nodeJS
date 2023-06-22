@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ebf5fe;
+  font-family: "Roboto", sans-serif;
+  color: #666;
+}
+
+.container {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+
+.item {
+  flex-basis: calc(33.33% - 20px); /* Độ rộng của mỗi cột */
+  margin: 10px; /* Khoảng cách giữa các cột */
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.item-title {
+  display: flex;
+}
+
+.item-icon i {
+  padding: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+}
+
+#icon_01 i {
+  background: linear-gradient(to left, #b24a5a, #e10c0c);
+}
+
+#icon_02 i {
+  background: linear-gradient(to left, #aae1dc, #00e9f9);
+}
+
+#icon_03 i {
+  background: linear-gradient(to left, #eac41f, #ffd700);
+}
+
+#icon_04 i {
+  background: linear-gradient(to left, #add8e6, #0000ff);
+}
+
+#icon_05 i {
+  background: linear-gradient(to left, #ba6bdc, #800080);
+}
+
+#icon_06 i {
+  background: linear-gradient(to left, #98fb98, #008000);
+}
+
+#item_01:hover {
+  border: 1px solid #e10c0c;
+}
+
+#item_02:hover {
+  border: 1px solid #00e9f9;
+}
+
+#item_03:hover {
+  border: 1px solid #ffd700;
+}
+
+#item_04:hover {
+  border: 1px solid #0000ff;
+}
+
+#item_05:hover {
+  border: 1px solid #800080;
+}
+
+#item_06:hover {
+  border: 1px solid #008000;
+}
+
+.item-title-details {
+  margin-left: 16px;
+  font-size: 16px;
+  color: #000000d0;
+}
+.item p {
+  margin: 20px auto;
+  font-size: 14px;
+  line-height: 1.75;
+  letter-spacing: 0.5px;
+}
+
+.item a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c65eb;
+}
