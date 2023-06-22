@@ -62,14 +62,15 @@ header {
 
 /* Sub Menu */
 .sub-menu-list {
+  display: none;
   position: absolute;
   top: 160px;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
+
 .sub-menu-list li span {
   margin: 2px 110px 2px 6px;
 }
@@ -82,14 +83,25 @@ header {
 .sub-menu-list::before {
   content: "";
   position: absolute;
-  top: 0px;
+  top: -10px;
   left: 20px;
   transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 10px solid #ff0;
+  border-bottom: 10px solid #fff;
+  cursor: pointer;
+}
+
+.sub-menu-list::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 100px;
+  height: 20px;
+  cursor: pointer;
 }
 
 
