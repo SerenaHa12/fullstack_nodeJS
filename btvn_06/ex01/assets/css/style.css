@@ -33,7 +33,7 @@ header {
 .menu-item {
   float: left;
   border: 1px solid #ccc;
-  padding: 2px;
+  padding: 4px 4px;
 }
 
 .menu-item a {
@@ -69,6 +69,15 @@ header {
   margin: 0;
   padding: 0;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.sub-menu-list li{
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+}
+
+.sub-menu-list li:last-child{
+  border: none;
 }
 
 .sub-menu-list li span {
