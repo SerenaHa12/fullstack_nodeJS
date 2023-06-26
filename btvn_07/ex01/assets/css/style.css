@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Asap', sans-serif;
+    color: #3f3424;
+}
+
+header,main,footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+
+main{
+    background-color: burlywood;
+}
+
+footer{
+    background-color: rgb(74, 114, 163);
+}
+
+.banner{
+    position: relative;
+}
+
+.banner-content{
+    width: 560px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 24px 24px 48px 24px;
+    position: absolute;
+    top: 140px;
+    left: 185px;
+    border-radius: 4px;
+}
+
+.banner-content h1{
+    font-size: 26px;
+    font-weight: 700;
+    color: #bf4240;
+    margin: 10px 0;
+}
+
+.banner-content p{
+    font-size: 14px;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.banner-content span, i{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.banner-price{
+    padding: 8px 12px;
+    background-color: #bf4240;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+    width: fit-content;
+    border-radius: 4px;
+    position: absolute;
+    top: 294px;
+    left: 576px;
+}

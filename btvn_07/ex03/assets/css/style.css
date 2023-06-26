@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Asap", sans-serif;
+}
+
+.container{
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+}
+
+h1{
+    font-size: 18px;
+}
+
+nav {
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+nav .item {
+  margin: 2px 0;
+}
+
+nav label {
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+label span{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #af7b38;
+  border-radius: 24px;
+  color: #fff;
+}
+
+input[type="radio"] + label {
+    background-color: #ccc;
+    border-radius: 24px;
+    color: #000;
+    margin: 0 8px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-item_01,
+.content-item_02,
+.content-item_03,
+.content-item_04,
+.content-item_05,
+.content-item_06{
+    position: relative;
+    width: 32%;
+    height: 230px;
+    margin: 10px 0;
+}
+
+.content-item_01::before{
+    content: "";
+    position: absolute;
+    background: url('https://arental.vn/images/users/images/quan-2-dang-song%20(4).jpg');
+    width: 100%;
+    height: 230px;
+    border-radius: 4px;
+    margin: 10px 0;
+    z-index:-1;
+    filter: grayscale(46%) sepia(16%) brightness(73%);
+    -webkit-filter: grayscale(46%) sepia(16%) brightness(73%);
+    -moz-filter: grayscale(46%) sepia(16%) brightness(73%);
+}
+
+.content-item_02::before{
+    content: "";
+    position: absolute;
+    background: url('https://tranducphu.com/wp-content/uploads/2020/08/quan-7-gan-voi-nhung-quan-nao.jpg');
+    width: 100%;
+    height: 230px;
+    border-radius: 4px;
+    margin: 10px 0;
+    z-index:-1;
+    filter: grayscale(46%) sepia(16%) brightness(73%);
+    -webkit-filter: grayscale(46%) sepia(16%) brightness(73%);
+    -moz-filter: grayscale(46%) sepia(16%) brightness(73%);
+}
+
+.content-item_03::before{
+    content: "";
+    position: absolute;
+    background: url('https://offer.rever.vn/hubfs/himlam-1.jpg');
+    width: 100%;
+    height: 230px;
+    border-radius: 4px;
+    margin: 10px 0;
+    z-index:-1;
+    filter: grayscale(46%) sepia(16%) brightness(73%);
+    -webkit-filter: grayscale(46%) sepia(16%) brightness(73%);
+    -moz-filter: grayscale(46%) sepia(16%) brightness(73%);
+}
+
+.content-item_04::before{
+    content: "";
+    position: absolute;
+    background: url('https://st.nhipcaudautu.vn/staticFile/Subject/2017/03/08/ve-may-bay-quan-tan-binh_8948478.jpg');
+    width: 100%;
+    height: 230px;
+    border-radius: 4px;
+    margin: 10px 0;
+    z-index:-1;
+    filter: grayscale(46%) sepia(16%) brightness(73%);
+    -webkit-filter: grayscale(46%) sepia(16%) brightness(73%);
+    -moz-filter: grayscale(46%) sepia(16%) brightness(73%);
+}
+
+.content-item_05::before{
+    content: "";
+    position: absolute;
+    background: url('https://vpdt-tanbinh.tphcm.gov.vn/documents/7507633/10481167/im-ubtanbinh.jpg');
+    width: 100%;
+    height: 230px;
+    border-radius: 4px;
+    margin: 10px 0;
+    z-index:-1;
+    filter: grayscale(46%) sepia(16%) brightness(73%);
+    -webkit-filter: grayscale(46%) sepia(16%) brightness(73%);
+    -moz-filter: grayscale(46%) sepia(16%) brightness(73%);
+}
+
+.content-item_06::before{
+    content: "";
+    position: absolute;
+    background: url('https://tranducphu.com/wp-content/uploads/2020/08/quan-7-gan-voi-nhung-quan-nao.jpg');
+    width: 100%;
+    height: 230px;
+    border-radius: 4px;
+    margin: 10px 0;
+    z-index:-1;
+    filter: grayscale(46%) sepia(16%) brightness(73%);
+    -webkit-filter: grayscale(46%) sepia(16%) brightness(73%);
+    -moz-filter: grayscale(46%) sepia(16%) brightness(73%);
+}
+
+.content h2{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px 20px;
+}
+
+.content p{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 140px 20px;
+}
+
+.content p span{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
