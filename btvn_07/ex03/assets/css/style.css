@@ -16,6 +16,16 @@ h1{
     font-size: 18px;
 }
 
+h1 span::after{
+    content: '';
+    width: 740px;
+    height: 2px;
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 12px;
+    background-color: #ccc;
+}
+
 nav {
   display: flex;
   margin: 20px auto;
@@ -27,7 +37,7 @@ nav .item {
 }
 
 nav label {
-  padding: 8px 12px;
+  padding: 10px 12px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -46,8 +56,9 @@ label {
 }
 
 label span{
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 400;
+    font-style: italic;
 }
 
 input[type="radio"]:checked + label {
