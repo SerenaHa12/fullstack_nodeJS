@@ -192,6 +192,33 @@ main aside .updates a:hover{
 /* ------ END UPDATE ------ */
 
 
+/* ------ 2.2 MIDDLE ------ */
+.homework-today{
+  padding: 2rem;
+  background-color: var(--color-white);
+  width: fit-content;
+  margin: 8rem auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: var(--border-radius-2);
+}
+
+.hw-title{
+  margin: 2rem;
+}
+
+.hw-list{
+  display: flex;
+}
+
+.hw{
+  margin: 2rem 4rem;
+}
+/* ------ END MIDDLE ------ */
+
+
+
 
 /* ------ END MAIN ------ */
 
