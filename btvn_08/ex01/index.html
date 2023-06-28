@@ -12,36 +12,120 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="social">
-      <ul>
-        <li><a href="#" class="facebook">Facebook</a></li>
-        <li><a href="#" class="google">Google</a></li>
-        <li><a href="#" class="twitter">Twitter</a></li>
-      </ul>
+    <div class="main">
+      <!-- header -->
+      <div class="header">
+        <img src="./assets/img/logo-sandbox.png" alt="" />
+        <div class="header-action">
+          <nav>
+            <ul>
+              <li><a href="#!">Demos</a></li>
+              <li><a href="#!">Pages</a></li>
+              <li><a href="#!">Projects</a></li>
+              <li><a href="#!">Blog</a></li>
+              <li><a href="#!">Blocks</a></li>
+              <li><a href="#!" class="active">Documentations</a></li>
+            </ul>
+          </nav>
+          <i class="fa-solid fa-circle-info"></i>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <!-- end header -->
+
+      <!-- body -->
+      <div class="body">
+        <div class="body-left">
+          <div class="usage">
+            <h3>USAGE</h3>
+            <div class="usage-content">
+              <div class="usage-content-left">
+                <p><a href="#!">Get Started</a></p>
+                <p><a href="#!">Forms</a></p>
+                <p><a href="#!">FAQ</a></p>
+              </div>
+
+              <div class="usage-content-left">
+                <p><a href="#!">Changelog</a></p>
+                <p><a href="#!">Credits</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="styleguide">
+            <h3>STYLEGUIDE</h3>
+            <div class="usage-content">
+              <div class="usage-content-left">
+                <p><a href="#!">Colors</a></p>
+                <p><a href="#!">Fonts</a></p>
+                <p><a href="#!">SVG Icons</a></p>
+                <p><a href="#!">Font Icons</a></p>
+              </div>
+
+              <div class="usage-content-left">
+                <p><a href="#!">Illustrations</a></p>
+                <p><a href="#!">Backgrounds</a></p>
+                <p><a href="#!">Misc</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="body-right">
+          <div class="element">
+            <h3>ELEMENTS</h3>
+            <div class="usage-content">
+              <div class="usage-content-left">
+                <p><a href="#!">Accordion</a></p>
+                <p><a href="#!">Alerts</a></p>
+                <p><a href="#!">Animations</a></p>
+                <p><a href="#!">Avatars</a></p>
+                <p><a href="#!">Backgrounds</a></p>
+                <p><a href="#!">Badges</a></p>
+                <p><a href="#!">Buttons</a></p>
+                <p><a href="#!">Card</a></p>
+                <p><a href="#!">Carousel</a></p>
+              </div>
+
+              <div class="usage-content-left">
+                <p><a href="#!">Divides</a></p>
+                <p><a href="#!">Form Elements</a></p>
+                <p><a href="#!">Image Hover</a></p>
+                <p><a href="#!">Image Mask</a></p>
+                <p><a href="#!">Lightbox</a></p>
+                <p><a href="#!">Media Player</a></p>
+                <p><a href="#!">Modal</a></p>
+                <p><a href="#!">Pagination</a></p>
+                <p><a href="#!">Progressbar</a></p>
+                <p><a href="#!">Media Player</a></p>
+              </div>
+
+              <div class="usage-content-left">
+                <p><a href="#!">Shadows</a></p>
+                <p><a href="#!">Shapes</a></p>
+                <p><a href="#!">Tables</a></p>
+                <p><a href="#!">Tabs</a></p>
+                <p><a href="#!">Text Animation</a></p>
+                <p><a href="#!">Text Highlight</a></p>
+                <p><a href="#!">Tiles</a></p>
+                <p><a href="#!">Tooltips & Popovers</a></p>
+                <p><a href="#!">Typography</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end body -->
+
     </div>
-
-    <form action="" class="form">
-        <div class="default">
-            <input type="checkbox" id="item1">
-            <label for="item1">Default</label>
-        </div>
-
-        <div class="checked">
-            <input type="checkbox" id="item2">
-            <label for="item2" checked>Checked</label>
-        </div>
-
-        <div class="disable">
-            <input type="checkbox" id="item3">
-            <label for="item3" checked>Disable</label>
-        </div>
-
-        <div class="all">
-            <input type="checkbox" id="item4">
-            <label for="item4" checked>Disable & Checked</label>
-        </div>
-    </form>
   </body>
 </html>

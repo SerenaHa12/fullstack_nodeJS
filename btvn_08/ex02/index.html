@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Shopping Cart Mini</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       rel="stylesheet"
@@ -12,43 +12,82 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="songs">
-        <div class="songs-item">
-            <h2>Song 1</h2>
-            <p>Time: 04:19</p>
+    <div class="main">
+      <div class="main-layer"></div>
+      <div class="main-slide">
+        <div class="header">
+            <h1>Shopping Cart</h1>
+            <i class="fa-solid fa-circle-xmark"></i>
         </div>
 
-        <div class="songs-item">
-            <h2>Song 2</h2>
-            <p>Time: 04:19</p>
-        </div>
+        <div class="body">
+            <div class="list">
+                <div class="item">
+                    <img src="./assets/img/1.png" alt="iphone">
+                    <div class="item-detail">
+                        <h3>Affinity Queen Poster Bed</h3>
+                        <div class="item-number">
+                            <div class="item-number__action">
+                                <span>-</span>
+                                <span>1</span>
+                                <span>+</span>
+                            </div>
+                            <div class="item-number__price">
+                                <span>1x $570</span>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
 
-        <div class="children">
-            <div class="songs-item">
-                <h3>Song 2.1</h3>
-                <p>Time: 04:19</p>
+                <div class="item">
+                    <img src="./assets/img/3.png" alt="iphone">
+                    <div class="item-detail">
+                        <h3>Affinity Queen Poster Bed</h3>
+                        <div class="item-number">
+                            <div class="item-number__action">
+                                <span>-</span>
+                                <span>1</span>
+                                <span>+</span>
+                            </div>
+                            <div class="item-number__price">
+                                <span>1x $570</span>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
             </div>
-            <div class="songs-item">
-                <h3>Song 2.2</h3>
-                <p>Time: 04:19</p>
-            </div>
-            <div class="songs-item">
-                <h3>Song 2.3</h3>
-                <p>Time: 04:19</p>
-            </div>
-        </div>
 
-        <div class="songs-item">
-            <h2>Song 3</h2>
-            <p>Time: 04:19</p>
-        </div>
+            <div class="total">
+                <div class="sub-total">
+                    <h2>Subtotal</h2>
+                    <p>$920.00</p>
+                </div>
+                <p class="total-description">Taxes and shipping calculated at checkout</p>
+                <button class="btn view-card-btn">
+                    View Card
+                </button>
+                <button class="btn add-card-btn">
+                    Add To Card
+                </button>
+                <div class="ship">
+                    <i class="fa-solid fa-car"></i>
+                    <p>Spend $ 499.00 to Free Shipping</p>
+                </div>
+            </div>
 
-        <div class="songs-item">
-            <h2>Song 4</h2>
-            <p>Time: 04:19</p>
         </div>
+        <!-- end body -->
+      </div>
     </div>
   </body>
 </html>

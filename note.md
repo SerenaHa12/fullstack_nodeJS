@@ -24,5 +24,11 @@
     -base-line
 
 - align-content: căn chỉnh hàng với cột vuông góc với trục chính
+- gap: tạo khoảng cách giữa hàng và cột
+    - row-gap
+    - column-gap
+
+- flex-shrink: mặc định luôn là 1
+-flex-basis: tự động dổi kích thước khi chuyển hướng
 
 ## Flex Item

@@ -3,146 +3,121 @@
     padding: 0;
     box-sizing: border-box;
     outline: none;
+    font-family: 'Manrope', sans-serif;
 }
 
-ul li{
-    margin: 15px 0;
+.main{
+    background: #f7f7f9;
+    height: fit-content;
 }
 
-ul li a{
+.header{
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.header img{
+    height: 2.8rem;
+}
+
+.header-action{
+    display: flex;
+}
+
+.header-action nav ul{
+    display: flex;
+}
+
+.header-action nav ul li{
+    margin: 15px 12px;
+    list-style: none;
+}
+
+.header-action nav ul li a{
     color: #333;
     text-decoration: none;
-}
-
-ul li a::before{
-    font-family: 'Font Awesome 6 Brands';
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    font-size: 15px;
-    border-radius: 50%;
-    background: red;
-    color: #fff;
-    margin-right: 5px;
-    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
     line-height: 25px;
 }
 
-ul li a.facebook::before{
-    content: '\f39e';
+.header-action nav ul li a.active{
+    color: #909090;
 }
 
-ul li a.google::before{
-    content: '\f099';
-}
-
-ul li a.twitter::before{
-    content: '\f1a0';
-}
-
-.form input[type='checkbox']{
-    /* display: none; */
-    appearance: none;
-}
-
-.form {
-    margin: 50px;
-}
-
-.form div{
-    margin: 20px 0;
-}
-
-.form .default input[type='checkbox']::before{
+.header-action nav ul li a::after{
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     display: inline-block;
-    content: '\f00c';
-    width: 15px;
-    height: 15px;
-    border: 2px solid green;
-    color: green;
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+    border-radius: 50%;
+    color: #333;
+    margin-right: 5px;
     text-align: center;
+    line-height: 30px;
+    content: '\f078';
 }
 
-.form .default input[type='checkbox']:checked::before{
-    font-weight: 900;
-    display: inline-block;
-    content: '';
-    width: 15px;
-    height: 15px;
-    border: 2px solid green;
-    color: green;
-    text-align: center;
+.header-action i{
+    align-items: center;
+    justify-content: center;
+    margin: auto 0.5rem;
+    font-size: 20px;
+    color: #333;
 }
 
-.form .checked input[type='checkbox']:checked::before{
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    display: inline-block;
-    content: '\f00c';
-    width: 15px;
-    height: 15px;
-    border: 2px solid green;
-    color: green;
-    text-align: center;
+.body{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1.7rem;
+    background: #fefefe;
+    height: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 }
 
-.form .checked input[type='checkbox']::before{
-    font-weight: 900;
-    display: inline-block;
-    content: '';
-    width: 15px;
-    height: 15px;
-    border: 2px solid green;
-    color: green;
-    text-align: center;
+.body h3{
+    font-size: 1.1rem;
+    font-weight: 800;
+    padding-left: 2rem;
 }
 
-.form .disable input[type='checkbox']::before{
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    display: inline-block;
-    content: '';
-    width: 15px;
-    height: 15px;
-    border: 2px solid #ccc;
-    text-align: center;
+.body .body-left{
+    width: 30%;
+    border-right: 2px solid #3333331d;
 }
 
-.form .disable input[type='checkbox']:checked::before{
-    font-family: 'Font Awesome 6 Free';
-
-    font-weight: 900;
-    display: inline-block;
-    content: '\f00c';
-    width: 15px;
-    height: 15px;
-    border: 2px solid #ccc;
-    color: #ccc;
-    text-align: center;
+.body .body-left .styleguide{
+    margin-top: 2rem;
+}
+.body .usage-content-left{
+    width: 50%;
 }
 
-.form .all input[type='checkbox']::before{
-    font-family: 'Font Awesome 6 Free';
-
-    font-weight: 900;
-    display: inline-block;
-    content: '\f00c';
-    width: 15px;
-    height: 15px;
-    border: 2px solid #ccc;
-    color: #ccc;
-    text-align: center;
+.body p{
+    margin: 0.7rem 0;
 }
 
-.form .all input[type='checkbox']:checked:before{
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    display: inline-block;
-    content: '';
-    width: 15px;
-    height: 15px;
-    border: 2px solid #ccc;
-    text-align: center;
+.body p a{
+    text-decoration: none;
+    padding-left: 2rem;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.usage-content{
+    display: flex;
+}
+
+.body .body-right{
+    width: 70%;
 }
