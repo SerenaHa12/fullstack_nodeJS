@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <!-- font  -->
@@ -12,18 +12,122 @@
       href="https://fonts.googleapis.com/css2?family=Asap:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
 
     <!-- icon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <!-- nav -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <!-- 1.nav -->
     <nav>
-        <div class="container">
-            
+      <div class="container">
+        <img src="./assets/img/logo.svg" alt="logo" class="logo" />
+
+        <div class="search-bar">
+          <span class="material-symbols-sharp"> search </span>
+          <input type="search" placeholder="Search something" />
         </div>
+
+        <div class="profile-area">
+          <div class="theme-btn">
+            <span class="material-symbols-sharp active"> light_mode </span>
+            <span class="material-symbols-sharp"> dark_mode </span>
+          </div>
+
+          <div class="profile">
+            <div class="profile-photo">
+              <img src="./assets/img/avatar.svg" alt="" />
+            </div>
+            <h5>Do Ha Chi</h5>
+            <span class="material-symbols-sharp"> expand_more </span>
+          </div>
+
+          <button id="menu-btn">
+            <span class="material-symbols-sharp"> menu </span>
+          </button>
+        </div>
+      </div>
     </nav>
+    <!-- end nav -->
+
+    <!-- 2. main -->
+    <main>
+      <!-- 2.1 aside -->
+      <aside>
+        <button id="close-btn">
+          <span class="material-symbols-sharp"> close </span>
+        </button>
+        <!-- 2.1.1 sidebar -->
+        <div class="sidebar">
+          <a href="#" class="active">
+            <span class="material-symbols-sharp"> dashboard </span>
+            <h4>Dashboard</h4>
+          </a>
+
+          <a href="#">
+            <span class="material-symbols-sharp"> folder_open </span>
+            <h4>All Homework</h4>
+          </a>
+
+          <a href="#">
+            <span class="material-symbols-sharp"> description </span>
+            <h4>Note</h4>
+          </a>
+
+          <a href="#">
+            <span class="material-symbols-sharp"> settings </span>
+            <h4>Setting</h4>
+          </a>
+        </div>
+        <!-- end side bar -->
+
+        <!-- 2.1.2 update -->
+        <div class="updates">
+          <span class="material-symbols-sharp"> update </span>
+          <h4>Update Available</h4>
+          <p>Sercurity Updates</p>
+          <p>General Updates</p>
+          <a href="#">Update Now</a>
+        </div>
+        <!-- end update -->
+      </aside>
+      <!-- end aside -->
+
+      <!-- 2.2 middle -->
+      <section class="middle">
+        <div class="header">
+          <h1>Overview</h1>
+          <p>Date: 29/06/2023</p>
+        </div>
+
+        <div class="homework-today">
+          <div class="hw-title">
+            <h3>Homework - Day 8</h3>
+            <p>Check my repo on Github</p>
+          </div>
+          <div class="hw-list">
+            <div class="hw_01 hw">
+                <a href="#"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end middle -->
+
+      <!-- 2.2 right -->
+      <section class="right"></section>
+      <!-- end right -->
+    </main>
+    <!-- end main -->
+
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>
