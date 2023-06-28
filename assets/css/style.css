@@ -193,19 +193,46 @@ main aside .updates a:hover{
 
 
 /* ------ 2.2 MIDDLE ------ */
+main section.middle .header{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+main section.middle .header p{
+  padding: 0.5rem 2rem;
+  border-radius: var(--border-radius-2);
+  background-color: var(--color-white);
+  color: var(--color-dark-gray);
+}
+
 .homework-today{
   padding: 2rem;
-  background-color: var(--color-white);
+  background: linear-gradient(#7f8191, #27282f);
+  box-shadow: 0 2rem 3rem rgba(0,0,0,0.2);
   width: fit-content;
   margin: 8rem auto;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-radius: var(--border-radius-2);
+  border-radius: var(--card-border-radius);
+  color: var(--color-white);
 }
 
 .hw-title{
   margin: 2rem;
+  color: var(--color-white);
+}
+
+.hw-title h3{
+  font-size: 3rem;
+  margin: 1rem 0;
+  color: var(--color-white);
+}
+
+.hw-title p, 
+.hw-title a{
+  color: var(--color-gray-light);
 }
 
 .hw-list{
@@ -214,8 +241,57 @@ main aside .updates a:hover{
 
 .hw{
   margin: 2rem 4rem;
+  color: var(--color-white);
+}
+
+.hw a span{
+  color: var(--color-white);
+  font-size: 28px;
+}
+
+.hw a h4{
+  color: var(--color-white);
 }
 /* ------ END MIDDLE ------ */
+
+/* ------ 2.2 RIGHT ------ */
+main section.right .last-exercises{
+  background-color: var(--color-white);
+  border-radius: var(--card-border-radius);
+}
+
+main section.right .last-exercises .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--card-padding);
+  padding-bottom: 0;
+}
+
+main section.right .last-exercises .header a{
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+main section.right .last-exercises .last-exercise{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--card-padding);
+  border-bottom: 1px solid var(--color-light);
+  transition: all 300ms ease;
+}
+
+main section.right .last-exercises .last-exercise:last-child{
+  border-bottom: none;
+}
+
+main section.right .last-exercises .last-exercise:hover{
+  background: var(--color-light);
+  cursor: pointer;
+}
+/* ------ END RIGHT ------ */
 
 
 
