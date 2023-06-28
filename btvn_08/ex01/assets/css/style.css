@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+ul li{
+    margin: 15px 0;
+}
+
+ul li a{
+    color: #333;
+    text-decoration: none;
+}
+
+ul li a::before{
+    font-family: 'Font Awesome 6 Brands';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 50%;
+    background: red;
+    color: #fff;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 25px;
+}
+
+ul li a.facebook::before{
+    content: '\f39e';
+}
+
+ul li a.google::before{
+    content: '\f099';
+}
+
+ul li a.twitter::before{
+    content: '\f1a0';
+}
+
+.form input[type='checkbox']{
+    /* display: none; */
+    appearance: none;
+}
+
+.form {
+    margin: 50px;
+}
+
+.form div{
+    margin: 20px 0;
+}
+
+.form .default input[type='checkbox']::before{
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    display: inline-block;
+    content: '\f00c';
+    width: 15px;
+    height: 15px;
+    border: 2px solid green;
+    color: green;
+    text-align: center;
+}
+
+.form .default input[type='checkbox']:checked::before{
+    font-weight: 900;
+    display: inline-block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    border: 2px solid green;
+    color: green;
+    text-align: center;
+}
+
+.form .checked input[type='checkbox']:checked::before{
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    display: inline-block;
+    content: '\f00c';
+    width: 15px;
+    height: 15px;
+    border: 2px solid green;
+    color: green;
+    text-align: center;
+}
+
+.form .checked input[type='checkbox']::before{
+    font-weight: 900;
+    display: inline-block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    border: 2px solid green;
+    color: green;
+    text-align: center;
+}
+
+.form .disable input[type='checkbox']::before{
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    display: inline-block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ccc;
+    text-align: center;
+}
+
+.form .disable input[type='checkbox']:checked::before{
+    font-family: 'Font Awesome 6 Free';
+
+    font-weight: 900;
+    display: inline-block;
+    content: '\f00c';
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ccc;
+    color: #ccc;
+    text-align: center;
+}
+
+.form .all input[type='checkbox']::before{
+    font-family: 'Font Awesome 6 Free';
+
+    font-weight: 900;
+    display: inline-block;
+    content: '\f00c';
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ccc;
+    color: #ccc;
+    text-align: center;
+}
+
+.form .all input[type='checkbox']:checked:before{
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    display: inline-block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ccc;
+    text-align: center;
+}

@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 500px;
+    border: 1px solid red;
+    margin: 30px auto;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: space-around;
+}
+
+
+.item{
+    height: 300px;
+    width: calc(498px / 4);
+    background: green;
+    color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+}
+
+/* .item:nth-child(2){
+    padding: 10px;
+}
+
+.item:nth-child(3){
+    padding: 20px 10px;
+} */
