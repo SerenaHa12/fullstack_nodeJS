@@ -31,4 +31,23 @@
 - flex-shrink: mặc định luôn là 1
 -flex-basis: tự động dổi kích thước khi chuyển hướng
 
+-align-self:
+-order css: thuộc tính sắp xếp
+
 ## Flex Item
+
+
+_____________________________________________________________________________
+
+# Biến trong CSS:
+- Biến toàn cục: sử dụng khắp mọi nơi (tính từ chỗ khai báo)
+- Biến cục bộ: chỉ sử dụng bên trong selector đã khai báo 
+
+_____________________________________________________________________________
+
+# Transition:
+
+- transition-property: all | tên thuộc tính (Mỗi thuộc tính cách nhau bởi dấu phẩy)
+- transition duaration: 
+
+phân biệt duaration và delay
