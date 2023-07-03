@@ -21,61 +21,42 @@
     />
   </head>
   <body>
-    <main>
-      <h1>CƠ SỞ CỦA CHÚNG TÔI</h1>
-      <div class="row-4">
-        <div class="item">
-          <div class="item-img">
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <h3>ĐƯỢC ĐẢM BẢO CAO</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-            harum, aspernatur distinctio debitis quos quaerat labore? Harum
-            assumenda maiores minima sint, laudantium ea commodi asperiores
-            blanditiis, atque aspernatur voluptatum porro!
-          </p>
+    <div class="container">
+      <h1>Drop Us a Line</h1>
+      <p>Reach out to us from our contact form and we will send back to you shortly</p>
+  
+      <form action="">
+        <div class="inputBox">
+          <input type="text" required="required">
+          <span>First Name *</span>
         </div>
 
-        <div class="item">
-          <div class="item-img">
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <h3>ĐƯỢC ĐẢM BẢO CAO</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-            harum, aspernatur distinctio debitis quos quaerat labore? Harum
-            assumenda maiores minima sint, laudantium ea commodi asperiores
-            blanditiis, atque aspernatur voluptatum porro!
-          </p>
+        <div class="inputBox">
+          <input type="text" required="required">
+          <span>Last Name *</span>
         </div>
 
-        <div class="item">
-          <div class="item-img">
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <h3>ĐƯỢC ĐẢM BẢO CAO</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-            harum, aspernatur distinctio debitis quos quaerat labore? Harum
-            assumenda maiores minima sint, laudantium ea commodi asperiores
-            blanditiis, atque aspernatur voluptatum porro!
-          </p>
+        <div class="inputBox">
+          <input type="email" required="required">
+          <span>Email *</span>
         </div>
 
-        <div class="item">
-          <div class="item-img">
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <h3>ĐƯỢC ĐẢM BẢO CAO</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-            harum, aspernatur distinctio debitis quos quaerat labore? Harum
-            assumenda maiores minima sint, laudantium ea commodi asperiores
-            blanditiis, atque aspernatur voluptatum porro!
-          </p>
+        <div class="inputBox">
+          <select name="sales" id="sales">
+            <option value="" hidden>Sales</option>
+            <option value="sale_01">Select a department</option>
+            <option value="sale_01">Sales</option>
+            <option value="sale_01">Marketing</option>
+            <option value="sale_01">Customer Support</option>
+          </select>
         </div>
-      </div>
-    </main>
+
+        <div class="inputBox">
+          <textarea name="mess" id="mess" placeholder="Message *"></textarea>
+          <span class="mess">Message *</span>
+        </div>
+      </form>
+      <button>Send Message</button>
+    </div>
   </body>
 </html>
