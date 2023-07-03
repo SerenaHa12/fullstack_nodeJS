@@ -9,7 +9,7 @@
 .container {
   width: 54%;
   margin: 60px auto;
-  background-color: #f5efef;
+  background-color: #fffbfb;
   padding: 20px 50px;
   align-items: center;
   justify-content: center;
@@ -44,6 +44,7 @@ form {
   outline: none;
   font-size: 1em;
   transition: background-color 0.3s;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.055);
 }
 
 .inputBox span {
@@ -87,6 +88,7 @@ form {
   border-radius: 5px;
   font-size: 1em;
   outline: none;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.055);
 }
 
 .inputBox select option:hover{
@@ -104,6 +106,7 @@ form {
   border-radius: 5px;
   position: relative;
   padding: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.055);
 }
 
 .inputBox:last-child textarea::placeholder {
