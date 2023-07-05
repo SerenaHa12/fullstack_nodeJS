@@ -107,3 +107,35 @@ _____________________________________________________________________________
 # animation
 
 - keyframe: định nghĩa ra một hiệu ứng
+
+https://uiverse.io/
+https://lottiefiles.com/featured
+https://animate.style/
+http://demo.tech2.vn/
+
+_____________________________________________________________________________
+
+# break point
+
+- điểm dừng mà tại đó giao diện sẽ thay đổi
+- không có breakpoint nào cho tất cả các dự án
+- không khai báo tất cả các breakpoint khi làm dự án (tùy)
+- một số breakpoint phổ biến
+    - 576*
+    - 768*
+    - 992*
+    - 1200*
+    - 1400*
+
+_____________________________________________________________________________
+
+# viewport
+- để xây dựng web responsive => cần có thẻ meta viewport
+
+
+_____________________________________________________________________________
+
+# media query
+
+    ## destop first
+    ## mobile first: nên sử dụng mobile first vì khi sử dụng mobile first thì sẽ tối ưu màn hình hơn.
