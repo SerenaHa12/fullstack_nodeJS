@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+main{
+    width: 600px;
+    height: 300px;
+    border: 1px solid red;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    margin: 40px auto;
+    transition: all 0.4s linear;
+}
+
+main:hover .box{
+    /* transform: rotate(360deg); */
+    /* transform: rotateX(45deg); */
+    /* transform: rotateY(45deg); */
+    /* transform: rotateZ(90deg); */
+    /* transform: scale(1.3, 1.3) rotate(10deg); */
+    /* transform: skew(5deg); */
+    transform: translate(-50px, -50px);
+}
+

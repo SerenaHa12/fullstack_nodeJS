@@ -51,3 +51,43 @@ _____________________________________________________________________________
 - transition duaration: 
 
 phân biệt duaration và delay
+
+
+_____________________________________________________________________________
+
+# Transform
+- thay đổi hình dạng của element
+
+- rotate: xoay
++ transform: rotate(360deg)
++ transform: rotateX(360deg)
++ transform: rotateY(360deg)
++ transform: rotateZ(360deg)
+
+- scale
++ transform: scale(x, y)
++ transform: scaleX(x)
++ transform: scaleY(y)
+
+lưu ý: khi scale thì các phần tử bên trong cũng sẽ ăn theo transform của thẻ cha
+
+- skew: nghiêng
++ skew(x, y)
++ skewX(x)
++ skewY(y)
+
+- translate: di chuyển
++ translate(x, y)
++ translateX(x)
++ translateY(y)
+
+thuộc tính translate có giống với position: relative không?
+- về mục đích sử dụng
+"translate" được sử dụng để di chuyển phần tử theo các giá trị x và y, 
+trong khi "position: relative" được sử dụng để xác định vị trí của phần 
+tử trong luồng tài liệu và di chuyển nó dựa trên các thuộc tính top, 
+right, bottom và left.
+
+- về tính năng
+khi di chuyển chỉ giống nhau khi sử dụng chung 1 đơn vị, 
+khi để khác đơn vị thì sẽ có sự khác biệt
