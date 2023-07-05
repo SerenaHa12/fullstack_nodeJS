@@ -56,30 +56,37 @@ phân biệt duaration và delay
 _____________________________________________________________________________
 
 # Transform
-- thay đổi hình dạng của element
+- Định nghĩa: Thuộc tính transform trong CSS cho phép bạn biến đổi, xoay, co giãn hoặc biến đổi hình dạng các phần tử HTML.
+- Cú pháp: transform: <transform-function>
+- Các giá trị của <transform-function>:
+    - translate(): Dịch chuyển phần tử theo trục X và trục Y.
+    - scale(): Thay đổi tỷ lệ kích thước của phần tử.
+    - rotate(): Xoay phần tử theo góc quay.
+    - skew(): Nghiêng phần tử theo trục X và trục Y.
+    - matrix(): Kết hợp các phép biến đổi tùy chỉnh.
 
 - rotate: xoay
-+ transform: rotate(360deg)
-+ transform: rotateX(360deg)
-+ transform: rotateY(360deg)
-+ transform: rotateZ(360deg)
+    + transform: rotate(360deg)
+    + transform: rotateX(360deg)
+    + transform: rotateY(360deg)
+    + transform: rotateZ(360deg)
 
 - scale
-+ transform: scale(x, y)
-+ transform: scaleX(x)
-+ transform: scaleY(y)
+    + transform: scale(x, y)
+    + transform: scaleX(x)
+    + transform: scaleY(y)
 
 lưu ý: khi scale thì các phần tử bên trong cũng sẽ ăn theo transform của thẻ cha
 
 - skew: nghiêng
-+ skew(x, y)
-+ skewX(x)
-+ skewY(y)
+    + skew(x, y)
+    + skewX(x)
+    + skewY(y)
 
 - translate: di chuyển
-+ translate(x, y)
-+ translateX(x)
-+ translateY(y)
+    + translate(x, y)
+    + translateX(x)
+    + translateY(y)
 
 thuộc tính translate có giống với position: relative không?
 - về mục đích sử dụng
@@ -91,3 +98,12 @@ right, bottom và left.
 - về tính năng
 khi di chuyển chỉ giống nhau khi sử dụng chung 1 đơn vị, 
 khi để khác đơn vị thì sẽ có sự khác biệt
+
+
+- sự kết hợp giữa position và translate
+
+_____________________________________________________________________________
+
+# animation
+
+- keyframe: định nghĩa ra một hiệu ứng
