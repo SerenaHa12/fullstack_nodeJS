@@ -3,118 +3,90 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-color: #d3d1d1;
-}
-.section-container {
-  width: 720px;
-  margin: 150px auto;
-  min-height: 300px;
+  background: #f5ecec;
 }
 
-.content-wrap {
-  position: relative;
-  font-size: 0;
-  text-align: left;
-  color: #5d5c5c;
+.main {
+  margin: 200px auto;
+  width: 754px;
 }
 
-.content-wrap > input {
-  position: absolute;
+ul li {
+  list-style: none;
+}
+
+.main input {
   display: none;
 }
 
-.content-wrap > label {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  padding: 0 2px 2px 0;
-  font-size: 13px;
-  line-height: 45px;
-  cursor: pointer;
-}
-
-.content-wrap > label span {
-  display: block;
-  padding: 5px;
+.tab-list {
+  display: flex;
   background: #fff;
 }
 
-.content-wrap > label span span {
-  padding: 0 14px;
+.tab-list > li {
+  border: 2px solid #ccc;
+  padding: 3px;
+}
+
+.tab-list > li > label {
+  display: block;
+  padding: 15px 25px;
+  font-size: 14px;
+  color: var(--secondary-color);
+  font-weight: 500;
   transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: #fff;
 }
 
-.content-wrap > label:hover span span {
-  background: #288acb;
+.tab-list > li > label:hover,
+#simples:checked ~ .tab-list > li:nth-of-type(1) > label,
+#algoritmo:checked ~ .tab-list > li:nth-of-type(2) > label,
+#barra:checked ~ .tab-list > li:nth-of-type(3) > label,
+#captcha:checked ~ .tab-list > li:nth-of-type(4) > label {
+  background: #04a8f5;
   color: #fff;
 }
 
-.content-wrap > input:checked + label span span {
-  background: #288acb;
-  color: #fff;
+.nav {
+  display: none;
+  padding: 25px;
+  background: var(--color);
+  transition: all 0.3s ease;
+  transform-origin: top;
+  overflow-x: auto;
+  animation: lean 0.5s linear;
 }
 
-.content-wrap > ul {
-  list-style: none;
-  position: relative;
+.nav-title,
+.nav-desc {
+  color: var(--secondary-color);
+}
+
+.nav-desc {
+  line-height: 1.7;
+  width: 754px;
+}
+
+#simples:checked ~ .content-inner > .nav:nth-of-type(1),
+#algoritmo:checked ~ .content-inner > .nav:nth-of-type(2),
+#barra:checked ~ .content-inner > .nav:nth-of-type(3),
+#captcha:checked ~ .content-inner > .nav:nth-of-type(4) {
   display: block;
-  font-size: 13px;
 }
 
-.content-wrap > ul > li {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 683px;
-  overflow: auto;
-  padding: 20px;
-  background: #fff;
-  box-sizing: border-box;
-  opacity: 0;
-  transform-origin: 0% 0%;
-  transition: all 0.8s;
-}
-
-.content-wrap ul h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.content-wrap ul p {
-  margin-top: 8px;
-}
-
-.content-wrap > .simples:checked ~ ul > .simples,
-.content-wrap > .algoritmo:checked ~ ul > .algoritmo,
-.content-wrap > .barra:checked ~ ul > .barra,
-.content-wrap > .captcha:checked ~ ul > .captcha {
-  position: relative;
-  z-index: 1;
-  opacity: 1;
-}
-
-.content {
-  width: 660px;
-  position: relative;
-  line-height: 20px;
-}
-
-.animation > ul {
-  perspective: 2000px;
-  perspective-origin: 50% 50%;
-}
-
-.animation > ul > li {
-  transform: rotateX(-90deg);
-}
-
-.animation > .simples:checked ~ ul > .simples,
-.animation > .algoritmo:checked ~ ul > .algoritmo,
-.animation > .barra:checked ~ ul > .barra,
-.animation > .captcha:checked ~ ul > .captcha {
-  transform: rotateX(0deg);
-  transition-delay: 0.2s;
+@keyframes lean {
+  from {
+      opacity: 0.5;
+      transform: rotateX(90deg);
+  }
+  to {
+      opacity: 1;
+      transform: rotateX(0);
+  }
 }

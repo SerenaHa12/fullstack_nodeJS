@@ -10,109 +10,62 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       referrerpolicy="no-referrer"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <section class="section-container">
-      <div class="content-wrap animation">
-        <input
-          type="radio"
-          name="navigation"
-          checked
-          id="simples"
-          class="simples"
-        />
-        <label for="simples"
-          ><span><span>Simples slideshow</span></span></label
-        >
-        <input
-          type="radio"
-          name="navigation"
-          id="algoritmo"
-          class="algoritmo"
-        />
-        <label for="algoritmo"
-          ><span><span>Algoritmo de Levenshtein</span></span></label
-        >
-        <input type="radio" name="navigation" id="barra" class="barra" />
-        <label for="barra"
-          ><span><span>Barra de progresso</span></span></label
-        >
-        <input type="radio" name="navigation" id="captcha" class="captcha" />
-        <label for="captcha"
-          ><span><span>Captcha com PHP</span></span></label
-        >
-        <ul>
-          <li class="simples">
-            <div class="content">
-              <h1>Simples slideshow</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                explicabo, cupiditate quis sit accusamus commodi.
-              </p>
-            </div>
+    <div class="main">
+      <input type="radio" name="nav" id="simples" checked />
+      <input type="radio" name="nav" id="algoritmo" />
+      <input type="radio" name="nav" id="barra" />
+      <input type="radio" name="nav" id="captcha" />
+
+      <ul class="tab-list">
+          <li>
+              <label for="simples">Simples slideshow</label>
           </li>
-          <li class="algoritmo">
-            <div class="content">
-              <h1>Algoritmo de Levenshtein</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-            </div>
+          <li>
+              <label for="algoritmo">Algoritmo de Levenshtein</label>
           </li>
-          <li class="barra">
-            <div class="content">
-              <h1>Barra de progresso</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-            </div>
+          <li>
+              <label for="barra">Barra de progresso</label>
           </li>
-          <li class="captcha">
-            <div class="content">
-              <h1>Captcha com PHP</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                rerum magnam modi odio in odit veritatis autem, dolores soluta
-                aliquid.
-              </p>
-            </div>
+          <li>
+              <label for="captcha">Captcha com PHP</label>
           </li>
-        </ul>
+      </ul>
+
+      <div class="content-inner">
+          <div class="nav">
+              <h2 class="nav-title">Simples slideshow</h2>
+              <p class="nav-desc">Mais uma postagem simple e bem asual. Um de slideshow facil, rapido e leve estructura, apenas com jQuery e CSS.</p>
+              <p class="nav-desc">Podera ser usado em banners laterais, animacoes de postagens e etc.</p>
+              <p class="nav-desc">Iniciando, vamos montar o CSS que definara a estructura do silde...</p>
+          </div>
+          <div class="nav">
+              <h2 class="nav-title">Algoritmo de Levenshtein</h2>
+              <p class="nav-desc">Mais uma postagem simple e bem asual. Um de slideshow facil, rapido e leve estructura, apenas com jQuery e CSS.</p>
+              <p class="nav-desc">Podera ser usado em banners laterais, animacoes de postagens e etc.</p>
+              <p class="nav-desc">Iniciando, vamos montar o CSS que definara a estructura do silde...</p>
+          </div>
+          <div class="nav">
+              <h2 class="nav-title">Barra de progresso</h2>
+              <p class="nav-desc">Mais uma postagem simple e bem asual. Um de slideshow facil, rapido e leve estructura, apenas com jQuery e CSS.</p>
+              <p class="nav-desc">Podera ser usado em banners laterais, animacoes de postagens e etc.</p>
+              <p class="nav-desc">Iniciando, vamos montar o CSS que definara a estructura do silde...</p>
+          </div>
+          <div class="nav">
+              <h2 class="nav-title">Captcha com PHP</h2>
+              <p class="nav-desc">Mais uma postagem simple e bem asual. Um de slideshow facil, rapido e leve estructura, apenas com jQuery e CSS.</p>
+              <p class="nav-desc">Podera ser usado em banners laterais, animacoes de postagens e etc.</p>
+              <p class="nav-desc">Iniciando, vamos montar o CSS que definara a estructura do silde...</p>
+          </div>
       </div>
-    </section>
+  </div>
   </body>
 </html>
