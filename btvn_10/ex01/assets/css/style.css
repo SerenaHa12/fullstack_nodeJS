@@ -8,18 +8,34 @@
   font-family: 'Roboto', sans-serif;
 }
 
-html{
+body{
   background-color: #04a8f5;
   overflow: hidden;
 }
 
-.main{
+main {
   display: flex;
   justify-content: space-between;
+  position: relative;
   height: 100vh;
+  background: #04a8f5;
 }
 
-.menu .btn-bg{
+.main-nav{
+  padding-right: 50%;
+}
+
+.btn, 
+.btn-hover {
+  font-size: 40px;
+  color: #04a8f5;
+}
+
+.btn-hover {
+  animation:flip 0.3s 1 ;
+}
+
+.bg{
   width: 100px;
   height: 100px;
   background-color: #fff;
@@ -27,65 +43,95 @@ html{
   position: relative;
   transform: scale(1);
   transform-origin: 50% 50%;
-  transition: transform 0.25s ease-out;
+  transition: transform 1s ease-out;
+
 }
 
-.menu .btn-bg:hover{
+input {
+  display: none;
+}
+
+.bg label {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.nav {
+  visibility: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 200px;
+  background-color: transparent;
+}
+
+ul{
+  padding: 10px 0;
+}
+
+ul li {
+  padding: 10px 30px;
+}
+
+li  {
+  color: #04a8f5;
+  font-weight: 500;
+}
+
+li label {
+  display: block;
+  width: 100%;
+}
+
+.item-home, .item-about, .item-portfolio, .item-contact{
+  padding-left: 60px;
+}
+
+input[id="menu"]:checked ~ .bg label {
+  visibility: hidden;
+}
+
+input[id="menu"]:checked~.bg {
   transform: scale(70);
 }
 
-.menu .btn-bg:hover .btn-hover{
-  opacity: 1;
+input[id="menu"]:checked~.nav {
+  visibility: visible;
 }
 
-.menu .btn-bg:hover ~ .btn{
-  opacity: 0;
+input[id="menu"]:checked~.nav .btn-hover {
+  rotate: 180deg;
 }
 
-.menu .btn-bg:hover ~ .btn-hover{
-  animation:flip 0.3s 1 ;
-  opacity: 1;
+input[id="home"]:checked~.item-home,
+input[id="about"]:checked~.item-about ,
+input[id="portfolio"]:checked~.item-portfolio ,
+input[id="contact"]:checked~.item-contact {
+  color: black;
+  background-color: #f8efe8ce;
 }
 
-.btn{
-  position: absolute;
-  top: 2%;
-  left: 2%;
-  font-size: 40px;
-  color: #04a8f5;
-  cursor: pointer;
+/* main title */
+.main-title {
+  margin: auto;
+  text-align: center;
 }
 
-.btn-hover{
-  position: absolute;
-  top: 2%;
-  left: 2%;
-  font-size: 40px;
-  color: #04a8f5;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.menu ul{
-  position: absolute;
-  top: 100px;
-}
-
-.menu ul li{
-  margin: 20px;
-  list-style: none;
-}
-
-.menu ul li a{
-  text-decoration: none;
-  font-weight: 600;
-  margin-left: 20px;
-  color: #04a8f5;
-  /* color: #fff; */
-  z-index: 99;
-}
-
-.main-title{
-  margin: auto 100px;
+h1 {
   color: #fff;
+  font-weight: 700;
+  font-size: 60px;
+}
+
+p {
+  font-weight: 100;
+  color: #fff;
+  font-size: 20px;
+}
+
+p span{
+  font-weight: 100;
+  font-size: 34px;
 }

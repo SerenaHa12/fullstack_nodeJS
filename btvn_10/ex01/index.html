@@ -25,32 +25,49 @@
 
   <body>
     <!-- content -->
-    <div class="main">
-      <!-- button -->
-      <div class="menu">
-        <div class="btn-bg">
-            <ul>
-                <li><a href="#!">home</a></li>
-                <li><a href="#!">about</a></li>
-                <li><a href="#!">portfolio</a></li>
-                <li><a href="#!">contact</a></li>
-              </ul>
+    <main>
+      <div class="main-nav">
+        <!-- icon nav -->
+        <input type="checkbox" name="menu" id="menu" hidden />
+        <div class="bg">
+          <label for="menu">
+            <i class="btn fa-solid fa-bars "></i>
+          </label>
         </div>
-        <i class="btn fa-solid fa-bars"></i>
-        <i class="btn-hover fa-solid fa-arrow-left animate__flip"></i>
-        <ul>
-          <li><a href="#!">home</a></li>
-          <li><a href="#!">about</a></li>
-          <li><a href="#!">portfolio</a></li>
-          <li><a href="#!">contact</a></li>
-        </ul>
+  
+        <!-- nav -->
+        <div class="nav">
+          <ul>
+            <li class="item">
+              <label for="menu"
+                ><i class="btn-hover fa-solid fa-arrow-right animate__flip"></i
+              ></label>
+            </li>
+  
+            <input type="radio" name="list" id="home" />
+            <li class="item item-home"><label for="home">home</label></li>
+  
+            <input type="radio" name="list" id="about" />
+            <li class="item item-about"><label for="about">about</label></li>
+  
+            <input type="radio" name="list" id="portfolio" />
+            <li class="item item-portfolio">
+              <label for="portfolio">portfolio</label>
+            </li>
+  
+            <input type="radio" name="list" id="contact" />
+            <li class="item item-contact">
+              <label for="contact">contact</label>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <!-- title -->
       <div class="main-title">
-        <h1>#1 burger menu</h1>
-        <p>insprired by <span>google material design</span></p>
+        <h1>#1 bugrer menu</h1>
+        <p>
+          inspired by <span>google materinal design</span>
+        </p>
       </div>
-    </div>
+    </main>
   </body>
 </html>
