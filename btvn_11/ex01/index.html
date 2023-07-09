@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- link css -->
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- 2. Header -->
+    <header>
+      <!-- 2.1 Header Nav -->
+      <nav>
+        <!-- logo -->
+        <div class="nav-logo">
+          <img src="./assets/img/logo-dark.png" alt="logo" />
+        </div>
+
+        <div class="nav" id="navLinks">
+          <div class="nav-action">
+            <h2>Sandbox</h2>
+            <i
+              class="btn-close fa-regular fa-circle-xmark toggle"
+              onclick="hideMenu()"
+            ></i>
+          </div>
+          <ul>
+            <li><a href="#!">Demos</a></li>
+            <li><a href="#!">Pages</a></li>
+            <li><a href="#!">Projects</a></li>
+            <li><a href="#!">Blog</a></li>
+            <li><a href="#!">Blocks</a></li>
+            <li><a href="#!">Documentations</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-btn">
+          <button class="btn btn-purple">Purchase Now</button>
+          <i class="fa-solid fa-bars toggle" onclick="showMenu()"></i>
+        </div>
+      </nav>
+    </header>
+
+    <script>
+      //const navLinks = document.getElementById("navLinks");
+      //const toggle = document.querySelectorAll(".toggle");
+      //for (let i = 0; i < toggle.length; i++) {
+      //toggle[i].addEventListener("click", () => {
+      //  navLinks.classList.toggle("active");
+      //});
+      //}
+      var navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.left = "0";
+      }
+      function hideMenu() {
+        navLinks.style.left = "-1500px";
+      }
+    </script>
+  </body>
+</html>

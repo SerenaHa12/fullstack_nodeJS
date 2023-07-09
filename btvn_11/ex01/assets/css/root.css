@@ -1,0 +1,95 @@
+:root{
+    --primary-color: #343f52;
+    --purple-color: #605dba;
+    --pink-color: #e668b3;
+    --gray-color: #b1b0bc;
+    --white-color: #fff;
+    --yellow-color: #f9c23c;
+
+    --bg-color: #f0f0f8;
+
+    --border-radius-1: 0.8rem;
+    --border-radius-2: 1.6rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+html{
+    background: var(--bg-color);
+}
+
+h1{
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 74px;
+    color: #343f52;
+    font-style: normal;
+}
+
+h2{
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 53px;
+    color: #343f52;
+    font-style: normal;
+}
+
+h3{
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 23px;
+    color: #aaa0bc;
+    font-style: normal;
+}
+
+h4{
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #343f52;
+    font-style: normal;
+}
+
+p{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    color: #60697b;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.btn{
+    padding: 12px 26px;
+    margin: 0 2px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 29px;
+    transition: transform 0.2s ease-in-out;
+    border: none;
+    border-radius: var(--border-radius-1);
+}
+
+.btn:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+}
+
+.btn-purple{
+    background: var(--purple-color);
+}
+
+.btn-pink{
+    background-color: var(--pink-color);
+}

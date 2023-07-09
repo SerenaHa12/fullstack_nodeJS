@@ -1,0 +1,5 @@
+:root{
+    --container-width: 1200px;
+    --max-column: 12;
+    --column-space: 20px;
+}

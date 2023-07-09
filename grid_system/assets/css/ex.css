@@ -1,0 +1,9 @@
+h2{
+    font-size: 24px;
+}
+
+.product-item{
+    padding: 10px;
+    margin: 10px;
+    background-color: brown;
+}
