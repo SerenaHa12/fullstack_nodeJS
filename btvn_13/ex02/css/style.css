@@ -1,0 +1,21 @@
+.header {
+  padding: 30px;
+}
+.header .header__inner {
+  color: red;
+}
+.header .header__inner .menu > li > a {
+  display: block;
+}
+.header .header__inner .menu > li > a:hover {
+  color: red;
+  text-decoration: none;
+}
+
+.footer .copyright {
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=style.css.map */
