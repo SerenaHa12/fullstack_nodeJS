@@ -1,0 +1,38 @@
+@mixin size($all: null, $width: $all, $height: $all){
+    width: $width;
+    height: $height;
+}
+
+@mixin flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin grid(){
+    display: flex;
+}
+
+@mixin gridContainer($column, $spacing){
+    display: flex;
+    flex-wrap: wrap;
+    background: #ccc;
+    row-gap: $spacing;
+    margin-left: calc($spacing * -1);
+
+    > .item{
+        width: calc(100% / $column - $spacing);
+        margin-left: $spacing;
+        background: olivedrab;
+        font-size: 30px;
+        font-weight: 600;
+    }
+}
+
+@mixin screen($break-point){
+    if $break-point == mobile{
+        @media screen {
+            
+        }
+    }
+}
