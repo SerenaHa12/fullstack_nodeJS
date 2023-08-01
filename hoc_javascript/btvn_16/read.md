@@ -29,3 +29,7 @@ for (bienchay, dieukiendung, buocnhay) {
     => Lặp với số lần lặp không xác định trước
 
 # Hàm
+
+Thuật ngữ:
+
+Trong JS có thể gọi hàm trc định nghĩa sau
