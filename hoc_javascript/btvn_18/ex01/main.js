@@ -105,3 +105,12 @@ function total(n) {
 console.log(total(10));
 
 // Đệ quy trong mảng web thường dùng để giải quyết những bài toán đa cấp
+
+var fibonacci = function (n) {
+  if (n === 1 || n === 2) {
+    return 1;
+  }
+
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
+console.log(fibonacci(5));
