@@ -77,6 +77,7 @@ console.log("Mảng sau khi lọc:", logArray);
 //const array = [5, 1, 9, 8, 10];
 var element = 4;
 array.push(4);
+
 array.sort(function (a, b) {
   return a - b;
 });
