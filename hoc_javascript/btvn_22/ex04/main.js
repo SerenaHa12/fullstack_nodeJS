@@ -140,6 +140,13 @@ Lưu ý: Đặt tên là reduce2()
 
 Array.prototype.reduce2 = function (callback, initialValue) {
   var accumulator = initialValue;
+
+  if (initialValue === undefined) {
+    accumulator = undefined;
+  } else {
+    accumulator = initialValue;
+  }
+  
   for (let i = 0; i < this.length; i++) {
     accumulator = callback(accumulator, this[i], i, this);
   }
