@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Object detector</title>
+  </head>
+  <body>
+    <video controls style="display: none" src="sample.mp4"></video>
+    <br />
+    <canvas></canvas><br />
+    <form action="/detect" method="post" enctype="multipart/form-data">
+      <input type="file" name="video" />
+      <button type="submit">Detect</button>
+      <button id="play">Play</button>&nbsp; <button id="pause">Pause</button>
+    </form>
+  </body>
+</html>

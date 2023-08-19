@@ -1,0 +1,33 @@
+Cách khai báo biến:
+var + tên biến
+
+Giới thiệu một số hàm Build-in
+1. Alert
+
+2. Console
+    - console.log() -> in ra dòng chữ thông báo bên tab console
+    - console.warn() -> in ra message màu vàng cảnh báo
+    - console.error() -> in ra dấu x màu đỏ lỗi
+
+3. Confirm
+    - confirm('gia tri truyen vao la message')
+
+4. Prompt
+    - prompt('Input hộp thoại')
+
+5. Set Timeout
+    - setTimeout(function() {
+        console.log('Thong bao')
+    }, 1000) 
+    -> hàm setTimeout truyền vào 2 tham số: function và thời gian
+    -> hàm này có nghĩa là set thời gian cho một hàm chạy trong bao lâu
+    -> giá trị thời gian là mili giây(ms)
+    -> chỉ chạy 1 lần sau 1000ms
+
+6. Set Interval
+    - setInterval(function() {
+        console.log('Thong bao')
+    })
+    -> hàm setTimeout truyền vào 2 tham số: function và thời gian
+    -> hàm này có nghĩa là set thời gian cho một hàm chạy trong bao lâu
+    -> chạy liên tục lặp lại sau 1000ms

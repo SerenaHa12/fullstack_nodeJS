@@ -1,0 +1,41 @@
+Giới thiệu về toán tử trong JS
+1. Toán tử số học - Arithmetic
+    +  Toán tử Cộng
+    -  Toán tử Trừ
+    *  Toán tử Nhân
+    ** Toán tử Lũy thừa
+    /  Toán tử Chia
+    %  Toán tử Chia lấy số dư
+    ++ Toán tử tăng giá trị 1 số
+    -- Toán tử giảm giá trị 1 số
+
+    ++ Toán tử tăng giá trị 1 số
+        Toán tử ++ giúp tăng giá trị của một biến mang giá trị số lên 1. 
+        Có 2 cách để sử dụng toán tử ++ là:
+            1. Dùng làm hậu tố: variable++ (toán tử nằm sau biến)
+            [
+                var number = 1;
+                number++; // dùng làm hậu tố, ++ ở phía sau biến
+                console.log(number); // 2
+
+                number++;
+                console.log(number); // 3
+            ]
+
+            2. Dùng làm tiền tố: ++variable (toán tử nằm trước biến)
+
+
+2. Toán tử gán - Assignment
+    -> sử dụng toán tử gán khi muốn gán giá trị cho 1 biến
+    - Toán tử =   (x = y)
+    - Toán tử +=  (x = x + y)
+    - Toán tử -=  (x = x - y)
+    - Toán tử *=  (x = x * y)
+    - Toán tử /=  (x = x / y)
+    - Toán tử **= (x = x ** y)
+
+3. Toán tử so sánh - Comparison
+
+4. Toán tử logic - Logical
+
+Lưu ý: 
