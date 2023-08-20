@@ -1,0 +1,5 @@
+DOM HTML
+-> Giúp chúng ta thay đổi HTML:
+    - text
+    - thuộc tính
+    - xóa thẻ HTML
