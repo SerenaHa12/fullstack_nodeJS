@@ -1,12 +1,155 @@
 /* HEADER */
-.header {
-    width: 60%;
-    margin: 0 auto;
+header {
+    margin-top: 20px;
 }
 .header-info {
     display: flex;
+    justify-content: space-between;
+}
+
+.header-info .header-logo {
+    cursor: pointer;
 }
 
 .header-info .header-logo img {
     width: 40%;
+}
+
+.header-info .header-tag {
+    display: flex;
+    margin: auto 0;
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.header-info .header-tag:hover{
+    color:#094797;
+}
+
+.header-info .header-tag img{
+    width: 24px;
+}
+
+.header-info .header-tag a{
+    color: #000;
+    font-size: 1rem;
+    margin-top: 3px;
+    margin-left: 6px;
+}
+
+.header-weather {
+    display: flex;
+}
+
+.header-action {
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
+
+.header-action::after {
+    content: '';
+    width: 1px;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    background-color: #ccc;
+}
+
+.header-action i{
+    font-size: 22px;
+}
+
+.header-action .register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.header-action .search {
+    margin: auto 0;
+}
+
+/* FORM */
+#authForm {
+    width: 100vw;
+    height: 100vh;
+    margin: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.auth-container {
+    padding: 0 40px 30px;
+    background: #f3e9e9 none;
+    max-width: 460px;
+    position: relative;
+    border-radius: 3px;
+    overflow-y: auto;
+    max-height: 100vh;
+    margin: auto;
+    align-items: center;
+}
+
+.tab-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #999;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.tab-header > div {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tab-body .signup p{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tab-body .signup .signup-social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 22px;
+    color: #333;
+    height: 45px;
+}
+
+.tab-body .signup .signup-social .signup-social_link {
+    padding: 10px 40px;
+    background: #e2e8f0 none;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.tab-body .signup .signup-social .signup-social_link i{
+    font-size: 20px;
+    margin-right: 4px;
+}
+
+.blank {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.tab-body .signup form .input p {
+    text-align: left;
+    margin: 0;
 }

@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bài tập về nhà Buổi 23</title>
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
@@ -14,36 +21,102 @@
           <img src="./assets/img/logo_dantri.png" alt="logo" />
         </div>
         <div class="header-tag">
-          <img
-            src="https://cdnweb.dantri.com.vn/dist/static-fica-logo.1-0-1.2435f041ebf869641575.jpg"
-            alt="static-fica-logo"
-          />
+          <div class="header-tag_img">
+            <img
+              src="https://cdnweb.dantri.com.vn/dist/static-fica-logo.1-0-1.2435f041ebf869641575.jpg"
+              alt="static-fica-logo"
+            />
+          </div>
           <a href="https://fica.dantri.com.vn/">Fica</a>
         </div>
         <div class="header-tag">
-          <img
-            src="https://cdnweb.dantri.com.vn/dist/static-fica-logo.1-0-1.2435f041ebf869641575.jpg"
-            alt="static-fica-logo"
-          />
+          <div class="header-tag_img">
+            <img
+              src="https://cdnweb.dantri.com.vn/dist/static-avatar-default.1-0-1.b474c6ca2d1abee5b89b.png"
+              alt="static-fica-logo"
+            />
+          </div>
           <a href="https://dtinews.dantri.com.vn/en/index.html">DTiNews</a>
         </div>
         <div class="header-weather">
-            <div class="header-weather_text">
-                <b>Hà Nội</b>
-                <p>Thứ 2, 21/08/2023</p>
-            </div>
-            <div class="header-weather_img">
-                <img src="./assets/img/header_weather.png" alt="weather">
-            </div>
+          <div class="header-weather_text">
+            <b>Hà Nội</b>
+            <p>Thứ 2, 21/08/2023</p>
+          </div>
+          <div class="header-weather_img">
+            <img src="./assets/img/header_weather.png" alt="weather" />
+          </div>
         </div>
         <div class="header-action">
-            <div class="register">
-                <p>Đăng nhập</p>
-
-            </div>
+          <div class="register" onclick="showLoginForm()">
+            <p>Đăng nhập</p>
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
         </div>
       </div>
     </header>
+
+    <!-- Biểu mẫu đăng nhập -->
+    <div id="authForm">
+      <div class="auth-overlay"></div>
+      <div class="auth-container">
+        <div class="tab-header">
+          <div class="active">Đăng Nhập</div>
+          <div>Đăng Ký</div>
+        </div>
+        <div class="tab-body">
+          <div class="signup active">
+            <p>với các tài khoản mạng xã hội</p>
+            <div class="signup-social">
+              <div class="signup-social_link">
+                <i class="fa-brands fa-google"></i>
+                Google
+              </div>
+              <div class="signup-social_link">
+                <i class="fa-brands fa-facebook"></i>
+                Facebook
+              </div>
+            </div>
+            <div class="blank">hoặc</div>
+            <form action="signup">
+              <div class="input signup-email">
+                <p>Email</p>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div class="input signup-password">
+                <p>Mật khẩu</p>
+                <input type="password" placeholder="Mật khẩu" />
+              </div>
+            </form>
+          </div>
+          <div class="register">
+            <p>Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!</p>
+            <form action="register">
+              <div class="input register-name">
+                <label for="">Họ và tên</label>
+                <input type="text" placeholder="Họ và tên" />
+              </div>
+              <div class="input register-email">
+                <label for="">Email</label>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div class="input register-password">
+                <label for="">Mật khẩu</label>
+                <input type="password" placeholder="Mật khẩu" />
+              </div>
+            </form>
+            <p>
+              Bằng cách đăng ký tài khoản, bạn cũng đồng thời chấp nhận mọi
+              <a href="#">điều kiện về qui định và chính sách của Dân trí</a>
+            </p>
+            <button>Đăng ký</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <main></main>
     <footer></footer>
 
