@@ -1,0 +1,12 @@
+/* HEADER */
+.header {
+    width: 60%;
+    margin: 0 auto;
+}
+.header-info {
+    display: flex;
+}
+
+.header-info .header-logo img {
+    width: 40%;
+}
