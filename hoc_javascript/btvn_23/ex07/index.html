@@ -66,11 +66,15 @@
     <div id="authForm" class="hidden">
       <div class="form-overlay"></div>
       <div class="form">
+        <!-- tab header -->
         <div class="tab-header">
           <div class="active">Đăng Nhập</div>
           <div>Đăng Ký</div>
         </div>
+
+        <!-- tab content -->
         <div class="tab-content">
+          <!-- form đăng nhập -->
           <div class="tab-body active">
             <p>với các tài khoản mạng xã hội</p>
             <div class="signup-social">
@@ -84,21 +88,36 @@
               </div>
             </div>
             <div class="blank">hoặc</div>
-            <form action="signup">
-              <div class="input signup-email">
+            <form action="#" id="signup">
+              <!-- input email -->
+              <div class="input emailBox">
                 <p>Email</p>
-                <input type="email" placeholder="Email" />
+                <input 
+                    id="email" 
+                    type="email" 
+                    placeholder="Email" 
+                />
+                <span id="email-error" class="error email-error"></span>
               </div>
-              <div class="input signup-password">
+
+              <!-- input password -->
+              <div class="input passBox">
                 <p>Mật khẩu</p>
-                <input type="password" placeholder="Mật khẩu" />
+                <input 
+                    type="password" 
+                    placeholder="Mật khẩu" 
+                    id="password" 
+                />
+                <span id="password-error" class="error password-error"></span>
               </div>
             </form>
             <p class="forgot-password"><a href="#">Quên mật khẩu ?</a></p>
-            <button class="btn">Đăng nhập</button>
+            <button class="btn" onclick="submit()">Đăng nhập</button>
           </div>
+
+          <!-- form đăng ký -->
           <div class="tab-body">
-            <p>Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!</p>
+            <p class="decs">Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!</p>
             <form action="register">
               <div class="input register-name">
                 <p>Họ và tên</p>

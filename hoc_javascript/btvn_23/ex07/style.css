@@ -203,7 +203,7 @@ header {
 }
 
 .tab-body .signup-social .signup-social_link {
-  padding: 10px 40px;
+  padding: 10px 50px;
   background: #e2e8f0 none;
   border-radius: 8px;
   font-size: 14px;
@@ -225,6 +225,7 @@ header {
   font-weight: 400;
   margin: 0 0 2px;
   font-size: 14px;
+  padding-bottom: 6px;
 }
 
 .tab-body form .input {
@@ -257,10 +258,42 @@ header {
   cursor: pointer;
 }
 
-.forgot-password a {
+.btn:hover {
+    background-color: #555;
+}
+
+.tab-body p.forgot-password {
+    text-align: right;
+}
+
+.tab-body p.forgot-password a {
   color: #ccc;
   font-style: italic;
   font-size: 14px;
   line-height: 22px;
   color: gray;
+  text-align: right;
+}
+
+.valid .email-error, 
+.valid .passwaord-error{
+    color: #1a7900;
+    font-size: 12px;
+}
+
+.invalid .email-error, 
+.invalid .password-error{
+    color: #f00;
+    font-size: 12px;
+}
+
+.invalid::before,
+.valid::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 18px;
+    right: 5px;
+    z-index: 100;
 }
