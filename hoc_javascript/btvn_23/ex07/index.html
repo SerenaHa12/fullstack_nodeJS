@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tin tức Việt Nam và quốc tế nóng, nhanh, cập nhaaph 24h</title>
+    <!-- title -->
+    <title>Tin tức Việt Nam</title>
+
     <!-- css -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <!-- icon -->
     <link
@@ -62,18 +63,15 @@
       </div>
     </header>
 
-    <!-- Form đăng nhập và đăng ký -->
     <div id="authForm" class="hidden">
-      <div class="auth-overlay"></div>
-      <div class="auth-container" id="authContainer">
+      <div class="form-overlay"></div>
+      <div class="form">
         <div class="tab-header">
-          <!-- Sự kiện chuyển tab -->
-          <div class="active" data-tab="signup">Đăng Nhập</div>
-          <div data-tab="register">Đăng Ký</div>
+          <div class="active">Đăng Nhập</div>
+          <div>Đăng Ký</div>
         </div>
-        <div class="tab-body">
-          <!-- Signup Form -->
-          <div class="tab-form active">
+        <div class="tab-content">
+          <div class="tab-body active">
             <p>với các tài khoản mạng xã hội</p>
             <div class="signup-social">
               <div class="signup-social_link">
@@ -99,9 +97,7 @@
             <p class="forgot-password"><a href="#">Quên mật khẩu ?</a></p>
             <button class="btn">Đăng nhập</button>
           </div>
-
-          <!-- Register form -->
-          <div class="tabform register">
+          <div class="tab-body">
             <p>Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!</p>
             <form action="register">
               <div class="input register-name">
@@ -121,14 +117,12 @@
               Bằng cách đăng ký tài khoản, bạn cũng đồng thời chấp nhận mọi
               <a href="#">điều kiện về qui định và chính sách của Dân trí</a>
             </p>
-            <button>Đăng ký</button>
+            <button class="btn">Đăng ký</button>
           </div>
         </div>
       </div>
     </div>
-    <main></main>
-    <footer></footer>
 
-    <script src="./assets/js/main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
