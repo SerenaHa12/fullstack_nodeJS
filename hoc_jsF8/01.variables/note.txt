@@ -1,5 +1,13 @@
 Cách khai báo biến:
-var + tên biến
+- Đặt tên biến theo cú pháp camelCase
+- var + tên biến
+
+ex:
+var customerName;
+var userEmail;
+
+Quy tắc:
+- Nếu bên ngoài là nháy kép bên trong không được dùng nháy kép nữa
 
 Giới thiệu một số hàm Build-in
 1. Alert

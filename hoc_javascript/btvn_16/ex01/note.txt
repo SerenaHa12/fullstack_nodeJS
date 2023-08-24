@@ -1,0 +1,55 @@
+Kỹ thuật đặt cờ, đặt lính canh 
+
+
+[ Đặt lính canh: ]
+Trong lập trình, kỹ thuật đặt lính canh khá cơ bản, chủ yếu áp dụng trong các bài 
+tìm kiếm giá trị lớn nhất hoặc nhỏ nhất, nó đảm bảo được tính chính xác trong 
+thuật toán tổng quát.
+
+
+Ý tưởng: 
+B1: xét bài toán tìm kiếm giá trị lớn nhất trong một mảng số, 
+B2: đặt biến kết quả bằng giá trị đầu tiên trong mảng (biến này gọi là biến lính canh), 
+B3: xét lần lượt phần tử thứ 2 đến n, 
+B4: nếu có một phần tử nào lớn hơn “lính canh” ban đầu thì thực hiện đổi “lính canh”.
+
+Lính canh đảm bảo được tính chính xác vì nó chỉ so sánh các phần tử trong mảng với nhau. 
+Nếu như chúng ta đặt biến nhỏ nhất hoặc lớn nhất trong mảng là một con số mặc định, 
+kết quả cuối cùng có thể sẽ sai đó! VD: để tìm max trong mảng, ta đặt biến kết quả mmax = 0, 
+nhưng vô tình mảng chỉ chứa những số nguyên < 0, 
+rõ ràng kết quả cuối cùng mmax = 0 do không có số nào trong mảng > 0 
+=> Sai rồi nè thấy hông 🙂
+
+------------------------------------------------------------------------------------------
+
+[ Đặt cờ hiệu ]
+Cờ hiệu (hay Flag trong tiếng Anh) để chỉ một biến dùng để đánh dấu kết quả, 
+đa số để lưu lại kết quả cuối cùng trong khi chạy vòng lặp.
+
+Ý tưởng: 
+B1: ta thường dùng biến bool (true, false) để đặt cờ hiệu, 
+B2: ban đầu ta đặt cho lá cờ này một giá trị mặc định, 
+B3: trong suốt vòng lặp, ta sẽ cập nhật lá cờ này.
+
+Nói có vẻ khó hiểu, nhưng thật ra lại rất dễ hình dung, 
+lấy ví dụ về bài toán kiểm tra tính nguyên tố của một số N, 
+làm sao để biết được kết quả cuối cùng – khi mà vòng lặp đã hoàn thành?
+
+int N; //biến cần kiểm tra tính nguyên tố
+bool flag = true; //khai báo cờ hiệu kèm giá trị mặc định
+for (int i = 2; i < sqrt(N); i++) //vòng lặp từ 2 đến căn bậc 2 của N
+{
+    if (N % i == 0) //chia lấy phần dư (mod)
+        flag = false; //nếu N chia hết cho i thì đặt cờ hiệu = false
+}
+if (flag == true) printf(“N la so nguyen to!”); //nếu cờ hiệu vẫn là true thì N là số nguyên tố
+
+Giải thích: 
+Gọi flag là cờ để chỉ tính nguyên tố của số N, 
+ban đầu mặc định biến này là true, trong lúc chạy vòng lặp, 
+nếu có bất kì số nào mà N chia hết thì đặt flag = false. 
+Sau khi kết thúc vòng lặp, 
+ta thấy rằng nếu có một số nào đó làm cho cờ hiệu flag chuyển sang false 
+tức đã có một số mà N chia hết => N không là số nguyên tố, 
+ngược lại nếu N không chia hết cho bất kì số nào thì 
+biến flag vẫn giữ nguyên giá trị ban đầu là true => N là số nguyên tố.

@@ -1,0 +1,7 @@
+Các vòng lặp trog JS 
+
+1. Vòng lặp For
+
+2. Vòng lặp While 
+
+3. Vòng lặp Do While 

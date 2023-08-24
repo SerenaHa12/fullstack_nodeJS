@@ -72,6 +72,9 @@ Giới thiệu về toán tử trong JS
     >= Lớn hơn hoặc bằng
     <= Nhỏ hơn hoặc bằng
 
+    ===
+    !==
+
 4. Toán tử logic - Logical
     - && - Toán tử And
     - || - Toán tử Or 
@@ -85,7 +88,13 @@ Giới thiệu về toán tử trong JS
 
 5. Toán tử chuỗi - String Operator
 
-6. Kiểu dữ liệu Boolean 
+6. Toán tử 3 ngôi
+dieukien ? giá trị đúng : giá trị sai
+
+7. Toán tử Nullish
+- Check xem phần tử khác null và khác undefined thì gán
+
+7. Kiểu dữ liệu Boolean 
 
 Lưu ý: 
     -> biểu thức điều kiện so sánh luôn trả về giá trị true|false

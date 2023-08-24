@@ -9,5 +9,11 @@ Kiểu dữ liệu trong JS
     - Symbol
 
 2. Kiểu dữ liệu phức tạp - Complex Data
-    - Funnction
+    - Function
     - Object
+        + Array
+        + Object
+        + Reference Data
+
+
+Lưu ý: Kết quả trả về của typeof sẽ luôn là 1 chuỗi, vậy nên typeof của d sẽ là 'string'

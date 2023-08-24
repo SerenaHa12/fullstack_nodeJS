@@ -1,0 +1,35 @@
+Truthy và Falsy:
+
+var a = 10;
+var b = a ? "Đúng" : "Sai";
+
+- Truthy: to bool is true 
+Bất cứ giá trị nào trong Javascript khi chuyển đổi sang kiểu dữ liệu boolean 
+mà có giá trị true thì ta gọi giá trị đó là Truthy.
+
+Ngoài 6 giá trị đã đề cập tới ở phần Falsy thì 
+toàn bộ các giá trị khác đều là Truthy, kể cả những giá trị sau:
+
+1. '0' (một chuỗi chứa số không)
+2. ' ' (một chuỗi chứa dấu cách)
+3. 'false' (một chuỗi chứa từ khóa false)
+4. [] (một array trống)
+5. {} (một object trống)
+6. function(){} (một hàm "trống")
+Một số người chuyển từ ngôn ngữ khác sang rất có thể sẽ bị nhầm [] (mảng "rỗng") là falsy, 
+bởi vì trong ngôn ngữ họ đã học trước đó [] là falsy.
+
+-------------------------------------------------------------------------------------------
+
+- Falsy: to bool is false
+Bất cứ giá trị nào trong Javascript khi chuyển đổi sang kiểu dữ liệu boolean 
+mà có giá trị false thì ta gọi giá trị đó là Falsy.
+
+Trong Javascript có 6 giá trị sau được coi là Falsy:
+
+1. false
+2. 0 (số không)
+3. '' or "" (chuỗi rỗng)
+4. null
+5. undefined
+6. NaN
