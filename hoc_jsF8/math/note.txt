@@ -1,4 +1,5 @@
 Giới thiệu về toán tử trong JS
+
 1. Toán tử số học - Arithmetic
     +  Toán tử Cộng
     -  Toán tử Trừ
@@ -20,10 +21,39 @@ Giới thiệu về toán tử trong JS
 
                 number++;
                 console.log(number); // 3
+            ] 
+            Sau mỗi khi sử dụng toán tử ++, 
+            giá trị của biến number được tăng lên 1
+            [
+                var number = 1;
+                console.log(number++); // 1
+                console.log(number); // 2
+                console.log(number++); // 2
+                console.log(number); // 3
             ]
+            Toán tử ++ khi dùng là hậu tố sẽ tăng giá trị 
+            của biến lên 1 và trả về giá trị trước khi tăng.
 
             2. Dùng làm tiền tố: ++variable (toán tử nằm trước biến)
+            kết quả trông sẽ không khác gì khi dùng ++ làm hậu tố.
+            [
+                var number = 1;
 
+                ++number; // dùng làm tiền tố, ++ ở phía trước biến
+                console.log(number); // 2
+
+                ++number;
+                console.log(number); // 3
+            ]
+
+    -- Toán tử giảm giá trị 1 số
+        tương tự
+
+    Tổng kết:
+        x++ tăng giá trị biến lên 1 và trả về giá trị trước khi tăng
+        ++x tăng giá trị biến lên 1 và trả về giá trị sau khi tăng
+        x-- giảm giá trị biến xuống 1 và trả về giá trị trước khi giảm
+        --x giảm giá trị biến xuống 1 và trả về giá trị sau khi giảmm
 
 2. Toán tử gán - Assignment
     -> sử dụng toán tử gán khi muốn gán giá trị cho 1 biến
@@ -35,7 +65,35 @@ Giới thiệu về toán tử trong JS
     - Toán tử **= (x = x ** y)
 
 3. Toán tử so sánh - Comparison
+    == Toán tử bằng
+    != Toán tử không bằng
+    >  Toán tử lớn hơn
+    <  Toán tử bé hơn
+    >= Lớn hơn hoặc bằng
+    <= Nhỏ hơn hoặc bằng
 
 4. Toán tử logic - Logical
+    - && - Toán tử And
+    - || - Toán tử Or 
+    - !  - Toán tử Not
+
+    Với toán tử hoặc (||), 
+    nếu xuất hiện ít nhất 1 vế bằng true thì kết quả trả về sẽ là true.
+
+    Với toán tử và (&&), 
+    nếu xuất hiện ít nhất 1 vế bằng false thì kết quả trả về sẽ là false.
+
+5. Toán tử chuỗi - String Operator
+
+6. Kiểu dữ liệu Boolean 
 
 Lưu ý: 
+    -> biểu thức điều kiện so sánh luôn trả về giá trị true|false
+
+    Trong JS có các giá trị sau khi được convert sang Boolean sẽ đều là false
+    1. 0
+    2. false
+    3. '' - "" chuỗi rỗng
+    4. undefined
+    5. NaN
+    6. null
