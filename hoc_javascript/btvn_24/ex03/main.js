@@ -29,8 +29,11 @@ checkItems.forEach(function(checkItem) {
 
 /*
 Case 1: Bấm vào check all, tất cả được check
+
 Case 2: gán sự kiện cho từng check Item
 Có một biến đếm, item nào được check +1
 item nào không được check -1.
 Khi bấm checkall thực tế count vẫn là 0.
+
+Case 3: Check tất cả các item và Check all được check
 */
