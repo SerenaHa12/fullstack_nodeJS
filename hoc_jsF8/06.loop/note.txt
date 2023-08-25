@@ -1,6 +1,15 @@
 Các vòng lặp trog JS 
 
 1. Vòng lặp For
+=> Vòng lặp được xác định trước
+
+    1.1 Vòng lặp for tăng
+    1.2 Vòng lặp for giảm
+
+    Cú pháp: 
+    for (bienchay, dieukiendung, buocnhay) {
+        
+    }
 
 2. Vòng lặp While 
 
