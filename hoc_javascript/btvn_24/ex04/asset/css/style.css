@@ -30,7 +30,7 @@ h1 {
   display: flex;
 }
 
-.list-add input {
+.list-add input, .edit-input {
   background: none;
   border: 1px solid #8758ff;
   color: #fff;
@@ -67,7 +67,7 @@ h1 {
   background: #8758ff;
   color: #fff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: ;
 }
 
 .list-task ul li div {
