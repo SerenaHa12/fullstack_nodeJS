@@ -1,0 +1,34 @@
+Function in JS
+
+HÀM
+1. Hàm?
+    - một khối mã
+    - làm 1 việc cụ thể
+
+2. Loại Hàm
+    - Build-in
+    - Tự định nghĩa
+
+3. Tính chất
+    - Không thực thi khi định nghĩa
+    - Sẽ thực thi khi được gọi
+    - Có thể nhận tham số
+    - Có thể trả về 1 giá trị
+
+THAM SỐ HÀM 
+1. Tham số?
+    - Định nghĩa
+    - Kiểu dữ liệu:
+        + không giới hạn, có thể truyền bất kỳ loại tham số nào
+    - Tính private:
+        + nếu truyền lệnh/ điều kiện ra bên ngoài hàm thì không hoạt động
+    - 1 tham số 
+    - nhiều tham số 
+
+2. Truyền tham số 
+    - 1 tham số 
+    - nhiều tham số 
+
+3. Argument 
+    - Đối tượng Argument
+    - Giới thiệu vòng for

@@ -11,6 +11,10 @@ Các vòng lặp trog JS
         
     }
 
-2. Vòng lặp While 
+2. Vòng lặp For/in - lặp qua key của đối tượng
 
-3. Vòng lặp Do While 
+3. Vòng lặp For/off - lặp qua value của đối tượng
+
+4. Vòng lặp While - lặp khi điều kiện đúng
+
+5. Vòng lặp Do While - lặp ít nhất 1 lần sau đó lặp khi điều kiện đúng
