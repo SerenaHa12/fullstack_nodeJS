@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Navigation</title>
+  </head>
+
+  <!-- style -->
+  <style>
+    .products h2.active {
+      color: red;
+    }
+  </style>
+  <body>
+    <!-- <div class="wrapper">
+      <div class="content">
+        <button>Click me</button>
+      </div>
+    </div> -->
+
+    <!-- <div class="product">
+      <div class="item">
+        <span>Sản phẩm 1</span>
+        <button class="remove">Xóa</button>
+      </div>
+
+      <div class="item">
+        <span>Sản phẩm 2</span>
+        <button class="remove">Xóa</button>
+      </div>
+
+      <div class="item">
+        <span>Sản phẩm 3</span>
+        <button class="remove">Xóa</button>
+      </div>
+    </div> -->
+
+    <!-- <ul class="menu">
+      <li><a href="#">Item1</a></li>
+      <li>
+        <a href="#">Item2</a>
+        <ul>
+          <li><a href="#">Item2.1</a></li>
+          <li><a href="#">Item2.2</a></li>
+          <li><a href="#">Item2.3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Item3</a></li>
+      <li><a href="#">Item4</a></li>
+    </ul> -->
+
+    <div class="products" onmouseover="stop()">
+      <h2 class="active">Sản phẩm 1</h2>
+      <h2>Sản phẩm 2</h2>
+      <h2>Sản phẩm 3</h2>
+      <h2>Sản phẩm 4</h2>
+    </div>
+    <button class="prev">prev</button>
+    <button class="next">next</button>
+    <script src="./main.js"></script>
+  </body>
+</html>
