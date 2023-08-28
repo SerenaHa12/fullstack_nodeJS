@@ -1,9 +1,24 @@
 Function in JS
+-> không có khái niệm tham trị tham chiếu
+-> JS không phải ngôn ngữ lập trình hướng đối tượng
+-> để hiểu một hàm chạy ra sao phải đi từ phần gọi hàm
+-> biến toàn cục và biến cục bộ
 
 HÀM
 1. Hàm?
     - một khối mã
     - làm 1 việc cụ thể
+
+    - định nghĩa
+        + hàm không có tham số
+        function tenHam () {
+            nội dung hàm
+        }
+
+        + hàm có tham số
+        function tenHam(tham so 1, tham so 2,...) {
+            nội dung hàm
+        }
 
 2. Loại Hàm
     - Build-in
@@ -15,6 +30,13 @@ HÀM
     - Có thể nhận tham số
     - Có thể trả về 1 giá trị
 
+4. Gọi hàm
+    - Thuật ngữ:
+        + Tham số 
+        + Đối số
+
+----------------------------------------------------------------
+
 THAM SỐ HÀM 
 1. Tham số?
     - Định nghĩa
@@ -23,7 +45,10 @@ THAM SỐ HÀM
     - Tính private:
         + nếu truyền lệnh/ điều kiện ra bên ngoài hàm thì không hoạt động
     - 1 tham số 
-    - nhiều tham số 
+    - nhiều tham số
+        + không giới hạn tham số 
+        + trong trường hợp có nhiều tham số những 
+        chỉ truyền 1 tham số cũng khống có vấn đề gì 
 
 2. Truyền tham số 
     - 1 tham số 
@@ -32,3 +57,31 @@ THAM SỐ HÀM
 3. Argument 
     - Đối tượng Argument
     - Giới thiệu vòng for
+
+----------------------------------------------------------------
+
+RETURN IN FUNCTION 
+- Một hàm không có return sẽ trả về undefined
+
+----------------------------------------------------------------
+
+LƯU Ý VỀ FUNCTION
+- Khi function đặt trùng tên:
+    + function được định nghĩa sau sẽ ghi đè function phía trước
+- Khai báo biến trong hàm 
+    + có thể khai báo, tuy nhiên phạm vi sư dụng sẽ chỉ ở trong function.
+    + tính private
+- Định nghĩa hàm trong hàm
+    + có thể định nghĩa hàm trong hàm
+    + tính private
+
+----------------------------------------------------------------
+
+CÁC LOẠI FUNCTION
+1. Declaration Function
+    - có thể gọi trươc khi định nghĩa
+
+2. Expression Function - hàm ẩn danh
+    - bắt buộc định nghĩa trước khai báo sau
+
+3. Arrow Function

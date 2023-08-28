@@ -1,0 +1,4 @@
+CALLBACK FUNCTION IN JS 
+
+Định nghĩa:
+- Callback là hàm 
