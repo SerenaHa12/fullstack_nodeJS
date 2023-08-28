@@ -1,4 +1,6 @@
 CALLBACK FUNCTION IN JS 
 
 Định nghĩa:
-- Callback là hàm 
+- Callback là hàm được truyền qua đối số khi gọi một hàm khác
+    + là hàm
+    + được truyền qua đối số
