@@ -1,8 +1,16 @@
 CALLBACK FUNCTION IN JS - HÀM GỌI LẠI
--> JS là ngôn ngữ lập trình bất đồng bộ
+-> JS là ngôn ngữ lập trình bất đồng bộ: tất cả chạy cùng 1 lúc
+-> Sử dụng callback để xử lý bất đồng bộ
+-> Spread Opearator
+-> Một số hàm xây dựng sẵn của JS cũng là callback
+
+-> Sử lý bất đồng bộ khi lấy dữ liệu từ server về
+-> Kỹ thuật debound
 
 Định nghĩa:
 - Callback là hàm được truyền qua đối số khi gọi một hàm khác
     + là hàm
     + được truyền qua đối số
     + được gọi lại trong hàm nhận đối số
+
+Kỹ thuật Rest Parameter

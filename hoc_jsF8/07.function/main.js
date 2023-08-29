@@ -18,16 +18,16 @@ showDialog(`Xin chao các cháu`); // gọi tới function truyền vào giá tr
 //-------------------------------
 
 function getMess() {
-    console.log(`Xin chào F8`);
+  console.log(`Xin chào F8`);
 }
 
 function getMessage(msg, type = "success") {
-    console.log(`Xin chào ${msg}`);
-    console.log(`Type${type}`);
+  console.log(`Xin chào ${msg}`);
+  console.log(`Type${type}`);
 }
 
 getMess();
-getMessage(`Ha Chi`, `error`); 
+getMessage(`Ha Chi`, `error`);
 
 //-------------------------------
 
@@ -88,7 +88,7 @@ writeLog(`Log 1`, `Log 2`);
 */
 function cong(a, b) {
   return a + b;
-//   những dòng code phía dưới return sẽ không được hoạt động
+  //   những dòng code phía dưới return sẽ không được hoạt động
 }
 
 // --------------------------------------------------------------
@@ -97,11 +97,11 @@ var result = cong(2, 8);
 console.log(result);
 
 function getTotal2(a, b = 0) {
-    var s = a + b;
-    if (b !== 0) {
-        return s;
-    }
-    return 'Không tính được';
+  var s = a + b;
+  if (b !== 0) {
+    return s;
+  }
+  return "Không tính được";
 }
 var result = getTotal2(10, 20);
 
@@ -115,20 +115,20 @@ var result = getTotal2(10, 20);
     Viết hàm kiểm tra số chẵn
 */
 function isEven(n) {
-    // if (n % 2 === 0) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
+  // if (n % 2 === 0) {
+  //     return true;
+  // } else {
+  //     return false;
+  // }
 
-    return number % 2 === 0; // cách viết này sẽ trả về true nếu đúng \ false nếu sai
+  return number % 2 === 0; // cách viết này sẽ trả về true nếu đúng \ false nếu sai
 }
 
 var n = 10; // đối số i tương ứng với tham số n
-for ( var i = 1; i <= n; i++) {
-    if (isEven(i)) {
-        console.log((`${i} là số chẵn`));
-    }
+for (var i = 1; i <= n; i++) {
+  if (isEven(i)) {
+    console.log(`${i} là số chẵn`);
+  }
 }
 /*
 luồng hoạt động:
@@ -145,5 +145,35 @@ luồng hoạt động:
 function showMessage() {}
 
 // Expression Function -> xuất hiện toán tử gán
-var showMessage2 = function() {}
+var showMessage2 = function () {};
 
+// ----------------------------------------------------------------
+
+/*
+    5. Hàm con - Closure
+*/
+
+// example 01
+var getMessage = function () {
+  var display = function () {
+    // -> gọi là hàm con, chỉ chạy được trong getMessage
+    console.log("Ha Chi");
+  };
+  display(); // -> có dòng này mới chạy
+};
+getMessage();
+// -> lúc này gọi hàm sẽ không chạy
+// -> hàm con nhưng lại đọc được tham số của hàm cha
+
+// example 02
+var getMessage = function () {
+  var msgValue = "Tôi là:" + msg; // biến cục bộ của hàm getMessage
+  var display = function () {
+    var a = 10;
+    console.log("Ha Chi" + msg); // được sử dụng trong hàm con
+  };
+  display(); // -> có dòng này mới chạy
+};
+getMessage("gv Teky");
+
+// ----------------------------------------------------------------

@@ -85,3 +85,9 @@ CÁC LOẠI FUNCTION
     - bắt buộc định nghĩa trước khai báo sau
 
 3. Arrow Function
+
+----------------------------------------------------------------
+
+HÀM CON, CLOSURE
+
+- Biến toàn cục -> Biến cục bộ của hàm cha -> Biến cục bộ của hàm con 
