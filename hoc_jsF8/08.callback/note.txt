@@ -1,6 +1,8 @@
-CALLBACK FUNCTION IN JS 
+CALLBACK FUNCTION IN JS - HÀM GỌI LẠI
+-> JS là ngôn ngữ lập trình bất đồng bộ
 
 Định nghĩa:
 - Callback là hàm được truyền qua đối số khi gọi một hàm khác
     + là hàm
     + được truyền qua đối số
+    + được gọi lại trong hàm nhận đối số
