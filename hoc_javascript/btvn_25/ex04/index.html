@@ -3,64 +3,196 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bai tap ve nha buoi 25</title>
 
     <!-- css -->
     <link rel="stylesheet" href="./style.css" />
+
+    <link
+      rel="stylesheet"
+      href="./assets/font/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
-
     <!-- header  -->
     <header>
-        <div class="header-section">
-          <nav class="header-nav">
-            <ul class="header-nav">
-              <li class="header-nav-item"><a href="#">CÂU CHUYỆN</a></li>
-              <li class="header-nav-item"><a href="#">BẢNG TIN</a></li>
-              <li class="header-nav-item"><a href="#">THỰC ĐƠN</a></li>
-              <li class="header-nav-item">
-                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/22/C%E1%BB%99ng_C%C3%A0_Ph%C3%AA_logo.png" /></a>
-              </li>
-              <li class="header-nav-item"><a href="#">QUẦY MẬU DỊCH</a></li>
-              <li class="header-nav-item"><a href="#">CỬA HÀNG</a></li>
-              <li class="header-nav-item"><a href="#">LIÊN HỆ</a></li>
-            </ul>
-          </nav>
+      <div class="header-section">
+        <nav class="header-nav">
+          <ul class="header-nav">
+            <li class="header-nav-item"><a href="#">CÂU CHUYỆN</a></li>
+            <li class="header-nav-item"><a href="#">BẢNG TIN</a></li>
+            <li class="header-nav-item"><a href="#">THỰC ĐƠN</a></li>
+            <li class="header-nav-item">
+              <a href="#"
+                ><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/22/C%E1%BB%99ng_C%C3%A0_Ph%C3%AA_logo.png"
+              /></a>
+            </li>
+            <li class="header-nav-item"><a href="#">QUẦY MẬU DỊCH</a></li>
+            <li class="header-nav-item"><a href="#">CỬA HÀNG</a></li>
+            <li class="header-nav-item"><a href="#">LIÊN HỆ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-action">
+        <a href="#"><img src="./assets/img/icon-vietnam.png" alt="" /></a>
+      </div>
+    </header>
+    <!-- end header  -->
+
+    <main>
+        <!-- banner -->
+      <section class="banner">
+
+        <!-- carousel here!!! -->
+        <div class="slide-container">
+          <div class="slide active">
+            <img src="./img/banner-01.png" alt="banner01" />
+          </div>
+
+          <div class="slide">
+            <img src="./img/banner-02.png" alt="banner01" />
+          </div>
+
+          <div class="slide">
+            <img src="./img/banner-03.jpg" alt="banner01" />
+          </div>
+
+          <div class="slide">
+            <img src="./img/banner-04.png" alt="banner01" />
+          </div>
+
+          <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+          <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+          <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+          </div>
         </div>
-        <div class="header-action">
-          <a href="#"><img src="./assets/img/icon-vietnam.png" alt="" /></a>
+      </section>
+
+      <section class="about">
+        <div class="about-container">
+
+          <div class="about-story">
+            <img src="./assets/img/image-01.jpg" alt="về chúng tôi" />
+            <div class="about-overlay">CÂU CHUYỆN CỘNG</div>
+            <div class="about-overlay_02">CÂU CHUYỆN CỘNG</div>
+          </div>
+          
+          <div class="about-menu">
+            <div class="menu">
+              <img src="./assets/img/image-02.jpg" alt="">
+              <div class="menu-overlay">PHA CHẾ</div>
+            </div>
+  
+            <div class="food">
+              <img src="./assets/img/image-03.jpg" alt="">
+              <div class="food-overlay">THỰC ĐƠN</div>
+            </div>
+          </div>
+
+          <div class="about-news">
+            <img src="./assets/img/image-04.jpg" alt="">
+            <div class="new-overlay">
+              <h3>TIN TỨC NỔI BẬT</h3>
+              <p>"Lao động hăng say, tình hay sẽ đến"</p>
+              <p>Cộng chúc bạn một ngày mới nhiều năng</p>
+              <p>lượng để hoàn thành công việc thật tốt!</p>
+            </div>
+          </div>
+
+          <div class="about-hiring">
+            <img src="./assets/img/image-05.jpg" alt="">
+            <div class="hiring-overlay">
+              <h3>TUYỂN DỤNG</h3>
+              <p>Gia nhập gia đình Cộng ngay hôm nay.</p>
+              <p>Đọc thông tin tại đây để biết thêm chi tiết.</p>
+              <p>Cộng nhiệt liệt chào mừng.</p>
+            </div>
+          </div>
+          
+          <div class="about-feature">
+            <div class="about-feature-item">
+              <h2>TIN TỨC</h2>
+              <p><a href="#">Về chúng tôi</a></p>
+            </div>
+
+            <div class="about-feature-item">
+              <h2>CỬA HÀNG</h2>
+              <p><a href="#">Danh Sách Cửa Hàng</a></p>
+            </div>
+
+            <div class="about-feature-item">
+              <h2>ĐỒ UỐNG</h2>
+              <p><a href="#">Hôm Nay Cộng Có</a></p>
+            </div>
+
+            <div class="about-feature-item">
+              <h2>CHÍNH SÁCH</h2>
+              <p><a href="#">Chính Sách Bảo Mật</a></p>
+            </div>
+          </div>
         </div>
-      </header>
-      <!-- end header  -->
+      </section>
 
+      <hr>
 
-    <div class="slide-container">
-      <div class="slide active">
-        <img src="./img/banner-01.png" alt="banner01" />
+      <!-- <section class="contact">
+        <div class="contact-links">
+          <h2>KÊNH KẾT NỐI</h2>
+          <span>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-tiktok"></i>
+          </span>
+          <img src="./assets/img/logoSaleNoti.png" alt="">
+        </div>
+        <div class="update">
+          <h2>LUÔN CẬP NHẬP</h2>
+          <p>Về các tin tức đó đây, sản phẩm mới</p>
+        </div>
+      </section> -->
+    </main>
+    <!-- end main  -->
+
+    <!-- 3. Footer -->
+    <footer>
+      <div class="footer">
+        <p>Công ty TNHH Cộng Cà Phê</p>
+        <p>
+          Mã số DN: 0106696845 do Sở Kế hoạch và Đầu tư TP. Hà Nội cấp ngày
+          21/11/2014
+        </p>
+        <p>
+          Địa chỉ: Số 101 Hoàng Cầu, phường Ô Chợ Dừa, quận Đống Đa, Hà Nội - Số
+          điện thoại: <a href="tel:02437339966" rel="nofollow">+84 243 733 9966</a> - Email:
+          <a href="mailto:info@congcaphe.com" rel="nofollow"
+            >info@congcaphe.com</a>
+        </p>
+        ©2017 - 2023 CÔNG TY TNHH
+        <span class="txtCafeCong">Cộng CàPhê</span> Mọi quyền được bảo lưu
       </div>
-
-      <div class="slide">
-        <img src="./img/banner-02.png" alt="banner01" />
-      </div>
-
-      <div class="slide">
-        <img src="./img/banner-03.jpg" alt="banner01" />
-      </div>
-
-      <div class="slide">
-        <img src="./img/banner-04.png" alt="banner01" />
-      </div>
-
-      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)">&#10095;</a>
-
-      <div class="dot-container">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-      </div>
-    </div>
+    </footer>
+    <!-- End Footer -->
+    </main>
     <script src="./main.js"></script>
   </body>
 </html>

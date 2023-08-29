@@ -1,6 +1,8 @@
+// carousel
 var slideIndex = 1;
 showSlide(slideIndex);
 
+// change slide
 function changeSlide(n) {
   showSlide((slideIndex += n));
 }
@@ -13,6 +15,7 @@ function showSlide(n) {
   var slides = document.getElementsByClassName("slide");
   var dots = document.getElementsByClassName("dot");
 
+  //   check if n > slide's number, khởi tạo lại
   if (n > slides.length) {
     slideIndex = 1;
   }
