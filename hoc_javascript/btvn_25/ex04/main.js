@@ -35,3 +35,35 @@ function showSlide(n) {
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
+
+var mouseStartX = 0;
+var mouseEndX = 0;
+
+var slideContainer = document.querySelector(".slide-container");
+
+slideContainer.addEventListener("mousedown", handleMouseDown);
+slideContainer.addEventListener("mousemove", handleMouseMove);
+slideContainer.addEventListener("mouseup", handleMouseUp);
+
+function handleMouseDown(event) {
+  mouseStartX = event.clientX;
+}
+
+function handleMouseMove(event) {
+  if (mouseStartX === 0) {
+    return;
+  }
+
+  mouseEndX = event.clientX;
+}
+
+function handleMouseUp() {
+  if (mouseEndX - mouseStartX > 50) {
+    changeSlide(-1);
+  } else if (mouseEndX - mouseStartX < -50) {
+    changeSlide(1);
+  }
+
+  // Đặt lại vị trí x chuột
+  mouseStartX = mouseEndX = 0;
+}
