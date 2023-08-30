@@ -1,0 +1,65 @@
+.main {
+  display: flex;
+  gap: 20px;
+}
+
+.top-song {
+  color: #fff;
+  border-radius: 32px;
+  background: rgba(32, 32, 32, 0.86);
+  padding-bottom: 16px;
+  margin-bottom: 40px;
+}
+
+.song-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.song-action p {
+  margin: 16px 24px;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.song-action p.top-song_all {
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.song-list {
+  display: flex;
+}
+
+.song-item {
+  margin: 0 24px;
+  cursor: pointer;
+}
+
+.song-item img {
+  width: 145px;
+  height: 145px;
+  object-fit: cover;
+}
+
+.song-item h3 {
+    font-size: 16px;
+}
+
+.song-item p {
+  max-width: 145px; /* Độ rộng tối đa của phần tử <p> */
+  overflow: hidden;
+  white-space: nowrap; /* Ngăn phần tử xuống dòng */
+  text-overflow: ellipsis; /* Hiển thị dấu '...' khi vượt quá độ rộng */
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

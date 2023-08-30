@@ -1,0 +1,55 @@
+.trend {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  width: 100%;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.trend-info .trend-song_title {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 7px 0;
+}
+
+.trend-info .trend-info_action {
+  margin: 38px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.trend-info .trend-info_action .action-btnplay {
+  padding: 15px 36px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  background: var(--primary-color, #38bacc);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #fff;
+  display: flex;
+  gap: 9px;
+  cursor: pointer;
+}
+
+.trend-info .trend-info_action .action-btnadd {
+  padding: 2px 17px;
+  border-radius: 12px;
+  background: #fff;
+  color: #000;
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: progress;
+}
+
+.trend-img img {
+    width: 300px;
+}
