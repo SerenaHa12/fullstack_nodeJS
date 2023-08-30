@@ -1,6 +1,6 @@
 .main {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
 }
 
 .top-song {
@@ -8,7 +8,7 @@
   border-radius: 32px;
   background: rgba(32, 32, 32, 0.86);
   padding-bottom: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .song-action {
@@ -31,6 +31,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: pointer;
 }
 
 .song-list {

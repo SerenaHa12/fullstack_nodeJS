@@ -43,6 +43,10 @@ header .header-search input[type="search"] {
   border: none;
 }
 
+header .header-search input[type="search"]::placeholder {
+  font-size: 13px;
+}
+
 header .header-search span {
     margin-left: 80px;
     cursor: pointer;
