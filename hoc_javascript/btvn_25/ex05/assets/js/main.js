@@ -1,52 +1,55 @@
 var slideContainer = document.querySelector(".slider .slide-container");
-var slides = document.querySelectorAll('.slide');
+var slides = document.querySelectorAll(".slide");
 
-var nextBtn = document.querySelector('.next-btn');
-var prevBtn = document.querySelector('.prev-btn');
-var slideIcons = document.querySelectorAll('.slide-icon');
+var nextBtn = document.querySelector(".next-btn");
+var prevBtn = document.querySelector(".prev-btn");
+var slideIcons = document.querySelectorAll(".slide-icon");
 var numberOfSlides = slides.length;
 var slideNumber = 0;
 
 // next btn
-nextBtn.addEventListener("click", function() {
-    slides.forEach((slide) => {
-        slide.classList.remove("active");
-    })
+nextBtn.addEventListener("click", function () {
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
 
-    slideIcons.forEach((slideIcon) => {
-        slideIcon.classList.remove("active");
-    })
+  slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+  });
 
-    slideNumber++;
+  slideNumber++;
 
-    if(slideNumber > (numberOfSlides - 1)) {
-        slideNumber = 0;
-    }
+  if (slideNumber > numberOfSlides - 1) {
+    slideNumber = 0;
+  }
 
-    slides[slideNumber].classList.add("active");
-    slideIcons[slideNumber].classList.add("active");
-
-})
-
+  slides[slideNumber].classList.add("active");
+  slideIcons[slideNumber].classList.add("active");
+});
 
 // prev btn
-prevBtn.addEventListener("click", function() {
-    slides.forEach((slide) => {
-        slide.classList.remove("active");
-    })
+prevBtn.addEventListener("click", function () {
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
 
-    slideIcons.forEach((slideIcon) => {
-        slideIcon.classList.remove("active");
-    })
+  slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+  });
 
-    slideNumber--;
+  slideNumber--;
 
-    if(slideNumber < 0) {
-        slideNumber = numberOfSlides - 1;
-    }
+  if (slideNumber < 0) {
+    slideNumber = numberOfSlides - 1;
+  }
 
-    slides[slideNumber].classList.add("active");
-    slideIcons[slideNumber].classList.add("active");
+  slides[slideNumber].classList.add("active");
+  slideIcons[slideNumber].classList.add("active");
+});
 
-})
-
+/**
+ * Giải quyết bài toán slide drag drop
+ * Sử dụng phương pháp cắm cờ
+ * Sử dụng offset
+ * Tham khảo: https://kenwheeler.github.io/slick/
+ */
