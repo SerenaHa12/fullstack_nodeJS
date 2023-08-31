@@ -36,6 +36,7 @@
 
 .song-list {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .song-item {

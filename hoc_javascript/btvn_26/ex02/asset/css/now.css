@@ -1,46 +1,49 @@
 .now {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
   color: #fff;
-  border-radius: 32px;
-  background: rgba(32, 32, 32, 0.86);
+  background: rgba(0, 0, 0, 0.86);
   padding: 16px 24px;
   display: flex;
-  gap: 20px
+  gap: 20px;
 }
 
 .now-song_info {
-    width: 80%;
-    text-align: center;
+  width: 80%;
+  text-align: center;
 }
 
 .now-song_info .song-play .song-play_action {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    color: #ccc;
-    font-size: 24px;
-    margin: 20px 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  color: #ccc;
+  font-size: 24px;
+  margin: 20px 0;
 }
 
 .now-song_info .song-play .song-play_action i {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .now-song_info .song-play .song-play_slide {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 160px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 160px;
 }
 
 .now-song_action {
-    display: flex;
-    gap: 16px;
-    align-items: center;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 .now-song_action i {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .now-song_action i.active {
-    color: #38bacc;
+  color: #38bacc;
 }
