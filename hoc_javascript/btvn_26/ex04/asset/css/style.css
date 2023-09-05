@@ -89,6 +89,19 @@ html {
   border-radius: 50%;
   box-shadow: -400px 0 0 400px rgba(204, 58, 58, 0.08);
 }
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  top: -30px; /* Điều chỉnh vị trí của tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+}
 .current-time,
 .song-duaration {
   font-size: 14px;
