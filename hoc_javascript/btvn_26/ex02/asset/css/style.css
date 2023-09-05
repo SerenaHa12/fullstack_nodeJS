@@ -1,19 +1,131 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  width: 100%;
-  height: 100vh;
-  background-color: #000000;
-  display: flex;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html, body {
+  height: 100%;
 }
 
-a {
-  text-decoration: none;
-  color: #fff;
+/* 
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+*/
+
+html {
+  background-color: #241832;
+  font-family: 'Poppins', sans-serif;
+  color:white;
+  font-stretch: ultra-condensed;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  overflow: h;
+  -moz-appearance: none; 
+  -webkit-appearance: none; 
+  appearance: none;
 }
+html * {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #808080; 
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas:
+      'left-sidebar main right-sidebar'
+      'now-playing now-playing now-playing';
+  grid-template-columns: 200px auto 250px; 
+  grid-template-rows: auto 90px;  
+}
+
+@property --headerColor {
+  syntax: '<color>';
+  initial-value: rgba(0, 0, 0, 0);
+  inherits: false;
+}
+
+/* Sidebar */

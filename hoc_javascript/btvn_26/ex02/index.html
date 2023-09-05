@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="./asset/css/style.css" />
     <link rel="stylesheet" href="./asset/css/sidebar.css" />
     <link rel="stylesheet" href="./asset/css/header.css" />
-    <link rel="stylesheet" href="./asset/css/trend.css">
-    <link rel="stylesheet" href="./asset/css/song.css">
-    <link rel="stylesheet" href="./asset/css/now.css">
+    <link rel="stylesheet" href="./asset/css/trend.css" />
+    <link rel="stylesheet" href="./asset/css/song.css" />
+    <link rel="stylesheet" href="./asset/css/now.css" />
 
     <!-- link icon -->
     <link
@@ -20,208 +20,44 @@
     />
   </head>
   <body>
-    <aside class="sidebar">
-      <div class="sidebar-logo">
-        <img src="./asset/img/sidebar/logo.svg" alt="logo" />
-      </div>
-      <div class="sidebar-nav">
-        <div class="sidebar-menu">
-          <p class="sidebar-heading">MENU</p>
-          <div class="sidebar-item active">
+    <div class="root">
+      <!-- sidebar -->
+      <div class="root_sidebar">
+        <img
+          src="./asset/img/sidebar/logo.webp"
+          alt=""
+          class="root_sidebar-logo"
+        />
+        <ul class="root_sidebar-nav">
+          <li id="nav-home" class="active">
             <i class="fa-solid fa-house"></i>
-            <p><a href="#">Home</a></p>
-          </div>
-          <div class="sidebar-item">
+            Home
+          </li>
+          <li style="cursor: not-allowed" id="nav-search" class="active">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <p><a href="/explore.html">Explore</a></p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-record-vinyl"></i>
-            <p>Albums</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-palette"></i>
-            <p>Artists</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-film"></i>
-            <p>Videos</p>
-          </div>
-        </div>
-
-        <div class="sidebar-menu">
-          <p class="sidebar-heading active">LIBRARY</p>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-tower-broadcast"></i>
-            <p>Recent</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-record-vinyl"></i>
-            <p>Albums</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-microphone-lines"></i>
-            <p>Podcasts</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-regular fa-circle-down"></i>
-            <p>Download</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <p>Local</p>
-          </div>
-        </div>
-
-        <div class="sidebar-menu">
-          <p class="sidebar-heading active">PLAYLISTS</p>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-circle-plus"></i>
-            <p>Add new playlist</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-headphones"></i>
-            <p>Nhac Han Quoc</p>
-          </div>
-        </div>
+            Search
+          </li>
+        </ul>
       </div>
-    </aside>
-    <main>
-      <header>
-        <div class="header-type">
-          <p class="header-type_item active">MUSIC</p>
-          <p class="header-type_item">LIVE</p>
-          <p class="header-type_item">PODCAST</p>
-        </div>
-        <div class="header-search">
-          <form action="#">
-            <input type="search" placeholder="Type your search here" />
-            <span><i class="fa-solid fa-magnifying-glass"></i></span>
-          </form>
-        </div>
-        <div class="header-action">
-          <i class="fa-solid fa-bell"></i>
-          <i class="fa-solid fa-gear"></i>
-          <div class="header-action_avatar">
-            <img src="./asset/img/main/header/ava.jpg" alt="" />
-          </div>
-        </div>
-      </header>
 
-      <section class="trend">
-        <div class="trend-info">
-          <p>Trending</p>
-          <p class="trend-song_title">Thích Quá Rùi Nà</p>
-          <p>tlinh</p>
-          <div class="trend-info_action">
-            <button class="action-btnplay">
-              Play Now <span><i class="fa-solid fa-play"></i></span>
-            </button>
-            <button class="action-btnadd">
-              <i class="fa-solid fa-plus"></i>
-            </button>
+      <!-- main -->
+      <div class="root_main">
+        <div class="root_header">
+          <div class="root_header-user">
+            <img
+              src="./asset/img/main/header/ava.jpg"
+              alt="avatar"
+              class="root_header-user_avatar"
+            />
+            <div class="root_header-user_name">Chi</div>
+            <i class="fa-solid fa-caret-down"></i>
           </div>
         </div>
-        <div class="trend-img">
-          <img
-            src="./asset/img/main/trend/trending_artist.jpg"
-            alt="trending artist image"
-          />
-        </div>
-      </section>
-
-      <section class="main">
-        <div class="songs">
-          <div class="top-song">
-            <div class="song-action">
-              <p>Top Songs</p>
-              <p class="top-song_all">See all</p>
-            </div>
-            <div class="song-list">
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-01.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>người điên</p>
-              </div>
-  
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-02.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>nếu lúc đó</p>
-              </div>
-  
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-03.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>làm lành chữa tình</p>
-              </div>
-  
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-04.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>tình yêu có nghĩa là gì</p>
-              </div>
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-01.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>người điên</p>
-              </div>
-  
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-02.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>nếu lúc đó</p>
-              </div>
-  
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-03.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>làm lành chữa tình</p>
-              </div>
-  
-              <div class="song-item">
-                <img src="./asset/img/main/song/song-04.jpg" alt="">
-                <h3>tlinh</h3>
-                <p>tình yêu có nghĩa là gì</p>
-              </div>
-            </div>
-          </div>
+        <div class="root_main-playing">
           
         </div>
-        <div class="now">
-          <div class="now-song_info">
-            <div class="song-title">
-              <h4>Thích Quá Rùi Nà</h4>
-              <p>tlinh</p>
-            </div>
-            <div class="song-play">
-              <div class="song-play_action">
-                <i class="fa-solid fa-shuffle"></i>
-                <i class="fa-solid fa-backward"></i>
-                <i class="fa-solid fa-play"></i>
-                <i class="fa-solid fa-forward"></i>
-                <i class="fa-solid fa-repeat"></i>
-              </div>
-              <div class="song-play_slide">
-                <span>00:00</span>
-                <div class="slide"></div>
-                <span>04:19</span>
-              </div>
-            </div>
-          </div>
-          <div class="now-song_action">
-            <i class="fa-solid fa-binoculars active"></i>
-            <i class="fa-solid fa-music"></i>
-            <i class="fa-solid fa-circle-plus"></i>
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <div class="volumn">
-              <i class="fa-solid fa-volume-low"></i>
-              <div class="volumn-progress"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </div>
     <script src="./asset/js/main.js"></script>
   </body>
 </html>

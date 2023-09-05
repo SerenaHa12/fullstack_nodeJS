@@ -6,17 +6,35 @@
     <title>Clone Spotify</title>
     <!-- link css -->
     <link rel="stylesheet" href="./asset/css/style.css">
+
+    <!-- link icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 </head>
 <body>
     <nav>
         <ul>
             <li class="brand">
                 <img src="./asset/img/Spotify-logo.png" alt="logo">
+                Spotify
             </li>
             <li>Home</li>
             <li>About</li>
         </ul>
     </nav>
+
+    <div class="container">
+        <h1>Best of NCS - No Copyright Sounds</h1>
+        <div class="songlist"></div>
+        <div class="songBanner"></div>
+    </div>
+
+    <div class="bottom">
+        <input type="range" name="range" id="progressBar" min="0" max="100">
+        <div class="icons"></div>
+    </div>
     <script src="./asset/js/main.js"></script>
 </body>
 </html>

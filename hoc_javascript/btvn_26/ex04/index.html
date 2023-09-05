@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="./asset/css/style.css" />
+    <!-- link icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- link font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="music-player">
+        <h1 class="music-name"></h1>
+        <p class="artist-name"></p>
+        <div class="disk"></div>
+        <div class="song-slider">
+            <input type="range" value="0" class="seek-bar">
+            <span class="current-time">00:00</span>
+            <span class="song-duaration">00:00</span>
+        </div>
+        <div class="controls">
+            <button class="play-btn pause">
+                <span></span>
+                <span></span>
+        </div>
+    </div>
+
+    <!-- audio -->
+    <audio src="" id="audio"></audio>
+
+    <!-- script -->
+    <script src="./asset/js/database.js"></script>
+    <script src="./asset/js/main.js"></script>
+  </body>
+</html>
