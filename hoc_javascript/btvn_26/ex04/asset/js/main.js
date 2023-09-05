@@ -9,7 +9,7 @@ var currentTime = document.querySelector('.current-time');
 var songDuaration = document.querySelector('.song-duaration');
 var playBtn = document.querySelector('.play-btn');
 
-playBtn.addEventListener('click', function() {
+playBtn.addEventListener('click', () => {
     if (playBtn.className.includes('pause')) {
         music.play();
     } else {
@@ -24,17 +24,22 @@ var setMusic = (i) => {
     var song = songs[i];
     currentMusic = i;
     music.src = song.path;
-    console.log(song);
+    // console.log(song);
 
     songName.innerHTML = song.name;
     artistName.innerHTML = song.artist;
     disk.computedStyleMap.backgroundImage = `url('${song.cover}')`;
 
     currentTime.innerHTML = '00:00';
-    setTimeout(() => {
-        seekBar.max = music.duaration;
-        songDuaration.innerHTML = formatTime(music.duaration)
-    }, 300)
+    // setTimeout(() => {
+    //     seekBar.max = music.duaration;
+    //     songDuaration.innerHTML = formatTime(music.duaration)
+    // }, 300)
+
+    music.addEventListener('loadedmetadata', () => {
+        seekBar.max = music.duration; // Sử dụng duration thay vì duaration
+        songDuaration.innerHTML = formatTime(music.duration);
+    });
     console.log(songDuaration);
     console.log(music.duaration);
 }
@@ -56,3 +61,7 @@ setInterval(() => {
     seekBar.value = music.currentTime;
     currentTime.innerHTML = formatTime(music.currentTime)
 }, 500)
+
+seekBar.addEventListener('change', () => {
+    music.currentTime = seekBar.value;
+})
