@@ -11,7 +11,7 @@ var playBtn = document.querySelector(".play-btn");
 var tooltip = document.querySelector(".tooltip");
 
 /**
- * case: Khi dừng nhạc, sau đó play lại 
+ * case: Khi dừng nhạc, sau đó play lại
  * vẫn phải chạy tiếp từ vị trí dừng
  */
 playBtn.addEventListener("click", () => {
@@ -25,13 +25,14 @@ playBtn.addEventListener("click", () => {
 });
 
 /**
- * case: Khi chạy hết nhạc => Reset mọi thứ về 0 => 
+ * case: Khi chạy hết nhạc => Reset mọi thứ về 0 =>
  * Có nghĩa khi bấm vào nút play sẽ chạy lại từ đầu
  */
 music.addEventListener("ended", () => {
   playBtn.classList.toggle("pause");
   // reset time
-  currentTime.innerHTML = "00:00";
+  music.currentTime = 0;
+  currentTime.innerHTML = "00 : 00";
 });
 
 var setMusic = (i) => {
@@ -55,6 +56,7 @@ var setMusic = (i) => {
 };
 setMusic(0);
 
+// format time về min:sec
 var formatTime = (time) => {
   var min = Math.floor(time / 60);
   if (min < 10) {
@@ -77,7 +79,7 @@ seekBar.addEventListener("input", () => {
 });
 
 /**
- * case: Khi hover vào timer => 
+ * case: Khi hover vào timer =>
  * Hiển thị thời gian xem trước
  */
 function updateTooltip(event) {
@@ -93,3 +95,9 @@ seekBar.addEventListener("mousemove", updateTooltip);
 seekBar.addEventListener("mouseleave", () => {
   tooltip.style.display = "none";
 });
+
+/**
+ * Thiếu case:
+ * Khi tua nhạc bị xước nhạc -> vì lúc đó nhạc vẫn đang tua
+ *
+ */
