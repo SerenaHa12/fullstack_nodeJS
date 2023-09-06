@@ -362,6 +362,8 @@ Header Style
   display: flex;
   padding: 15px 0px;
   border-radius: 50px;
+  position: sticky;
+  top: 0;
 }
 
 .background-header .main-nav {
