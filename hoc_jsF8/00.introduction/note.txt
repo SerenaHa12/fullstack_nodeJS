@@ -1,0 +1,6 @@
+JavaScript Can Change HTML Content: getElementById()
+JavaScript Can Change HTML Attribute Values: 
+JavaScript Can Change HTML Styles (CSS): 
+JavaScript Can Hide HTML Elements
+JavaScript Can Show HTML Elements
+

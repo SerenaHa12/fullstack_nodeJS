@@ -13,7 +13,7 @@ Kiểu dữ liệu trong JS
     - Object
         + Array
         + Object
-        + Reference Data
+        + Reference Data: A Date
 
 
 Lưu ý: Kết quả trả về của typeof sẽ luôn là 1 chuỗi, vậy nên typeof của d sẽ là 'string'

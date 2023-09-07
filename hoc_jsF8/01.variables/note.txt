@@ -1,3 +1,60 @@
+Có 4 cách đặt biến:
+1. automatically
+2. using var
+3. using const 
+4. using let
+
+Sự khác nhau giữa var, let và const:
+
+Định nghĩa
+- var được sử dụng phổ biến từ 1995 tới 2015
+- var thường được sử dụng trên các trình duyệt cũ
+- let và const được thêm mới từ 2015 (ra mắt ES6)
+
+Cách sử dụng
+- cả 3 đều được sử dụng để đặt biến
+- const được đặt cho biến không có giá trị thay đổi 
+- const được đặt cho biến không kiểu dữ liệu thay đổi (array | object)
+- let được sử dụng khi không thể dùng const 
+- var thường sử dụng để xử lý các trình duyệt cũ
+
+Lưu ý:
+Let:
+- Variables defined with let cannot be Redeclared
+- Variables defined with let must be Declared before use
+- Variables defined with let have Block Scope
+
+Const:
+- The const keyword was introduced in ES6 (2015)
+- Variables defined with const cannot be Redeclared
+- Variables defined with const cannot be Reassigned
+- Variables defined with const have Block Scope
+
+Block Scope
+- Before ES6 (2015), JavaScript had Global Scope and Function Scope.
+- ES6 introduced two important new JavaScript keywords: let and const.
+- These two keywords provide Block Scope in JavaScript.
+- Variables declared inside a { } block cannot be accessed from outside the block:
+    Example
+    {
+    let x = 2;
+    }
+// x can NOT be used here
+
+Good:
+- let and const have block scope.
+- let and const can not be redeclared.
+- let and const must be declared before use.
+- let and const does not bind to this.
+- let and const are not hoisted.
+
+Not Good:
+- var does not have to be declared.
+- var is hoisted.
+- var binds to this.
+
+The let and const keywords are not supported in Internet Explorer 11 or earlier.
+
 Cách khai báo biến:
 - Đặt tên biến theo cú pháp camelCase
 - var + tên biến
@@ -39,3 +96,32 @@ Giới thiệu một số hàm Build-in
     -> hàm setTimeout truyền vào 2 tham số: function và thời gian
     -> hàm này có nghĩa là set thời gian cho một hàm chạy trong bao lâu
     -> chạy liên tục lặp lại sau 1000ms
+
+7. JavaScript Dollar Sign $
+    - Since JavaScript treats a dollar sign as a letter, 
+    identifiers containing $ are valid variable names
+
+    - example:
+    let $ = "Hello World";
+    let $$$ = 2;
+    let $myMoney = 5;
+
+8. JavaScript Underscore (_)
+    - Since JavaScript treats underscore as a letter, 
+    identifiers containing _ are valid variable names:
+
+    - example:
+    let _lastName = "Johnson";
+    let _x = 2;
+    let _100 = 5;
+
+Keyword	Description
+var	            Declares a variable
+let	            Declares a block variable
+const	        Declares a block constant
+if	            Marks a block of statements to be executed on a condition
+switch	        Marks a block of statements to be executed in different cases
+for	            Marks a block of statements to be executed in a loop
+function	    Declares a function
+return	        Exits a function
+try	            Implements error handling to a block of statements
