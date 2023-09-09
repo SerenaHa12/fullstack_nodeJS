@@ -1,67 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manage Cart - Day 27</title>
     <style>
-        table{
-            text-align: center;
-        }
+      table {
+        text-align: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>DANH SÁCH SẢN PHẨM</h1>
-    <table cellpadding="0" cellspacing="0" width="100%" border="1" id="productTable">
-        <thead>
-            <tr>
-                <th width="5%">STT</th>
-                <th width="60%">Tên sản phẩm</th>
-                <th>Giá</th>
-                <th>Thêm vào giỏ</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Sản phẩm 1</td>
-                <td>1000</td>
-                <td>
-                    <input type="number" id="quantity1" value="1" style="width: 90%; display: block; margin: 0 auto">
-                    <button type="button" style="width: 100%;" id="add_to_cart_1">Thêm vào giỏ</button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Sản phẩm 2</td>
-                <td>2000</td>
-                <td>
-                    <input type="number" id="quantity1" value="1" style="width: 90%; display: block; margin: 0 auto">
-                    <button type="button" style="width: 100%;" id="add_to_cart_1">Thêm vào giỏ</button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Sản phẩm 3</td>
-                <td>3000</td>
-                <td>
-                    <input type="number" id="quantity1" value="1" style="width: 90%; display: block; margin: 0 auto">
-                    <button type="button" style="width: 100%;" id="add_to_cart_1">Thêm vào giỏ</button>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Sản phẩm 4</td>
-                <td>4000</td>
-                <td>
-                    <input type="number" id="quantity1" value="1" style="width: 90%; display: block; margin: 0 auto">
-                    <button type="button" style="width: 100%;" id="add_to_cart_1">Thêm vào giỏ</button>
-                </td>
-            </tr>
-        </tbody>
+
+    <!-- product-list -->
+    <table
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      border="1"
+      id="productList"
+    >
+      <thead>
+        <tr>
+          <th width="5%">STT</th>
+          <th width="70%">Tên sản phẩm</th>
+          <th width="10%">Giá</th>
+          <th>Số lượng</th>
+          <th>Thêm vào giỏ</th>
+        </tr>
+      </thead>
+      <tbody class="product-list">
+        <tr>
+          <td>1</td>
+          <td>Sản phẩm 1</td>
+          <td>1000</td>
+          <td>
+            <input
+              type="number"
+              id="quantity_1"
+              value="1"
+              style="width: 87%; display: block; margin: 0 auto"
+              onchange="updateTotalPrice(1)"
+              min="0"
+            />
+          </td>
+          <td>
+            <button style="width: 90%" onclick="addToCart(1)">
+              Thêm vào giỏ
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Sản phẩm 2</td>
+          <td>2000</td>
+          <td>
+            <input
+              type="number"
+              min="0"
+              id="quantity_2"
+              value="1"
+              style="width: 87%; display: block; margin: 0 auto"
+              onchange="updateTotalPrice(2)"
+            />
+          </td>
+          <td>
+            <button style="width: 90%" onclick="addToCart(2)">
+              Thêm vào giỏ
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Sản phẩm 3</td>
+          <td>3000</td>
+          <td>
+            <input
+              type="number"
+              min="0"
+              id="quantity_3"
+              value="1"
+              style="width: 87%; display: block; margin: 0 auto"
+              onchange="updateTotalPrice(3)"
+            />
+          </td>
+          <td>
+            <button style="width: 90%" onclick="addToCart(3)">
+              Thêm vào giỏ
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Sản phẩm 4</td>
+          <td>4000</td>
+          <td>
+            <input
+              type="number"
+              min="0"
+              id="quantity_4"
+              value="1"
+              style="width: 87%; display: block; margin: 0 auto"
+              onchange="updateTotalPrice(4)"
+            />
+          </td>
+          <td>
+            <button style="width: 90%" onclick="addToCart(4)">
+              Thêm vào giỏ
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
 
+    <!-- add to cart -->
     <h1>GIỎ HÀNG</h1>
     <p class="decs">Giỏ hàng không có sản phẩm nào</p>
-</body>
+    <table
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      border="1"
+      id="productCart"
+    >
+      <thead>
+        <tr>
+          <th width="5%">STT</th>
+          <th width="60%">Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody class="product-card"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">Tổng giá:</td>
+          <td id="totalPrice">0</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <button onclick="clearCart()">Xóa toàn bộ</button>
+    <button onclick="updateCart()">Cập nhật giỏ hàng</button>
+
+    <!-- link script -->
+    <script src="./main.js"></script>
+  </body>
 </html>
