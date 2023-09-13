@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 28 - Scroll Event</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+        .back {
+            text-decoration: none;
+            border: none;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            background-color: red;
+            color: white;
+            padding: 10px;
+            display: none;
+        }
+        .back.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll Event</h1>
+    <button class="btn">Go</button>
+    <button class="back">Scroll</button>
+    <script src="./main.js"></script>
+</body>
+</html>

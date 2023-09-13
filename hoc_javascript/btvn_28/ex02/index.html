@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Phát Nhạc và Hiển Thị Lời</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .audio-container {
+        margin: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+      }
+
+      audio {
+        width: 100%;
+      }
+
+      .lyrics-container {
+        height: 300px;
+        overflow-y: scroll;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+
+      .lyrics-container p {
+        margin: 0;
+        padding: 5px 0;
+      }
+
+      .lyrics-container p.active {
+        background-color: #f0f0f0;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="audio-container">
+      <audio controls>
+        <source
+          src="./audio/DuaEmVeNhaa-GREYDChillies-9214678.mp3"
+          type="audio/mpeg"
+        />
+        Your browser does not support the audio element.
+      </audio>
+      <div class="lyrics-container" id="lyrics-container"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
