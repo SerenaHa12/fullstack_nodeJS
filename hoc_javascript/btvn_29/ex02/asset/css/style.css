@@ -21,7 +21,8 @@ body {
   padding: 30px 30px;
 }
 
-.item {
+.item,
+.module {
   list-style: none;
   align-items: center;
   border: 2px solid #968f80;
@@ -29,7 +30,16 @@ body {
   margin: 10px;
   border-radius: 8px;
 }
-
+.module {
+  background: #38abe0;
+  color: #fff;
+  border: 1px solid #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
 .item.drag :where(.details, i) {
+  opacity: 0;
+}
+.module.drag :where(.module-details, i) {
   opacity: 0;
 }

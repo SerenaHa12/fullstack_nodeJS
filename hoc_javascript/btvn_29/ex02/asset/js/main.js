@@ -1,46 +1,86 @@
-var items = document.querySelectorAll(".item");
 var sortableList = document.querySelector(".sortable-list");
+var items = document.querySelectorAll(".item");
+var modules = document.querySelectorAll(".module");
 
-// drag and drop event listener to list item
-items.forEach((item) => {
-  // add class deag
-  item.addEventListener("dragstart", () => {
-    // item.classList.add('drag');
-    setTimeout(() => item.classList.add("drag"), 0);
-  });
-  // remove class drag
-  item.addEventListener("dragend", () => {
-    item.classList.remove("drag");
-  });
-});
+var listItemIndex = 0;
+var moduleIndex = 0;
 
-items.forEach((item, index) => {
-    // Thêm số bài và số thứ tự vào trước nội dung của span details
-    var details = item.querySelector(".details");
-    details.textContent = `Bài ${index + 1} - ${details.textContent}`;
-  
-    // Thêm sự kiện dragstart để cập nhật số bài khi kéo
-    item.addEventListener("dragstart", (e) => {
-      var dragItem = e.target;
-      var dragIndex = [...items].indexOf(dragItem) + 1;
-      e.dataTransfer.setData("text/plain", dragIndex);
-    });
+// cập nhập và hiển thị lại index
+function updateIndex(rootElement) {
+  // chuyển thành mảng các ptu con của sortableList
+  var childArr = Array.from(rootElement.children);
+
+  childArr.forEach(function (item, index) {
+    item.draggable = "true";
+
+    var type = "Bài";
+
+    // xác định module | item
+    if (item.classList.contains("module")) {
+      type = "Module";
+      moduleIndex++;
+    } else {
+      listItemIndex++;
+    }
+
+    // update index và add vào span
+    if (!item.children.length) {
+      item.innerHTML = `${type} ${
+        type === "Module" ? moduleIndex : listItemIndex
+      }: <span>${item.innerText}</span>`;
+    } else {
+      item.innerHTML = `${type} ${
+        type === "Module" ? moduleIndex : listItemIndex
+      }: <span>${item.children[0].innerText}</span>`;
+    }
   });
-sortableList.addEventListener("dragover", (e) => {
+}
+
+// sự kiện drag drop
+function handleDragOver(e) {
   e.preventDefault();
-  var dragItem = document.querySelector(".drag");
-  // making array of them
-  var siblings = [...sortableList.querySelectorAll(".item:not(.drag)")];
+  e.dataTransfer.dropEffect = "move";
 
-  var nextSibling = siblings.find((sibling) => {
-    return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
-  });
-  // console.log(nextSibling);
-
-  // insert drag item
-  if (nextSibling === undefined) {
-    sortableList.appendChild(dragItem);
-  } else {
-    sortableList.insertBefore(dragItem, nextSibling);
+  var targetElement = e.target;
+  if (
+    targetElement &&
+    targetElement !== dragElement &&
+    targetElement.nodeName === "LI"
+  ) {
+    if (targetElement.parentElement === sortableList) {
+      sortableList.insertBefore(dragElement, targetElement);
+    }
   }
+}
+
+// drag end
+function handleDragEnd(e) {
+  e.preventDefault();
+
+  // Reset index counters
+  listItemIndex = 0;
+  moduleIndex = 0;
+
+  // Re-updateIndex the list with updated indexes
+  updateIndex(sortableList);
+
+  dragElement.classList.remove("opacity");
+  sortableList.removeEventListener("dragover", handleDragOver);
+  sortableList.removeEventListener("dragend", handleDragEnd);
+}
+
+sortableList.addEventListener("dragstart", function (e) {
+  dragElement = e.target;
+
+  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.setData("Text", dragElement.textContent);
+
+  sortableList.addEventListener("dragover", handleDragOver);
+  sortableList.addEventListener("dragend", handleDragEnd);
+
+  setTimeout(function () {
+    dragElement.classList.add("opacity");
+  }, 0);
 });
+
+updateIndex(sortableList);
