@@ -54,6 +54,9 @@ function handleDragOver(e) {
 }
 
 // drag end
+// thiết lập lại các biến đếm chỉ số và sau đó gọi 
+// updateIndex(sortableList) để cập nhật lại chỉ số 
+// của danh sách sau khi các mục đã được sắp xếp lại
 function handleDragEnd(e) {
   e.preventDefault();
 
