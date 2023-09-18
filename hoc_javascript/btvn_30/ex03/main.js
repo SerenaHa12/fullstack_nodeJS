@@ -54,3 +54,5 @@ customElements.define("HelloWorld", HelloWorld);
 // lưu ý: nên nhớ nguyên tắc
 
 // Đọc thêm về reflect
+// Đọc thêm về code snippet
+// Đọc thêm về shadow DOM
