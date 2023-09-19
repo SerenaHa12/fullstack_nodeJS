@@ -6,24 +6,63 @@
     <title>Day 30 - Document Editor</title>
     <!-- link css -->
     <link rel="stylesheet" href="./asset/css/style.css" />
+
+    <!-- link icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
       <h2>Document Editor</h2>
-      <hr>
-      <div class="action">
-        <button class="action-file"></button>
-        <div class="action-text">
-          <button class="bold">b</button>
-          <button class="underline">u</button>
-          <button class="italic">i</button>
-          <button class="color"></button>
+      <div class="actions">
+        <div class="file-action">
+          <div class="dropdown">
+            <button class="action-btn file">
+              File <span><i class="fa-solid fa-caret-down"></i></span>
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item">
+                <span><i class="fa-solid fa-file-circle-plus"></i></span> New
+              </button>
+              <button class="dropdown-item">
+                <span><i class="fa-solid fa-file-pdf"></i></span> Save as PDF
+              </button>
+              <button class="dropdown-item">
+                <span><i class="fa-solid fa-file-signature"></i></span> Save as TXT
+              </button>
+            </div>
+          </div>
+          <input type="text" class="title" placeholder="untitled" />
+        </div>
+        <div class="text-action">
+          <button class="action-btn bold">
+            <i class="fa-solid fa-bold"></i>
+          </button>
+          <button class="action-btn underline">
+            <i class="fa-solid fa-underline"></i>
+          </button>
+          <button class="action-btn italic">
+            <i class="fa-solid fa-italic"></i>
+          </button>
+          <div class="action-btn input-color">
+            <input type="color" class="action-btn color" />
+          </div>
         </div>
       </div>
-      <div class="content"></div>
-      <div class="count">
-        <p>Số ký tự: <span>0</span></p>
-        <p>Số từ: <span>0</span></p>
+      <div class="content" contenteditable="true">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+        commodi temporibus, illo ipsam quo ipsa eveniet modi at ab quae qui
+        nesciunt unde libero et quisquam atque pariatur non praesentium
+        molestias architecto aperiam accusantium sunt velit? Rerum pariatur
+        fugit atque numquam laborum delectus nemo voluptas? Odio recusandae
+        illum quibusdam quae voluptatibus consequatur veniam sed magni omnis
+        corporis nihil eligendi facilis molestiae, excepturi quidem sit dolorem.
+        Voluptate id laborum dolor labore vitae. Facere minus dolor natus eaque,
+        a quasi minima ratione eligendi repellat sapiente! Recusandae quisquam
+        consequuntur fugit, in sed magni eum sit rem repellat ipsam atque
+        deserunt, vel maxime! Ipsa!
       </div>
     </div>
     <!-- link script -->

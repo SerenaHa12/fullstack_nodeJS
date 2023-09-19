@@ -1,25 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Inter", sans-serif;
 }
-
 body {
-    background-color: rgb(126, 167, 194);
+  background-color: #8ca8e9;
 }
-
 .container {
-    margin: 100px 200px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    border-radius: 8px;
+  margin: 50px 100px;
+  background-color: #fff;
+  border-radius: 40px;
+  height: calc(100vh - 100px);
+  box-shadow: 0 25px 50px rgba(255, 255, 255, 0.2);
+  position: relative;
+  padding: 40px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid #2b395a;
+  border-bottom: 0px solid #fff;
+  padding: 10px;
+}
+.file-action {
+    display: flex;
+    gap: 20px;
+}
+.text-action {
+  display: flex;
+  gap: 20px;
+}
+input[type="text"] {
+  border: 2px solid #2b395a;
+  padding: 5px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 600;
+}
+button,
+.input-color {
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  border: 2px solid #2b395a;
+  background-color: #fff;
+  cursor: pointer;
+}
+button.file {
+  padding: 0 10px;
+  width: auto;
+  font-size: 15px;
+  font-weight: 700;
+}
+button.file span {
+  padding-left: 6px;
+}
+button:hover {
+  background-color: #8ca8e9;
+  color: #fff;
 }
 
-h2 {
-    padding-bottom: 20px;
-    font-size: 24px;
+input[type="color"] {
+  height: 26px;
+  width: 26px;
+  border: none;
+  cursor: pointer;
+}
+.content {
+  border: 2px solid #2b395a;
+  height: 600px;
+  padding: 10px;
+}
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 32px;
+    border: 2px solid #2b395a;
+    background-color: #fff;
+    border-radius: 4px;
+    display: none;
+}
+.dropdown-menu .dropdown-item {
+    display: block;
+    width: 140px;
+    text-align: left;
+    padding: 0 10px;
+    border: none;
+    color: #000;
+    font-weight: 600;
+}
+.dropdown-menu .dropdown-item span {
+    margin-right: 6px;
+}
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown::after {
+    content: "";
+    width: 70px;
+    height: 10px;
+    background-color: transparent;
+    position: absolute;
+    top: 30px;
+    left: 0;
 }
