@@ -78,7 +78,7 @@ input[type="color"] {
 }
 .content {
   border: 2px solid #2b395a;
-  height: 600px;
+  height: calc(100vh - 80px - 90px - 80px);
   padding: 10px;
 }
 .dropdown {
