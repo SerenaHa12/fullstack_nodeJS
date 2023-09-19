@@ -23,18 +23,19 @@
               File <span><i class="fa-solid fa-caret-down"></i></span>
             </button>
             <div class="dropdown-menu">
-              <button class="dropdown-item">
+              <button class="dropdown-item new">
                 <span><i class="fa-solid fa-file-circle-plus"></i></span> New
               </button>
-              <button class="dropdown-item">
+              <button class="dropdown-item pdf">
                 <span><i class="fa-solid fa-file-pdf"></i></span> Save as PDF
               </button>
-              <button class="dropdown-item">
-                <span><i class="fa-solid fa-file-signature"></i></span> Save as TXT
+              <button class="dropdown-item txt">
+                <span><i class="fa-solid fa-file-signature"></i></span> Save as
+                TXT
               </button>
             </div>
           </div>
-          <input type="text" class="title" placeholder="untitled" />
+          <input type="text" class="title" value="untitled" />
         </div>
         <div class="text-action">
           <button class="action-btn bold">
@@ -52,20 +53,15 @@
         </div>
       </div>
       <div class="content" contenteditable="true">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-        commodi temporibus, illo ipsam quo ipsa eveniet modi at ab quae qui
-        nesciunt unde libero et quisquam atque pariatur non praesentium
-        molestias architecto aperiam accusantium sunt velit? Rerum pariatur
-        fugit atque numquam laborum delectus nemo voluptas? Odio recusandae
-        illum quibusdam quae voluptatibus consequatur veniam sed magni omnis
-        corporis nihil eligendi facilis molestiae, excepturi quidem sit dolorem.
-        Voluptate id laborum dolor labore vitae. Facere minus dolor natus eaque,
-        a quasi minima ratione eligendi repellat sapiente! Recusandae quisquam
-        consequuntur fugit, in sed magni eum sit rem repellat ipsam atque
-        deserunt, vel maxime! Ipsa!
+        
+      </div>
+      <div class="word-count">
+        <p>Words: <span id="word-count">0</span></p>
+        <p>Characters: <span id="char-count">0</span></p>
       </div>
     </div>
     <!-- link script -->
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script src="./asset/js/main.js"></script>
   </body>
 </html>
