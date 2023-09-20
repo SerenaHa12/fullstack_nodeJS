@@ -57,6 +57,7 @@ var price = 12000000;
 
 /*
 Bai 3: Chuyển đổi mảng 1 chiều thành dạng lồng (nested)
+Nhiệm vụ: Chuyển thành dạng lồng nested loop
 */
 
 // bước 1: khởi tạo dữ liệu
@@ -124,17 +125,22 @@ var getCategories = function (categories, parent = 0) {
   if (categories.length) {
     categories.forEach(function (category, index) {
       if (category.parent === parent) {
+        // console.log(categories); 
+        // đến bước này sẽ log ra được 3 phần tử cha có parent là 0
         // sử dụng đệ quy
         var children = getCategories(categories, category.id);
         if (children.length) {
           category.children = children;
         }
 
-        result[category.id] = category;
+        // console.log(category);
+        // đến bước này sẽ log được tất cả các category children
+        result[category.id] = category; // nối category vào result
       }
     });
   }
 
+  // reset lại mảng để tạo ra mảng mới, reset hết key
   result = result.filter(function (item) {
     return true;
   });
@@ -151,8 +157,10 @@ sử dụng Prototype trong Javascript
 Lưu ý: Đặt tên là reduce2()
 */
 
+// bước 1: tạo mảng để test 
 var numbers = [5, 10, 15, 20, 25];
 
+// tạo function reduce2
 Array.prototype.reduce2 = function (callback, initialValue) {
   if (this.length) {
     var prev;

@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+ul,
+li {
+  list-style: none;
+}
+.modal-auth {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  transition-property: opacity, visibility;
+}
+.modal-auth.show {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-auth .modal-dialog {
+  width: 400px;
+  background: #fff;
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 40px;
+  border-radius: 8px;
+  z-index: 1;
+}
+.modal-auth .overlay {
+  background: #0000003e;
+  position: fixed;
+  inset: 0;
+}
+.modal-auth .tab-nav ul {
+  display: flex;
+}
+
+.modal-auth .tab-nav ul li {
+  flex: 1 1 auto;
+}
+
+.modal-auth .tab-nav ul li a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  background: #eeeeee;
+}
+
+.modal-auth .tab-nav ul li:first-child a {
+  border-radius: 5px 0 0 0;
+}
+
+.modal-auth .tab-nav ul li:last-child a {
+  border-radius: 0 5px 0 0;
+}
+
+.modal-auth .tab-nav ul li a.active {
+  background: #fff;
+}
+
+.modal-auth .tab-content {
+  padding: 20px;
+}
+
+.modal-auth .tab-content .tab-panel:not(.active) {
+  display: none;
+}
+
+.modal-auth .login-form .form-group {
+  margin-bottom: 15px;
+}
+
+.modal-auth .login-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-auth .login-form input {
+  width: 100%;
+  border: 1px solid #efefef;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.modal-auth .login-form .btn {
+  width: 100%;
+  background: green;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+
+.modal-auth .login-form .error {
+  color: red;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.modal-auth .login-form .has-error .field-item {
+  border-color: red;
+}
+
+.modal-auth .login-form .msg {
+  color: red;
+}
+
+.modal-auth .login-form .password-field {
+  position: relative;
+}
+
+.modal-auth .login-form .password-field .show-password {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-auth .login-form .password-field .show-password svg:first-child {
+  display: none;
+}
+
+.modal-auth .login-form .password-field .show-password.hide svg:first-child {
+  display: block;
+}
+
+.modal-auth .login-form .password-field .show-password.hide svg + svg {
+  display: none;
+}

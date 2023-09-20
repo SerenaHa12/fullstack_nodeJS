@@ -64,3 +64,11 @@ function updateCount() {
 }
 content.addEventListener("input", updateCount);
 updateCount();
+
+/**
+ * Có 2 loại:
+ * Rich Editor
+ * WYSIWYG HTML Editor
+ * 
+ * Nghiên cứu thêm 
+ */
