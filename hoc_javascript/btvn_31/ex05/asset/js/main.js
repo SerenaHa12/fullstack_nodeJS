@@ -1,21 +1,25 @@
 const counter = document.querySelector(".counter");
 const btn = document.querySelector(".btn");
 
-let count = 30; // Đếm ngược 30 giây
+let count = 30; // Đếm ngược 10 giây
+// let count = 10;
 let isButtonEnabled = false;
-let startTime; // lưu thgian bắt đầu đếm
+let startTime;
+let animationFrameId;
 
-
-// sử dụng window.requestAnimationFrame để gọi hàm giảm time
+// Sử dụng window.requestAnimationFrame để gọi hàm giảm thời gian
 function decreaseCount(customTime) {
-    // check start time
+  // Kiểm tra thời gian bắt đầu
   if (!startTime) {
     startTime = customTime;
   }
 
-//   tính time trôi qua dựa trên time bdau
+  // Tính thời gian đã trôi qua dựa trên thời gian bắt đầu
   const elapsedTime = customTime - startTime;
-  const secondsRemaining = Math.max(Math.floor((count * 1000 - elapsedTime) / 1000), 0);
+  const secondsRemaining = Math.max(
+    Math.floor((count * 1000 - elapsedTime) / 1000),
+    0
+  );
 
   counter.textContent = secondsRemaining;
 
@@ -25,18 +29,35 @@ function decreaseCount(customTime) {
   }
 
   if (secondsRemaining > 0) {
-    window.requestAnimationFrame(decreaseCount);
+    // Lặp lại hàm giảm thời gian
+    animationFrameId = window.requestAnimationFrame(decreaseCount);
   }
 }
 
 function getLink() {
   if (isButtonEnabled) {
-    window.location.href = "https://fullstack.edu.vn";
+    window.location.href =
+      "https://serenaha12.github.io/fullstack_nodeJS/hoc_javascript/btvn_31/ex05/index.html";
   }
 }
 
 btn.addEventListener("click", getLink);
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.requestAnimationFrame(decreaseCount);
+  // Gọi hàm giảm thời gian lần đầu
+  decreaseCount(performance.now());
+
+  // Bắt sự kiện visibilitychange (Hàm tham khảo)
+  // Sự kiện visibilitychange để theo dõi sự thay đổi trong tình trạng nhìn thấy của trang web
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      // Trang đã trở thành không nhìn thấy
+      // Hủy bỏ requestAnimationFrame để tạm dừng đồng hồ đếm
+      window.cancelAnimationFrame(animationFrameId);
+    } else if (document.visibilityState === "visible" && count > 0) {
+      // Trang đã trở lại và đang nhìn thấy
+      // Gọi lại hàm giảm thời gian nếu đếm vẫn còn
+      decreaseCount(performance.now());
+    }
+  });
 });
