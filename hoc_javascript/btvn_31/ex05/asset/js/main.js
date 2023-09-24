@@ -61,3 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+/*
+Tham khảo: Repaint and Reflow in JavaScript
+*/
