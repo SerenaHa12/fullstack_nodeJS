@@ -65,6 +65,7 @@ class Counter {
   constructor() {
     this.count = 0;
     this.h1 = null;
+    // chuyển về thuộc tính để đổi thành biến toàn cục
   }
 
   handleIncrement = () => {
