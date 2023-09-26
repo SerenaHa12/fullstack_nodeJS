@@ -18,8 +18,6 @@ customElements.define(
 //   console.log(key);
 // });
 
-// component.js
-
 class F8 {
   static component(tagName, options) {
     // check hợp lệ
