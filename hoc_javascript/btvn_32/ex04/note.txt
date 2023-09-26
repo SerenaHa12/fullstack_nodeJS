@@ -1,0 +1,16 @@
+Đề bài: Tạo ra một component F8 tạo ra custom element 
+
+Phân tích case study: 
+    - Bước 1: Tạo thẻ html
+    - Bước 2: Tạo một class F8, có phương thức component, 
+    có tham số thứ nhất là tên thẻ html, tham số thứ hai là object.
+    - Bước 3: Đưa key đầu tiên (hàm) data, return về object.
+    Key 1: 
+        Trong object sẽ có key 1: dữ liệu thể hiện khi ta hiển thị lên gioa diện (count),
+    Key 2: (template) bên trong là các thẻ html, sử lý sao để mình lấy được dứ liệu từ biến title.
+        Trong key 2, tạo 2 button có sự kiện v-on:click count--, count++
+
+Idea:
+    - Khái niệm template
+    - Tìm hiểu hàm eval() để thực thi code
+
