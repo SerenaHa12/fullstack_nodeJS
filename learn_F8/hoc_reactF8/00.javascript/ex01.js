@@ -151,8 +151,18 @@ itCompanies.shift();
 console.log(`20. Remove the first IT company: ${itCompanies}`);
 
 // 21. Remove the middle IT company or companies from the array
-itCompanies.shift();
+itCompanies.splice(middleIndexCompany, 1);
 console.log(`21. Remove middle company: ${itCompanies}`);
 
 // 22. Remove the last IT company from the array
+itCompanies.pop();
+console.log(`22. Remove last company: ${itCompanies}`);
+
 // 23. Remove all IT companies
+const nonItCompanies = itCompanies.filter(
+  (company) => !itCompanies.includes(company)
+);
+console.log(`23. Remove all company: ${nonItCompanies}`);
+
+
+// done exercise 1

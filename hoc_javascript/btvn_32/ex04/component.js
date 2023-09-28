@@ -43,6 +43,10 @@ class F8 {
           this.data = this.options.data();
           // truy cập shadow dom của custom element
           const shadow = this.shadowRoot;
+          // xóa tất cả các child node trong shadow DOM trước khi thêm mới
+          while (shadow.firstChild) {
+            shadow.removeChild(shadow.firstChild);
+          }
           // tạo một phần tử <template> -> đặt nội dung của nó bằng template HTML từ options
           const templateEl = document.createElement("template");
           templateEl.innerHTML = this.options.template;
