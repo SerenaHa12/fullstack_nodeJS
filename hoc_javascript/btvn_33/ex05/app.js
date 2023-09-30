@@ -1,80 +1,64 @@
-const btn = document.querySelector(".btn");
+// const btn = document.querySelector(".btn");
 const result = document.querySelector(".result");
-
+const btn = document.querySelector(".btn");
 const recognition = new webkitSpeechRecognition();
 recognition.continuous = false; // Dừng khi ngừng nói
-recognition.lang = "en-US";
+recognition.lang = "vi-VN";
 
 const actions = {
-  google: () => {
-    window.open("https://www.google.com", "_blank");
+  google: {
+    url: "https://www.google.com",
+    message: "Đang thực hiện tìm kiếm Google...",
   },
-  facebook: () => {
-    window.open("https://www.facebook.com", "_blank");
+  facebook: {
+    url: "https://www.facebook.com",
+    message: "Đang thực hiện tìm kiếm Facebook...",
   },
-  youtube: () => {
-    window.open("https://www.youtube.com", "_blank");
+  youtube: {
+    url: "https://www.youtube.com",
+    message: "Đang thực hiện tìm kiếm YouTube...",
   },
-  "google drive": () => {
-    window.open("https://drive.google.com", "_blank");
+  "google drive": {
+    url: "https://drive.google.com",
+    message: "Đang thực hiện tìm kiếm Google Drive...",
   },
-  "google maps": () => {
-    window.open("https://maps.google.com", "_blank");
+  "google maps": {
+    url: "https://maps.google.com",
+    message: "Đang thực hiện tìm kiếm Bản đồ Google...",
   },
-  "bản đồ": () => {
-    window.open("https://maps.google.com", "_blank");
-  },
-  "chỉ đường": () => {
-    handleMap();
-  },
-  "mở bài hát": () => {
-    handleMusic();
-  },
-  "nghe bài hát": () => {
-    handleMusic();
-  },
-  "mở video": () => {
-    handleVideo();
-  },
-  "xem video": () => {
-    handleVideo();
-  },
-  default: () => {
-    result.textContent = "Không thực hiện được yêu cầu";
+  "bản đồ": {
+    url: "https://maps.google.com",
+    message: "Đang thực hiện tìm kiếm Bản đồ Google...",
   },
 };
 
-// Chỉ đường
-function handleMap() {
-  const input = prompt("Vui lòng nhập địa điểm cần đến:");
-  if (input) {
-    const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-      input
-    )}`;
+function openUrl(url) {
+  if (url) {
     window.open(url, "_blank");
   }
 }
 
-// Bài hát
-function handleMusic() {
-  const input = prompt("Nhập tên bài hát hoặc ca sĩ:");
-  if (input) {
-    const url = `https://www.zingmp3.vn/tim-kiem/bai-hat.html?q=${encodeURIComponent(
-      input
-    )}`;
-    window.open(url, "_blank");
-  }
+function showExecutingMessage(message) {
+  result.textContent = message;
 }
 
-// Video
-function handleVideo() {
-  const input = prompt("Nhập tên video:");
-  if (input) {
-    const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(
-      input
-    )}`;
-    window.open(url, "_blank");
-  }
+function handleDirections(input) {
+  const url = `https://maps.google.com/maps?q=${encodeURIComponent(input)}`;
+  openUrl(url);
+}
+
+function handleMusic(input) {
+  const url = `https://zingmp3.vn/tim-kiem/bai-hat.html?q=${encodeURIComponent(
+    input
+  )}`;
+  openUrl(url);
+}
+
+function handleVideo(input) {
+  const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(
+    input
+  )}`;
+  openUrl(url);
 }
 
 btn.addEventListener("click", () => {
@@ -83,8 +67,72 @@ btn.addEventListener("click", () => {
 
 recognition.onresult = (event) => {
   const transcript = event.results[0][0].transcript.toLowerCase();
-  const action =
-    Object.keys(actions).find((keyword) => transcript.includes(keyword)) ||
-    "default";
-  actions[action]();
+  let action;
+
+  if (transcript.includes("google")) {
+    action = "google";
+    showExecutingMessage("Executing google");
+  } else if (transcript.includes("facebook")) {
+    action = "facebook";
+  } else if (transcript.includes("youtube")) {
+    action = "youtube";
+  } else if (transcript.includes("google drive")) {
+    action = "google drive";
+  } else if (
+    transcript.includes("google maps") ||
+    transcript.includes("bản đồ")
+  ) {
+    action = "google maps";
+  } else if (
+    transcript.includes("chỉ đường") ||
+    transcript.includes("đường tới") ||
+    transcript.includes("tới") ||
+    transcript.includes("đường tới")
+  ) {
+    // Xử lý chỉ đường
+    const handleText = transcript
+      .replace("chỉ đường", "")
+      .replace("đường tới", "")
+      .replace("tới", "")
+      .replace("đường tới", "")
+      .trim();
+    handleDirections(handleText);
+    return;
+  } else if (
+    transcript.includes("nghe bài hát") ||
+    transcript.includes("mở bài hát") ||
+    transcript.includes("bài hát")
+  ) {
+    // Xử lý bài hát
+    const handleText = transcript
+      .replace("nghe bài hát", "")
+      .replace("mở bài hát", "")
+      .replace("bài hát", "")
+      .trim();
+    handleMusic(handleText);
+    return;
+  } else if (
+    transcript.includes("xem video") ||
+    transcript.includes("mở video") ||
+    transcript.includes("video")
+  ) {
+    // Xử lý video
+    const handleText = transcript
+      .replace("xem video", "")
+      .replace("mở video", "")
+      .replace("video", "")
+      .trim();
+    handleVideo(handleText);
+    return;
+  } else {
+    action = "default";
+  }
+
+  if (action === "default") {
+    showExecutingMessage("Không thực hiện được yêu cầu");
+  } else {
+    const { url, message } = actions[action];
+    showExecutingMessage(message);
+    openUrl(url);
+  }
 };
