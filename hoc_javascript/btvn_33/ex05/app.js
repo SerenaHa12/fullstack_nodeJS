@@ -71,7 +71,6 @@ recognition.onresult = (event) => {
 
   if (transcript.includes("google")) {
     action = "google";
-    showExecutingMessage("Executing google");
   } else if (transcript.includes("facebook")) {
     action = "facebook";
   } else if (transcript.includes("youtube")) {
@@ -89,7 +88,7 @@ recognition.onresult = (event) => {
     transcript.includes("tới") ||
     transcript.includes("đường tới")
   ) {
-    // Xử lý chỉ đường
+    // chỉ đường
     const handleText = transcript
       .replace("chỉ đường", "")
       .replace("đường tới", "")
@@ -103,7 +102,7 @@ recognition.onresult = (event) => {
     transcript.includes("mở bài hát") ||
     transcript.includes("bài hát")
   ) {
-    // Xử lý bài hát
+    // bài hát
     const handleText = transcript
       .replace("nghe bài hát", "")
       .replace("mở bài hát", "")
@@ -116,7 +115,7 @@ recognition.onresult = (event) => {
     transcript.includes("mở video") ||
     transcript.includes("video")
   ) {
-    // Xử lý video
+    // video
     const handleText = transcript
       .replace("xem video", "")
       .replace("mở video", "")
