@@ -1,5 +1,9 @@
 /*
 Try Catch 
+- Cú pháp
+  + Block Try
+  + Block Catch
+    . Nhận tham số e ( e là exception )
 - Dùng để xử lý lỗi ngoại lệ (Exception)
 
 Tình huống 1: cho 1 biến a
