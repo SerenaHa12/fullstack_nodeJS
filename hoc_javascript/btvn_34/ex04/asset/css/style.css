@@ -141,3 +141,21 @@ h1 span {
 .app-completed {
   margin: 12px 6px;
 }
+
+.completed-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.completed-task {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.edit-task {
+  display: none;
+}
