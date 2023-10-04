@@ -20,10 +20,12 @@
           <h1><span>Smatyx</span> Todos App</h1>
         </div>
         <form class="app-action">
-          <input type="search" placeholder="Search Todos" />
-          <button class="searchBtn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+          <div class="search">
+            <input type="search" placeholder="Search Todos" />
+            <button class="searchBtn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
           <button class="addBtn">Add Tasks</button>
         </form>
         <div class="app-task"></div>
@@ -37,8 +39,10 @@
 
     <div class="add-task">
       <input type="text" class="addTodoInput" placeholder="Add Todos" />
-      <button class="saveBtn">Save</button>
-      <button class="cancelBtn">Cancel</button>
+      <div>
+        <button class="saveBtn">Save</button>
+        <button class="cancelBtn">Cancel</button>
+      </div>
     </div>
     <div class="add-task_overlay"></div>
     <script src="./asset/js/main.js"></script>

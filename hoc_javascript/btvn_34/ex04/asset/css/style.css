@@ -12,10 +12,67 @@ body {
   position: relative;
 }
 
+.app-wrapper {
+  margin: 100px auto;
+  width: 35%;
+}
+
+button {
+  padding: 10px 14px;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/* APP TITLE */
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
 h1 span {
   background: -webkit-linear-gradient(#60a5fa, #059669);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* APP ACTION */
+.app-action {
+  margin: 0 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-action .search {
+  position: relative;
+  width: fit-content;
+}
+
+.app-action input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.app-action button.searchBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #1d4ed8;
+  font-size: 14px;
+  color: #fff;
+}
+
+.app-task .task-item {
+  display: flex;
+  margin: 10px;
+}
+
+.app-task .task-item p {
+  margin: 0;
 }
 
 .add-task.show {
@@ -29,7 +86,7 @@ h1 span {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #55555526;
+  background-color: #0000008b;
 }
 
 .add-task {
@@ -37,9 +94,39 @@ h1 span {
   position: fixed;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 40px 20px;
   z-index: 1;
+  border-radius: 4px;
+}
+
+.add-task input {
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.add-task div {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 80px 0px;
+}
+
+.add-task button {
+  padding: 8px 20px;
+  width: 80px;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.add-task button.saveBtn {
+  background-color: #047857;
+  color: #fff;
 }
 
 .app-task p {
@@ -48,4 +135,9 @@ h1 span {
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 400px;
+}
+
+/* APP COMPLETE */
+.app-completed {
+  margin: 12px 6px;
 }

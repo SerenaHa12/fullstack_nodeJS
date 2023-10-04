@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", async function () {
   const searchBtn = document.querySelector(".sreachBtn");
   const addBtn = document.querySelector(".addBtn");
@@ -24,15 +26,15 @@ document.addEventListener("DOMContentLoaded", async function () {
       taskTitle.textContent = title;
 
       const editButton = document.createElement("button");
-      editButton.textContent = "Edit";
+      editButton.innerHTML = "<span><i class='fa-solid fa-pen-to-square'></i></span>";
       editButton.addEventListener("click", () => editTask(id));
 
       const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
+      deleteButton.innerHTML = `<span><i class="fa-solid fa-trash"></i></span>`;
       deleteButton.addEventListener("click", () => deleteTask(id));
 
       const completeButton = document.createElement("button");
-      completeButton.textContent = "Complete";
+      completeButton.innerHTML = `<span><i class="fa-solid fa-list"></i></span>`;
       completeButton.addEventListener("click", () => completeTask(id));
 
       taskItem.appendChild(taskTitle);
@@ -81,22 +83,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   };
 
   // complete task
-  const completeTask = async (taskId) => {
-    try {
-      await fetch(`${apiUrl}/${taskId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ completed: true }),
-      });
-
-      // Refresh the task list
-      getTasks();
-    } catch (error) {
-      console.error("Error marking task as complete:", error);
-    }
-  };
 
   //   add task
   addBtn.addEventListener("click", (e) => {
