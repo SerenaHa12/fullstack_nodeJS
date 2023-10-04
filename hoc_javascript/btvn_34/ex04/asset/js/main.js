@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const cancelBtn = document.querySelector(".cancelBtn");
   const addTaskOverlay = document.querySelector(".add-task_overlay");
 
-  const apiUrl = "http://localhost:3000/task";
+  const apiUrl = "https://q9z2qj-3000.csb.app/task";
 
   const getTasks = async () => {
     const response = await fetch(apiUrl);
