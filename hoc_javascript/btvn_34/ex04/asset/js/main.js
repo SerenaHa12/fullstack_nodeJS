@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const cancelBtn = document.querySelector(".cancelBtn");
   const addTaskOverlay = document.querySelector(".add-task_overlay");
   const hiddenInput = document.querySelector(".hiddenInput");
-//   const editTask = document.querySelector('.edit-task');
+  //   const editTask = document.querySelector('.edit-task');
 
   const apiUrl = "https://q9z2qj-3000.csb.app/task";
 
@@ -48,27 +48,27 @@ document.addEventListener("DOMContentLoaded", async function () {
   };
   getTasks();
 
-//   edit task
-    const editTask = async (taskId) => {
-      const newTitle = prompt("Enter a new title for the task:");
-      if (newTitle !== null && newTitle.trim() !== "") {
-        try {
-          await fetch(`${apiUrl}/${taskId}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ title: newTitle }),
-          });
+  //   edit task
+  const editTask = async (taskId) => {
+    const newTitle = prompt("Enter a new title for the task:");
+    if (newTitle !== null && newTitle.trim() !== "") {
+      try {
+        await fetch(`${apiUrl}/${taskId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title: newTitle }),
+        });
 
-          // refresh task list
-          getTasks();
-        } catch (error) {
-          console.error("Error editing task:", error);
-        }
+        // refresh task list
+        getTasks();
+      } catch (error) {
+        console.error("Error editing task:", error);
       }
-    };
-  
+    }
+  };
+
   // delete task
   const deleteTask = async (taskId) => {
     if (confirm("Are you sure you want to delete this task?")) {
