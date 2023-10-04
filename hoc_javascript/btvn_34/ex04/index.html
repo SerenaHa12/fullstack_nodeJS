@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 34: To Do List with API</title>
-
     <!-- link css -->
     <link rel="stylesheet" href="./asset/css/style.css" />
 
@@ -22,10 +21,10 @@
         </div>
         <form class="app-action">
           <input type="search" placeholder="Search Todos" />
-          <button class="search">
+          <button class="searchBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <button class="add">Add Tasks</button>
+          <button class="addBtn">Add Tasks</button>
         </form>
         <div class="app-task"></div>
         <div class="app-completed">
@@ -35,6 +34,13 @@
         </div>
       </div>
     </div>
+
+    <div class="add-task">
+      <input type="text" class="addTodoInput" placeholder="Add Todos" />
+      <button class="saveBtn">Save</button>
+      <button class="cancelBtn">Cancel</button>
+    </div>
+    <div class="add-task_overlay"></div>
     <script src="./asset/js/main.js"></script>
   </body>
 </html>

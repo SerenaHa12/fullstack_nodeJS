@@ -8,8 +8,44 @@
   font-family: "Nunito Sans", sans-serif;
 }
 
+body {
+  position: relative;
+}
+
 h1 span {
   background: -webkit-linear-gradient(#60a5fa, #059669);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.add-task.show {
+  display: block;
+}
+
+.add-task_overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #55555526;
+}
+
+.add-task {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  padding: 40px 20px;
+  z-index: 1;
+}
+
+.app-task p {
+  margin: 20px 0px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 400px;
 }
