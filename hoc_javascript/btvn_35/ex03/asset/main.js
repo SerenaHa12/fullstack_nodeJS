@@ -20,7 +20,7 @@ async function fetchNews() {
         const newsItem = document.createElement("div");
         newsItem.className = "news-item";
         newsItem.innerHTML = `
-                    <img src="${item.photo}" alt="${item.title}">
+                    <img src="${item.image}" alt="${item.title}">
                     <h2>${item.title}</h2>
                     <p>${item.tag}</p>
                 `;

@@ -7,10 +7,12 @@
   outline: none;
   text-decoration: none;
   list-style-type: none;
+  background-color: #272727;
 }
 
 body {
   font-family: "Lexend Deca", sans-serif;
+  background-color: #272727;
 }
 
 /* PRE HEADER */
@@ -22,16 +24,20 @@ header .pre-header {
   justify-content: space-between;
   align-items: center;
 }
+
 header button {
   background-color: #6eeb83;
   border: none;
   color: #fff;
   padding: 15px 7px;
+  cursor: pointer;
 }
 
 header .pre-header p,
 header .pre-header i {
   padding: 15px 7px;
+  font-size: 12px;
+  background: #fff;
 }
 .pre-header_info,
 .pre-header_weather,
@@ -42,6 +48,7 @@ header .pre-header i {
 header .pre-header .pre-header_social {
   display: flex;
   gap: 10px;
+  background: #fff;
 }
 
 header .pre-header .pre-header_social i {
@@ -49,6 +56,7 @@ header .pre-header .pre-header_social i {
   background-color: #6eeb83;
   border-radius: 50%;
   color: #272727;
+  cursor: pointer;
 }
 
 /* HEADER */
@@ -57,6 +65,10 @@ header .header {
   display: flex;
   justify-content: space-between;
   padding: 37px 120px;
+}
+
+header .header-logo {
+    cursor: pointer;
 }
 
 header .header ul {
@@ -77,6 +89,7 @@ header .header ul li a.active {
 header .header .header-search {
   align-items: center;
   padding: 22px 0;
+  cursor: pointer;
 }
 
 header .header .header-search i {
@@ -93,7 +106,7 @@ main {
 
 main h1 {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 52px;
   position: relative;
   font-family: Lexend Deca;
   font-size: 40px;
@@ -114,6 +127,8 @@ main h2 {
   font-family: "DM Serif Display", serif;
   color: #6eeb83;
   font-size: 20px;
+  padding: 12px 0;
+  cursor: pointer;
 }
 
 main .news-container {
@@ -139,7 +154,10 @@ main .news-item p {
 
 main img {
   max-width: 100%;
+  width: 360px;
+  max-height: 240px;
   height: auto;
+  border-radius: 10px;
 }
 
 main .loading {
