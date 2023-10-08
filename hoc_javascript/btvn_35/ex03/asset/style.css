@@ -68,7 +68,7 @@ header .header {
 }
 
 header .header-logo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 header .header ul {
@@ -152,10 +152,9 @@ main .news-item p {
   width: fit-content;
 }
 
-main img {
+main .news-item img {
   max-width: 100%;
-  width: 505px;
-  max-height: 360px;
+  max-height: 100%;
   height: auto;
   border-radius: 10px;
 }

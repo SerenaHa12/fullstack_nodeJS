@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+h1 {
+  margin-bottom: 15px;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.posts .post-item {
+  flex-basis: calc(100% / 3 - 10px);
+  max-width: calc(100% / 3 - 10px);
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
+}
+
+.posts .post-item a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.posts .post-item .btn-remove {
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.search {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.paginate {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.paginate span {
+  background-color: green;
+}
+
+.paginate span a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.paginate span.active {
+  background-color: red;
+}
+
+.post-form {
+  margin: 10px;
+}
+
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.post-form textarea {
+  height: 100px;
+}
