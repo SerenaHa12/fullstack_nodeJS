@@ -53,6 +53,7 @@ const renderPaginate = (totalPage) => {
     }
   }
 };
+
 const goPage = (page) => {
   window.scroll({
     top: 0,
