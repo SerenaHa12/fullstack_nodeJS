@@ -78,14 +78,14 @@ const showNextQuestion = () => {
   }
 };
 
-function checkAnswer(selectedAnswer, correctAnswer) {
+const checkAnswer = (selectedAnswer, correctAnswer) => {
   if (selectedAnswer === correctAnswer) {
     score++;
   }
   showNextQuestion();
-}
+};
 
-function showResults() {
+const showResults = () => {
   quizResults.textContent = `You scored ${score} out of ${questions.length}`;
 }
 
