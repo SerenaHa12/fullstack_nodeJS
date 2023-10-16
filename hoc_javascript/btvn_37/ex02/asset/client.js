@@ -1,16 +1,15 @@
 import { config } from "./config.js";
-const { SERVER_API } = config;
+const { SERVER_AUTH_API } = config;
 
 export const client = {
-  serverApi: SERVER_API,
+  serverApi: SERVER_AUTH_API,
 
-  setUrl: function (url) {
+  setUrl(url) {
     this.serverApi = url;
   },
 
-  send: async function (url, method = "GET", body = null, token = null) {
+  async send(url, method = "GET", body = null, token = null) {
     url = `${this.serverApi}${url}`;
-
     const headers = {
       "Content-Type": "application/json",
     };
@@ -29,29 +28,28 @@ export const client = {
     }
 
     const response = await fetch(url, options);
-
     const data = await response.json();
 
     return { response, data };
   },
 
-  get: function (url, token = null) {
+  get(url, token = null) {
     return this.send(url, "GET", null, token);
   },
 
-  post: function (url, body = {}, token = null) {
+  post(url, body = {}, token = null) {
     return this.send(url, "POST", body, token);
   },
 
-  put: function (url, body = {}, token = null) {
+  put(url, body = {}, token = null) {
     return this.send(url, "PUT", body, token);
   },
 
-  patch: function (url, body = {}, token = null) {
+  patch(url, body = {}, token = null) {
     return this.send(url, "PATCH", body, token);
   },
 
-  delete: function (url, token = null) {
+  delete(url, token = null) {
     return this.send(url, "DELETE", null, token);
   },
 };
