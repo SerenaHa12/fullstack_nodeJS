@@ -37,8 +37,12 @@ export const client = {
     return this.send(url, "GET", null, token);
   },
 
-  post(url, body = {}, token = null) {
-    return this.send(url, "POST", body, token);
+  // post(url, body = {}, token = null) {
+  //   return this.send(url, "POST", body, token);
+  // },
+
+  post(url, body = {}) {
+    return this.send(url, "POST", body);
   },
 
   put(url, body = {}, token = null) {

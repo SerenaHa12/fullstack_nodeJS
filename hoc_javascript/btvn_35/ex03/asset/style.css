@@ -115,7 +115,7 @@ main h1 {
 
 main h1::after {
   content: "";
-  width: 240px;
+  width: 40px;
   height: 4px;
   background-color: #6eeb83;
   position: absolute;
