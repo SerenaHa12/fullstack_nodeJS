@@ -20,7 +20,8 @@ body {
   /* display: none; */
 }
 
-.welcome, .new {
+.welcome,
+.new {
   display: block;
 }
 
@@ -234,7 +235,7 @@ main .loading {
 }
 
 .signup .content {
-  margin: 58px 34px;
+  margin: 34px 34px;
   border-radius: 16px;
   width: 100%;
   height: auto;
@@ -243,8 +244,9 @@ main .loading {
 
 .signup .content img {
   width: calc(100vw - 68px);
-  height: calc(100vh - 116px);
+  height: calc(100vh - 68px);
 }
+
 .signup .formSignup {
   position: absolute;
   top: 0;
@@ -362,7 +364,7 @@ main .loading {
 
 .formSignup form .option {
   margin-left: 140px;
-  margin-top: 80px;
+  margin-top: 20px;
   color: #6eeb83;
 }
 
