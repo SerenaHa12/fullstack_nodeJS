@@ -8,8 +8,10 @@ export const client = {
     this.serverApi = url;
   },
 
-  async send(url, method = "GET", body = null, token = null) {
+  async send(url, method = "GET", body = null) {
     url = `${this.serverApi}${url}`;
+    const token = localStorage.getItem("access_token");
+    console.log(token);
     const headers = {
       "Content-Type": "application/json",
     };
@@ -33,8 +35,8 @@ export const client = {
     return { response, data };
   },
 
-  get(url, token = null) {
-    return this.send(url, "GET", null, token);
+  get(url) {
+    return this.send(url, "GET", null);
   },
 
   // post(url, body = {}, token = null) {
@@ -45,15 +47,15 @@ export const client = {
     return this.send(url, "POST", body);
   },
 
-  put(url, body = {}, token = null) {
-    return this.send(url, "PUT", body, token);
+  put(url, body = {}) {
+    return this.send(url, "PUT", body);
   },
 
-  patch(url, body = {}, token = null) {
-    return this.send(url, "PATCH", body, token);
+  patch(url, body = {}) {
+    return this.send(url, "PATCH", body);
   },
 
-  delete(url, token = null) {
-    return this.send(url, "DELETE", null, token);
+  delete(url) {
+    return this.send(url, "DELETE", null);
   },
 };

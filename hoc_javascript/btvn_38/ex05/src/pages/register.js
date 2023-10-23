@@ -46,4 +46,44 @@ const RegisterHtml = /*html*/ `
     <p class="text-center"><a href="./login.html" class="link-underline-primary text-center register-login_btn">Login</a></p>
     </form>`;
 
+import { config } from "../js/client.js";
+import { client } from "../js/config.js";
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+const { SERVER_AUTH_API } = config;
+client.setUrl(SERVER_AUTH_API);
+
+const registerForm = $(".register");
+const nameInput = $(".register-name_input");
+const emailInput = $(".register-email_input");
+const passwordInput = $(".register-password_input");
+
+registerForm.on("submit", () => {
+  console.log(1);
+});
+
+export const handleSubmitRegister = ({ name, email, password }) => {
+  const registerData = {
+    name: name,
+    email: email,
+    password: password,
+  };
+  console.log(registerData);
+
+  client
+    .post("/auth/register", registerData)
+    .then(({ response, data }) => {
+      console.log(response);
+      if (response.status === 201) {
+        alert(data.message); // Thay registerData.data bằng thông điệp bạn muốn hiển thị
+      } else {
+        alert(data.message);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("Đăng ký thất bại"); // Thay registerData.data bằng thông điệp bạn muốn hiển thị
+    });
+};
 export default RegisterHtml;
