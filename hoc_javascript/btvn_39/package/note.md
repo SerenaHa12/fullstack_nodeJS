@@ -18,3 +18,27 @@ Khi xây dựng dự án
 - Có 2 chế độ cài:
 + local package:
 + global package: -g
+
+- Xóa package: package uninstall
+- Chỉ định một phiên bản package:
+    + lưu ý: khi đang ở phiên bản cao sẽ không cài được phiên bản thấp
+
+Có 2 loại ký hiệu:
+    + Dấu mũ: cập nhập số thứ 2 lên mới nhất
+    + Dấu ngã: cập nhập số thứ 3 lên mới nhất, update lên bản vá lỗi mới nhất
+    + Dấu mũ sao: mới nhất
+
+Loại dependency
+    + dependency:
+    + dev dependency:
+
+Bản:
+    + production
+    + staging
+    + dev
+
+
+Tóm lại:
+- Làm thế nào để khởi tạo dự án
+- Làm thế nào để cài package bằng npm 
+- Hiểu về các thông số trên phiên bản
