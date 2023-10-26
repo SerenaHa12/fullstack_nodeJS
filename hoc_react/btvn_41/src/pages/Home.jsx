@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Container,
@@ -27,13 +27,15 @@ function HomePage() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get(`${apiConfig.apiUrl}/todos`, {
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-        },
-      });
-      setTasks(response.data);
-      setHasTasks(response.data.length > 0);
+      if (apiKey) {
+        const response = await axios.get(`${apiConfig.apiUrl}/todos`, {
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+        });
+        setTasks(response.data);
+        setHasTasks(response.data.length > 0);
+      }
     } catch (error) {
       console.error("Lỗi khi lấy danh sách tasks:", error);
       setAlertSeverity("error");
@@ -50,17 +52,22 @@ function HomePage() {
 
   const addTask = async () => {
     try {
-      await axios.post(
-        `${apiConfig.apiUrl}/todos`,
-        { title: newTask },
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
+      if (apiKey) {
+        await axios.post(
+          `${apiConfig.apiUrl}/todos`,
+          {
+            todo: newTask,
+            // createdAt: new Date(),
           },
-        }
-      );
-      setNewTask("");
-      fetchTasks();
+          {
+            headers: {
+              "X-Api-Key": apiKey,
+            },
+          }
+        );
+        setNewTask("");
+        fetchTasks();
+      }
     } catch (error) {
       console.error("Lỗi khi thêm task:", error);
       setAlertSeverity("error");
@@ -71,11 +78,19 @@ function HomePage() {
 
   const editTask = async () => {
     try {
-      await axios.put(`${apiConfig.apiUrl}/todos/${editingTask.id}`, {
-        title: editingTask.title,
-      });
-      setEditingTask(null);
-      fetchTasks();
+      if (apiKey) {
+        await axios.put(
+          `${apiConfig.apiUrl}/todos/${editingTask.id}`,
+          { title: editingTask.title },
+          {
+            headers: {
+              "X-Api-Key": apiKey,
+            },
+          }
+        );
+        setEditingTask(null);
+        fetchTasks();
+      }
     } catch (error) {
       console.error("Lỗi khi sửa task:", error);
       setAlertSeverity("error");
@@ -86,8 +101,14 @@ function HomePage() {
 
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete(`${apiConfig.apiUrl}/todos/${taskId}`);
-      fetchTasks();
+      if (apiKey) {
+        await axios.delete(`${apiConfig.apiUrl}/todos/${taskId}`, {
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+        });
+        fetchTasks();
+      }
     } catch (error) {
       console.error("Lỗi khi xóa task:", error);
       setAlertSeverity("error");
