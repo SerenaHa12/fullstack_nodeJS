@@ -11,21 +11,32 @@ import {
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import apiConfig from "../api";
 import CustomAlert from "../utils/Alert";
+import HomePage from "./Home";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [openAlert, setOpenAlert] = useState(false);
   const [alertSeverity, setAlertSeverity] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
+  const navigate = useNavigate();
 
-  const loginUser = async () => {
+  const handleLogin = async () => {
     try {
-      const response = await axios.get(`${apiConfig.apiUrl}?email=${email}`);
+      const response = await axios.get(
+        `${apiConfig.apiUrl}/api-key?email=${email}`
+      );
 
       if (response.status === 200) {
+        const apiKey = response.data.apiKey;
+
         setAlertSeverity("success");
         setAlertMessage("Đăng nhập thành công!");
         setOpenAlert(true);
+
+        localStorage.setItem("apiKey", apiKey); // save key in local
+
+        navigate("/home");
       } else {
         setAlertSeverity("error");
         setAlertMessage(`Đăng nhập thất bại: ${response.data.message}`);
@@ -35,6 +46,13 @@ function Login() {
       setAlertSeverity("error");
       setAlertMessage(`Đã xảy ra lỗi: ${error.message}`);
       setOpenAlert(true);
+    }
+  };
+
+  const handleEnterKey = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleLogin();
     }
   };
 
@@ -51,7 +69,7 @@ function Login() {
       >
         <LockOutlinedIcon style={{ fontSize: "40px" }} />
         <Typography variant="h5">Please enter your email:</Typography>
-        <form>
+        <form onKeyPress={handleEnterKey}>
           <TextField
             label="Email"
             variant="outlined"
@@ -64,7 +82,7 @@ function Login() {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={loginUser}
+            onClick={handleLogin}
           >
             Đăng nhập
           </Button>
