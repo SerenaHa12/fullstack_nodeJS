@@ -23,9 +23,15 @@ function HomePage() {
   const [alertMessage, setAlertMessage] = useState("");
   const [hasTasks, setHasTasks] = useState(false);
 
+  const apiKey = localStorage.getItem("apiKey");
+
   const fetchTasks = async () => {
     try {
-      const response = await axios.get(`${apiConfig.apiUrl}/todos`);
+      const response = await axios.get(`${apiConfig.apiUrl}/todos`, {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+        },
+      });
       setTasks(response.data);
       setHasTasks(response.data.length > 0);
     } catch (error) {
@@ -37,12 +43,22 @@ function HomePage() {
   };
 
   useEffect(() => {
-    fetchTasks();
-  }, []);
+    if (apiKey) {
+      fetchTasks();
+    }
+  }, [apiKey]);
 
   const addTask = async () => {
     try {
-      await axios.post(`${apiConfig.apiUrl}/todos`, { title: newTask });
+      await axios.post(
+        `${apiConfig.apiUrl}/todos`,
+        { title: newTask },
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        }
+      );
       setNewTask("");
       fetchTasks();
     } catch (error) {
@@ -81,7 +97,7 @@ function HomePage() {
   };
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" style={{ marginTop: "100px" }}>
       <h2>To Do List</h2>
       <TextField
         label="Add task"
@@ -110,7 +126,11 @@ function HomePage() {
                       setEditingTask({ ...editingTask, title: e.target.value })
                     }
                   />
-                  <Button variant="contained" color="primary" onClick={editTask}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={editTask}
+                  >
                     Lưu
                   </Button>
                 </>

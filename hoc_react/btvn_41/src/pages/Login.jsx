@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
+
   const [openAlert, setOpenAlert] = useState(false);
   const [alertSeverity, setAlertSeverity] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
@@ -36,7 +37,9 @@ function Login() {
 
         localStorage.setItem("apiKey", apiKey); // save key in local
 
-        navigate("/home");
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
       } else {
         setAlertSeverity("error");
         setAlertMessage(`Đăng nhập thất bại: ${response.data.message}`);
@@ -68,7 +71,9 @@ function Login() {
         }}
       >
         <LockOutlinedIcon style={{ fontSize: "40px" }} />
-        <Typography variant="h5">Please enter your email:</Typography>
+        <Typography variant="h5" style={{ fontSize: "20px" }}>
+          Please enter your email:
+        </Typography>
         <form onKeyPress={handleEnterKey}>
           <TextField
             label="Email"
