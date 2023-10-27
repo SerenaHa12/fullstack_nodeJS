@@ -1,5 +1,4 @@
-import  { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import {
   Container,
   TextField,
@@ -11,8 +10,8 @@ import {
   IconButton,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import apiConfig from "../api";
 import CustomAlert from "../utils/Alert";
+import { fetchTasks, addTask, editTask, deleteTask } from "../api/todo";
 
 function HomePage() {
   const [tasks, setTasks] = useState([]);
@@ -25,94 +24,89 @@ function HomePage() {
 
   const apiKey = localStorage.getItem("apiKey");
 
-  const fetchTasks = async () => {
-    try {
-      if (apiKey) {
-        const response = await axios.get(`${apiConfig.apiUrl}/todos`, {
-          headers: {
-            "X-Api-Key": apiKey,
-          },
-        });
-        setTasks(response.data);
-        setHasTasks(response.data.length > 0);
-      }
-    } catch (error) {
-      console.error("Lỗi khi lấy danh sách tasks:", error);
-      setAlertSeverity("error");
-      setAlertMessage(`Lỗi khi lấy danh sách tasks: ${error.message}`);
-      setAlertOpen(true);
-    }
-  };
-
   useEffect(() => {
     if (apiKey) {
-      fetchTasks();
+      fetchTasks(apiKey)
+        .then((data) => {
+          setTasks(data);
+          setHasTasks(data.length > 0);
+        })
+        .catch((error) => {
+          setAlertSeverity("error");
+          setAlertMessage(error.message);
+          setAlertOpen(true);
+        });
     }
   }, [apiKey]);
 
-  const addTask = async () => {
+  const handleAddTask = async () => {
     try {
       if (apiKey) {
-        await axios.post(
-          `${apiConfig.apiUrl}/todos`,
-          {
-            todo: newTask,
-            // createdAt: new Date(),
-          },
-          {
-            headers: {
-              "X-Api-Key": apiKey,
-            },
-          }
-        );
+        await addTask(apiKey, newTask);
         setNewTask("");
-        fetchTasks();
+        fetchTasks(apiKey)
+          .then((data) => {
+            setTasks(data);
+            setHasTasks(data.length > 0);
+          })
+          .catch((error) => {
+            setAlertSeverity("error");
+            setAlertMessage(error.message);
+            setAlertOpen(true);
+          });
+        setAlertSeverity("success");
+        setAlertMessage("Task added successfully.");
+        setAlertOpen(true);
       }
     } catch (error) {
-      console.error("Lỗi khi thêm task:", error);
+      console.error("Add Fail:", error);
       setAlertSeverity("error");
-      setAlertMessage(`Lỗi khi thêm task: ${error.message}`);
+      setAlertMessage(error.message);
       setAlertOpen(true);
     }
   };
 
-  const editTask = async () => {
+  const handleEditTask = async () => {
     try {
       if (apiKey) {
-        await axios.put(
-          `${apiConfig.apiUrl}/todos/${editingTask.id}`,
-          { title: editingTask.title },
-          {
-            headers: {
-              "X-Api-Key": apiKey,
-            },
-          }
-        );
+        await editTask(apiKey, editingTask.id, editingTask.title);
         setEditingTask(null);
-        fetchTasks();
+        fetchTasks(apiKey)
+          .then((data) => {
+            setTasks(data);
+          })
+          .catch((error) => {
+            setAlertSeverity("error");
+            setAlertMessage(error.message);
+            setAlertOpen(true);
+          });
       }
     } catch (error) {
-      console.error("Lỗi khi sửa task:", error);
+      console.error("Edit Fail:", error);
       setAlertSeverity("error");
-      setAlertMessage(`Lỗi khi sửa task: ${error.message}`);
+      setAlertMessage(error.message);
       setAlertOpen(true);
     }
   };
 
-  const deleteTask = async (taskId) => {
+  const handleDeleteTask = async (taskId) => {
     try {
       if (apiKey) {
-        await axios.delete(`${apiConfig.apiUrl}/todos/${taskId}`, {
-          headers: {
-            "X-Api-Key": apiKey,
-          },
-        });
-        fetchTasks();
+        await deleteTask(apiKey, taskId);
+        fetchTasks(apiKey)
+          .then((data) => {
+            setTasks(data);
+          })
+          .catch((error) => {
+            setAlertSeverity("error");
+            setAlertMessage(error.message);
+            setAlertOpen(true);
+          });
       }
     } catch (error) {
-      console.error("Lỗi khi xóa task:", error);
+      console.error("Delete Fail:", error);
       setAlertSeverity("error");
-      setAlertMessage(`Lỗi khi xóa task: ${error.message}`);
+      setAlertMessage(error.message);
       setAlertOpen(true);
     }
   };
@@ -128,7 +122,7 @@ function HomePage() {
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
       />
-      <Button variant="contained" color="primary" onClick={addTask}>
+      <Button variant="contained" color="primary" onClick={handleAddTask}>
         Add Task
       </Button>
       {hasTasks ? (
@@ -138,7 +132,7 @@ function HomePage() {
               {editingTask && editingTask.id === task.id ? (
                 <>
                   <TextField
-                    label="Sửa công việc"
+                    label="Edit task"
                     variant="outlined"
                     fullWidth
                     margin="normal"
@@ -150,9 +144,9 @@ function HomePage() {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={editTask}
+                    onClick={handleEditTask}
                   >
-                    Lưu
+                    Save
                   </Button>
                 </>
               ) : (
@@ -169,7 +163,7 @@ function HomePage() {
                     <IconButton
                       edge="end"
                       aria-label="delete"
-                      onClick={() => deleteTask(task.id)}
+                      onClick={() => handleDeleteTask(task.id)}
                     >
                       <DeleteIcon />
                     </IconButton>
@@ -180,7 +174,7 @@ function HomePage() {
           ))}
         </List>
       ) : (
-        <p>Chưa có task nào.</p>
+        <p>No tasks available.</p>
       )}
 
       <CustomAlert
