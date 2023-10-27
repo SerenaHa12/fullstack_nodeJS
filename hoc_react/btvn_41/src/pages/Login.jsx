@@ -1,20 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
-import {
-  Container,
-  TextField,
-  Button,
-  Typography,
-  Paper,
-} from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import apiConfig from "../api";
+import { Container, TextField, Button, Typography, Paper } from "@mui/material";
+import apiConfig from "../api/apiConfig";
 import CustomAlert from "../utils/Alert";
 import { useNavigate } from "react-router-dom";
+// import Loading from "../components/Loading";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [openAlert, setOpenAlert] = useState(false);
+
+  // const [loading, setLoading] = useState(true);
   const [alertSeverity, setAlertSeverity] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
@@ -32,20 +28,21 @@ function Login() {
         localStorage.setItem("apiKey", apiKey);
         // console.log(apiKey);
         setAlertSeverity("success");
-        setAlertMessage("Đăng nhập thành công!");
+        setAlertMessage("Login Success!");
 
         setTimeout(() => {
           setOpenAlert(true);
+          // setLoading(true);
           navigate("/home");
         }, 2000);
       } else {
         setAlertSeverity("error");
-        setAlertMessage(`Đăng nhập thất bại: ${data.message}`);
+        setAlertMessage(`Login Fail: ${data.message}`);
         setOpenAlert(true);
       }
     } catch (error) {
       setAlertSeverity("error");
-      setAlertMessage(`Đã xảy ra lỗi: ${error.response.data.message}`);
+      setAlertMessage(`Error: ${error.response.data.message}`);
       setOpenAlert(true);
     }
   };
@@ -67,7 +64,6 @@ function Login() {
           alignItems: "center",
         }}
       >
-        <LockOutlinedIcon style={{ fontSize: "40px" }} />
         <Typography variant="h5" style={{ fontSize: "20px" }}>
           Please enter your email:
         </Typography>
@@ -86,7 +82,7 @@ function Login() {
             fullWidth
             onClick={handleLogin}
           >
-            Đăng nhập
+            authentication
           </Button>
         </form>
         <CustomAlert

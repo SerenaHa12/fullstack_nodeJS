@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Container,
   TextField,
@@ -11,33 +11,34 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CustomAlert from "../utils/Alert";
-import { fetchTasks, addTask, editTask, deleteTask } from "../api/todo";
+import { fetchTasks, addTask, editTask, deleteTask } from "../api/todoApi";
 
 function HomePage() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
   const [editingTask, setEditingTask] = useState(null);
+
+  // alert
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertSeverity, setAlertSeverity] = useState("error");
   const [alertMessage, setAlertMessage] = useState("");
-  const [hasTasks, setHasTasks] = useState(false);
 
+  // lay api key
   const apiKey = localStorage.getItem("apiKey");
 
-  useEffect(() => {
-    if (apiKey) {
-      fetchTasks(apiKey)
-        .then((data) => {
-          setTasks(data);
-          setHasTasks(data.length > 0);
-        })
-        .catch((error) => {
-          setAlertSeverity("error");
-          setAlertMessage(error.message);
-          setAlertOpen(true);
-        });
-    }
-  }, [apiKey]);
+  // useEffect(() => {
+  //   if (apiKey) {
+  //     fetchTasks(apiKey)
+  //       .then((data) => {
+  //         setTasks(data.data.listTodo);
+  //       })
+  //       .catch((error) => {
+  //         setAlertSeverity("error");
+  //         setAlertMessage(error.message);
+  //         setAlertOpen(true);
+  //       });
+  //   }
+  // }, [apiKey]);
 
   const handleAddTask = async () => {
     try {
@@ -46,8 +47,7 @@ function HomePage() {
         setNewTask("");
         fetchTasks(apiKey)
           .then((data) => {
-            setTasks(data);
-            setHasTasks(data.length > 0);
+            setTasks(data.data.listTodo);
           })
           .catch((error) => {
             setAlertSeverity("error");
@@ -69,7 +69,7 @@ function HomePage() {
   const handleEditTask = async () => {
     try {
       if (apiKey) {
-        await editTask(apiKey, editingTask.id, editingTask.title);
+        await editTask(apiKey, editingTask._id, editingTask.todo);
         setEditingTask(null);
         fetchTasks(apiKey)
           .then((data) => {
@@ -125,20 +125,20 @@ function HomePage() {
       <Button variant="contained" color="primary" onClick={handleAddTask}>
         Add Task
       </Button>
-      {hasTasks ? (
+      {tasks.length > 0 ? (
         <List>
           {tasks.map((task) => (
-            <ListItem key={task.id}>
-              {editingTask && editingTask.id === task.id ? (
+            <ListItem key={task._id}>
+              {editingTask && editingTask.id === task._id ? (
                 <>
                   <TextField
                     label="Edit task"
                     variant="outlined"
                     fullWidth
                     margin="normal"
-                    value={editingTask.title}
+                    value={editingTask.todo}
                     onChange={(e) =>
-                      setEditingTask({ ...editingTask, title: e.target.value })
+                      setEditingTask({ ...editingTask, todo: e.target.value })
                     }
                   />
                   <Button
@@ -151,7 +151,7 @@ function HomePage() {
                 </>
               ) : (
                 <>
-                  <ListItemText primary={task.title} />
+                  <ListItemText primary={task.todo} />
                   <ListItemSecondaryAction>
                     <IconButton
                       edge="end"
@@ -163,7 +163,7 @@ function HomePage() {
                     <IconButton
                       edge="end"
                       aria-label="delete"
-                      onClick={() => handleDeleteTask(task.id)}
+                      onClick={() => handleDeleteTask(task._id)}
                     >
                       <DeleteIcon />
                     </IconButton>

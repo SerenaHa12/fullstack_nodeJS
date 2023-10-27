@@ -1,5 +1,5 @@
 import axios from "axios";
-import apiConfig from "../api";
+import apiConfig from "./apiConfig";
 
 export const fetchTasks = async (apiKey) => {
   try {
