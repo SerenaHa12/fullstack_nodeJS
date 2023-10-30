@@ -10,7 +10,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [openAlert, setOpenAlert] = useState(false);
 
-  // const [loading, setLoading] = useState(true);
   const [alertSeverity, setAlertSeverity] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
@@ -26,13 +25,11 @@ function Login() {
       if (status === 200) {
         const apiKey = data.data.apiKey;
         localStorage.setItem("apiKey", apiKey);
-        // console.log(apiKey);
         setAlertSeverity("success");
         setAlertMessage("Login Success!");
 
         setTimeout(() => {
           setOpenAlert(true);
-          // setLoading(true);
           navigate("/home");
         }, 2000);
       } else {
