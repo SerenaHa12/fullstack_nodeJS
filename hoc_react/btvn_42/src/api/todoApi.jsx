@@ -6,11 +6,16 @@ const getApiKeyLogin = async (email) => {
       "X-Api-Key": "apiKey",
     },
   });
-  return { data: res.data, status: res.status };
+  return { data: res, code: res.code };
 };
 
-const getListTodo = () => {
-  return axiosClient.get(`/todos`);
+const getListTodo = async (apiKey) => {
+  const res = await axiosClient.get(`/todos`, {
+    headers: {
+      "X-Api-Key": apiKey,
+    },
+  });
+  return { data: res, code: res.code };
 };
 // console.log(fetchAllUser);
 

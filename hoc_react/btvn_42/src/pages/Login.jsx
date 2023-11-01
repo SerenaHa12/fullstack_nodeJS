@@ -11,19 +11,19 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // if (!email) {
-      //   toast.error("Please enter your email");
-      //   return;
-      // }
+      if (!email) {
+        toast.error("Please enter your email");
+        return;
+      }
 
-      let { data, status } = await getApiKeyLogin(email);
+      let { data, code } = await getApiKeyLogin(email);
       // console.log(data);
 
-      if (status === 200 && data.apiKey) {
+      if (code === 200) {
+        console.log(data);
         const apiKey = data.data.apiKey;
         localStorage.setItem("apiKey", apiKey);
         toast.success(`Login Success: ${data.message}`);
-        console.log(apiKey);
 
         navigate("/todos");
       } else {
@@ -57,7 +57,7 @@ const Login = () => {
                   size="sm"
                   type="submit"
                   block="true"
-                  onClick={() => handleLogin()}
+                  onClick={handleLogin}
                 >
                   Log In
                 </Button>

@@ -1,26 +1,98 @@
-// import { useEffect, useState } from "react";
-// import _, { debounce } from "lodash";
-
-// import Table from "react-bootstrap/Table";
-// import Button from "react-bootstrap/Button";
+import { useEffect, useState } from "react";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 // import ReactPaginate from "react-paginate";
 // import Container from "react-bootstrap/Container";
 
-// import { toast } from "react-toastify";
+import ModalAddTodo from "./ModalAddTodo";
+import { getListTodo } from "../../api/todoApi";
 
+const TodoTable = () => {
+  const [listTodo, setListTodo] = useState([]);
+  useEffect(() => {
+    getTodo();
+  });
 
-// const TodoTable = () => {
-//     const [ listTodo, setListTodo] = useState([])
-//     useEffect(() => {
-//         getTodo()
-//     });
+  const getTodo = async () => {
+    let res = await getListTodo();
+    console.log(res);
 
-//     const getTodo = async () => {
-//         let res = await
-//     }
-//   return (
-//     <div>TodoTable</div>
-//   )
-// }
+    if (res && res.data) {
+      setListTodo(res.data);
+    }
+  };
 
-// export default TodoTable
+  const [isShowModalAddTodo, setIsShowModalAddTodo] = useState(false);
+  const handleClose = () => {
+    setIsShowModalAddTodo(false);
+    // setIsShowModalEditUser(false);
+    // setIsShowModalDeleteUser(false);
+  };
+
+  const handleEditTodo = () => {};
+
+  const handleDeleteTodo = () => {};
+
+  return (
+    <>
+      <div className="my-3 d-flex justify-content-between">
+        List Users:
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={() => setIsShowModalAddTodo(true)}
+        >
+          <span>Add todo</span>
+        </Button>
+      </div>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Todo</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listTodo &&
+            listTodo.length > 0 &&
+            listTodo.map((item, index) => {
+              return (
+                <tr key={`todo-${index}`}>
+                  <td>{item.todo}</td>
+                  <td>
+                    <Button
+                      className="mx-3"
+                      variant="warning"
+                      onClick={() => {
+                        handleEditTodo(item);
+                      }}
+                      size="sm"
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => {
+                        handleDeleteTodo(item);
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              );
+            })}
+        </tbody>
+      </Table>
+
+      <ModalAddTodo
+        show={isShowModalAddTodo}
+        handleClose={handleClose}
+        // handleUpdateTable={handleUpdateTable}
+      />
+    </>
+  );
+};
+
+export default TodoTable;

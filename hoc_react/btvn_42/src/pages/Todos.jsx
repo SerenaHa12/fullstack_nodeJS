@@ -1,7 +1,11 @@
-import React from "react";
+import TodoTable from "../components/Todo/TodoTable";
 
 const Todos = () => {
-  return <div>Todos</div>;
+  return (
+    <>
+      <TodoTable />
+    </>
+  );
 };
 
 export default Todos;
