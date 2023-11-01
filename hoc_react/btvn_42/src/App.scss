@@ -1,0 +1,54 @@
+body {
+  color: red;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.login-form {
+  border: 1px solid #e1e1e1;
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1 {
+  font-size: 40px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-form Form {
+  margin-top: 20px;
+}
+
+.login-form Button {
+  background: #3897f0;
+  border: none;
+  margin-top: 10px;
+}
+
+.login-form Button:hover {
+  background: #2780d4;
+}
+
+/* Tùy chỉnh nút "Go Back" */
+.back {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back a {
+  text-decoration: none;
+  color: #3897f0;
+  font-weight: bold;
+}
+
+.back a:hover {
+  color: #2780d4;
+}
