@@ -3,18 +3,26 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 // import ReactPaginate from "react-paginate";
 // import Container from "react-bootstrap/Container";
+import checkLogin from "../../api/checkLogin";
+import { useNavigate } from "react-router-dom";
 
 import ModalAddTodo from "./ModalAddTodo";
 import { getListTodo } from "../../api/todoApi";
 
 const TodoTable = () => {
+  const navigate = useNavigate();
+
   const [listTodo, setListTodo] = useState([]);
   useEffect(() => {
+    if (!checkLogin()) {
+      navigate("/login");
+    }
     getTodo();
-  });
+  }, []);
 
   const getTodo = async () => {
-    let res = await getListTodo();
+    const apiKey = localStorage.getItem("apiKey");
+    let res = await getListTodo(apiKey);
     console.log(res);
 
     if (res && res.data) {
