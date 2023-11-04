@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "./context/UserContext";
 import AppRoutes from "./routes/AppRoutes";
-import Header from "./components/Default/Header";
+import Header from "./components/Header";
 import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
 
 function App() {
   const { user, loginContext } = useContext(UserContext);
-  console.log("check user", user);
+  // console.log("check user", user);
 
   useEffect(() => {
     if (localStorage.getItem("apiKey")) {

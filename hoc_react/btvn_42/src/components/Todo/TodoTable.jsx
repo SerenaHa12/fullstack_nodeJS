@@ -3,20 +3,19 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 // import ReactPaginate from "react-paginate";
 // import Container from "react-bootstrap/Container";
-import checkLogin from "../../api/checkLogin";
 import { useNavigate } from "react-router-dom";
+import _, { debounce } from "lodash";
 
 import ModalAddTodo from "./ModalAddTodo";
 import { getListTodo } from "../../api/todoApi";
+
+import { toast } from "react-toastify";
 
 const TodoTable = () => {
   const navigate = useNavigate();
 
   const [listTodo, setListTodo] = useState([]);
   useEffect(() => {
-    if (!checkLogin()) {
-      navigate("/login");
-    }
     getTodo();
   }, []);
 
@@ -57,6 +56,7 @@ const TodoTable = () => {
         <thead>
           <tr>
             <th>Todo</th>
+            <th>Time</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -67,6 +67,7 @@ const TodoTable = () => {
               return (
                 <tr key={`todo-${index}`}>
                   <td>{item.todo}</td>
+                  <td>{item.createdAt}</td>
                   <td>
                     <Button
                       className="mx-3"

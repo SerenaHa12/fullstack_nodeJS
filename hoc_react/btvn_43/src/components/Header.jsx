@@ -4,9 +4,9 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
 
-import { useLocation, Link } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../context/UserContext";
 import { toast } from "react-toastify";
 
 const Header = (props) => {
@@ -15,7 +15,7 @@ const Header = (props) => {
 
   const { logout, user } = useContext(UserContext);
 
-  console.log(user.email);
+  // console.log(user.email);
 
   const [hideHeader, setHideHeader] = useState(false);
   useEffect(() => {
@@ -27,7 +27,7 @@ const Header = (props) => {
   const handleLogout = () => {
     logout();
     toast.success("Logout Success");
-    navigate("/");
+    navigate("/login");
   };
   return (
     <>
@@ -38,13 +38,9 @@ const Header = (props) => {
 
           <Navbar.Collapse id="responsive-navbar-nav">
             {((user && !user.auth) ||
-              window.location.pathname === "/" ||
-              window.location.pathname === "/todos" ||
               window.location.pathname === "/products") && (
               <>
                 <Nav className="me-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/todos">Todos</Nav.Link>
                   <Nav.Link href="/products">Products</Nav.Link>
                 </Nav>
                 <Nav>

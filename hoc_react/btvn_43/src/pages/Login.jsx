@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-import { getApiKeyLogin } from "../api/todoApi";
+import { getApiKeyLogin } from "../api/productApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -17,17 +17,17 @@ const Login = () => {
       }
 
       let { data, code } = await getApiKeyLogin(email);
-      console.log(data);
+      // console.log(data);
 
       // console.log(email);
       if (code === 200) {
-        console.log(data);
+        // console.log(data);
         const apiKey = data.data.apiKey;
         localStorage.setItem("apiKey", apiKey);
         localStorage.setItem("email", email);
         toast.success(`Login Success: ${data.message}`);
 
-        navigate("/todos");
+        navigate("/products");
         // } else if {
         //   toast.error(`Login Fail: ${data.message}`);
       } else if (code === 400) {

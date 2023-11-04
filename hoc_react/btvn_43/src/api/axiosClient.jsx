@@ -1,12 +1,26 @@
 import axios from "axios";
 // import queryString from "query-string";
-
 const axiosClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  headers: {
-    "X-Api-Key": "apiKey",
-  },
+  // headers: {
+  //   "X-Api-Key": apiKey,
+  // },
+  timeout: 5000,
 });
+
+// Add a request interceptor
+axiosClient.interceptors.request.use(
+  function (config) {
+    // Do something before request is sent
+    const apiKey = localStorage.getItem("apiKey");
+    config.headers["X-Api-Key"] = apiKey;
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
 
 axiosClient.interceptors.response.use(
   function (response) {
