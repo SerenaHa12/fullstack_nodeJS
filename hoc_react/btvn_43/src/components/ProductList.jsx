@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import ProductItem from "./ProductItem";
 import { ProductContext } from "../context/ProductContext";
 const ProductList = () => {
-
   const [productsList, setProductsList] = useState([]);
   const getProduct = async () => {
     const apiKey = localStorage.getItem("apiKey");
@@ -25,7 +24,7 @@ const ProductList = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container-list_product">
         {productsList &&
           productsList.length > 0 &&
           productsList.map((product) => {

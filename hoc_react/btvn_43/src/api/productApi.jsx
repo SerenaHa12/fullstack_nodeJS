@@ -12,6 +12,6 @@ const getProducts = async (apiKey, limit = 6) => {
 
 const postOrder = async (apiKey, product) => {
   let res = await axiosClient.post("/orders", product);
-  return { data: res, code: res.code };
+  return { data: res };
 };
 export { getApiKeyLogin, getProducts, postOrder };

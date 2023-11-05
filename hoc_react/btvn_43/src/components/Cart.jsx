@@ -2,6 +2,8 @@ import { ProductContext } from "../context/ProductContext";
 import { useContext } from "react";
 import { postOrder } from "../api/productApi";
 import { remove } from "lodash";
+import { Table, Button } from "react-bootstrap";
+
 const Cart = () => {
   const { cartOrder, removeOrder } = useContext(ProductContext);
   const handleCheckout = async () => {
@@ -9,30 +11,48 @@ const Cart = () => {
     const checkoutList = cartOrder.map((order) => {
       return { productId: order._id, quantity: order.amount };
     });
-    let res = await postOrder(apiKey, checkoutList);
-    // console.log(res);
+    try {
+      const res = await postOrder(apiKey, checkoutList);
 
-    console.log(res.data.data);
-    if (res.code === 200) {
-      // setProductsList(res.data.data);
-      // toast.success("success");
-      removeOrder();
+      if (res.code === 200) {
+        removeOrder();
+      } else if (res.code === 401) {
+        console.error("Unauthorized");
+      } else {
+        console.error("Error:", res);
+      }
+    } catch (error) {
+      console.error("Async Error:", error);
     }
   };
 
   return (
     <>
-      {cartOrder.map((product) => {
-        return (
-          <div className="container" key={product._id}>
-            <p>{product.name}</p>
-            <p>{product.amount}</p>
-          </div>
-        );
-      })}
-      <button className="btn btn-primary" onClick={handleCheckout}>
-        Thanh toán
-      </button>
+      <div>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartOrder.map((product) => (
+              <tr key={product._id}>
+                <td>{product.name}</td>
+                <td>{product.amount}</td>
+                <td>{product.quantity}</td>
+                <td>${product.price * product.quantity}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        <Button variant="primary" onClick={handleCheckout}>
+          Thanh toán
+        </Button>
+      </div>
     </>
   );
 };
