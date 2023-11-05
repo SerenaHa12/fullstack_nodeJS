@@ -14,12 +14,15 @@ const Cart = () => {
     try {
       const res = await postOrder(apiKey, checkoutList);
 
-      if (res.code === 200) {
+      // console.log(res);
+      if (res.data.code === 200) {
+        // console.log("Error:", res);
+        console.log(1);
         removeOrder();
-      } else if (res.code === 401) {
+      } else if (res.data.code === 401) {
         console.error("Unauthorized");
       } else {
-        console.error("Error:", res);
+        console.log("Error:", res);
       }
     } catch (error) {
       console.error("Async Error:", error);
