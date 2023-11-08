@@ -11,9 +11,9 @@ const Form = () => {
     e.preventDefault();
     toast.warning('Send request ...')
 
-    if (message.trim() !== "") {
-      // toast("1")
-      setMessage("");
+    if (!message && !name) {
+      toast.error("Please enter your email and message");
+      return;
     }
 
     emailjs
