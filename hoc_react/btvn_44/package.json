@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.3",
+    "@emailjs/browser": "^3.11.0",
     "bootstrap": "^5.3.2",
     "dotenv": "^16.3.1",
     "firebase": "^10.5.2",
