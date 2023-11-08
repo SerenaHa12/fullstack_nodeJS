@@ -20,7 +20,7 @@ const LoginBtn = () => {
           }}
         >
           <Card.Body>
-            <Card.Title>Cảm ơn bạn đã sử dụng dịch vụ của F8</Card.Title>
+            <Card.Title>Cảm ơn bạn đã sử dụng dịch vụ của Chi</Card.Title>
             <Card.Text className="text-center">
               Nếu có bất kỳ câu hỏi hay trợ giúp nào, hãy đăng nhập và đặt câu
               hỏi tại đây!
