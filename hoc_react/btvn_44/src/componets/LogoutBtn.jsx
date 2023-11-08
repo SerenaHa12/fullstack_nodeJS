@@ -4,9 +4,14 @@ const LogoutBtn = () => {
   const { logout } = useAuth0();
   return (
     <>
-      <button onClick={() => logout()} className="btn btn-primary btn-danger btn-sm">
-        LOGOUT
-      </button>
+      <div className="d-flex justify-content-center mt-3">
+        <button
+          onClick={() => logout()}
+          className="btn btn-primary btn-danger btn-sm"
+        >
+          LOGOUT
+        </button>
+      </div>
     </>
   );
 };

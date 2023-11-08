@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
+import { toast } from "react-toastify";
 const Form = () => {
   const [form, setForm] = useState(false);
   const [name, setName] = useState([]);
@@ -8,6 +9,12 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    toast.warning('Send request ...')
+
+    if (message.trim() !== "") {
+      // toast("1")
+      setMessage("");
+    }
 
     emailjs
       .send(
@@ -18,32 +25,44 @@ const Form = () => {
       )
       .then(
         (result) => {
+          toast.success(result.text);
           console.log(result.text);
         },
         (error) => {
+          toast.error(error.text);
           console.log(error.text);
         }
       );
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Email</label>
-      <input
-        type="email"
-        name="user_email"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <label>Message</label>
-      <textarea
-        name="message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button value="Send" onClick={handleSubmit} className="btn btn-primary">
-        Send
-      </button>
+    <form onSubmit={handleSubmit} className="p-3 border">
+      <div className="mb-3">
+        <label className="form-label">Email</label>
+        <input
+          type="email"
+          name="user_email"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="form-control"
+        />
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label">Message</label>
+        <textarea
+          name="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="form-control"
+          rows="3"
+        />
+      </div>
+      <div className="d-flex justify-content-center">
+        <button type="submit" className="btn btn-primary">
+          Send
+        </button>
+      </div>
     </form>
   );
 };
