@@ -42,7 +42,7 @@ const Form = () => {
         <input
           type="email"
           name="user_email"
-          value={name}
+          value={user.name}
           onChange={(e) => setName(e.target.value)}
           className="form-control"
         />
