@@ -8,19 +8,27 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+} from "@chakra-ui/react";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { toast } from "react-toastify";
+import { debounce } from "lodash";
 
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [count, setCount] = useState(7);
-  console.log(count);
+  // console.log(count);
+  const isError = inputValue === "";
 
   const checkNumber = useMemo(() => Math.floor(Math.random() * 99) + 1, []);
   // console.log(checkNumber);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    setInputValue(e.target.value);
 
     if (!inputValue) {
       toast.error("Bạn phải nhập 1 số");
@@ -28,24 +36,34 @@ const Home = () => {
     }
 
     const parsedInputValue = parseInt(inputValue, 10);
+    // const checkNumber = useMemo(() => Math.floor(Math.random() * 99) + 1, []);
+    console.log(checkNumber);
 
     if (parsedInputValue === checkNumber) {
       toast.success("Chúc mừng, bạn đã đoán đúng!");
+      setCount(7);
+      setInputValue("");
     } else {
-      toast.error("Số bạn nhập không đúng. Hãy thử lại!");
       setCount(count - 1);
 
-      if (count === 1) {
-        toast.error("Bạn đã hết số lần kiểm tra. Bạn có thể bắt đầu lại!");
+      if (count > 1) {
+        if (checkNumber < parsedInputValue) {
+          toast.warning("Số bạn nhập lớn quá. Hãy nhập số nhỏ hơn chút nữa!");
+        } else if (checkNumber > parsedInputValue) {
+          toast.warning("Số bạn nhập nhỏ quá. Hãy nhập số lớn hơn chút nữa!");
+        }
+      } else {
+        toast.error("Bạn đã hết số lần kiểm tra. Bạn đã thua!");
+        setCount(7);
+        setInputValue("");
       }
     }
-
-    if (count === 2) {
-      toast.warning("Bạn chỉ còn 1 lần test");
-    } else if (count < 1) {
-      setCount(7);
-    }
   };
+
+  const debouncedHandleSubmit = debounce(
+    (e) => handleSubmit(e, inputValue),
+    500
+  );
 
   // console.log(inputValue);
 
@@ -63,33 +81,42 @@ const Home = () => {
             Bạn cần tìm kiếm một số từ 1 đến 99
           </Text>
           <div className="input-number my-4">
-            <Text fontSize="md" color="teal.500">
-              Hãy thử nhập 1 số
-            </Text>
-            <NumberInput
-              placeholder="Thử một số"
-              min={1}
-              max={99}
-              onChange={(valueString) => {
-                const value = parseInt(valueString);
-                // console.log(value);
-                if (isNaN(value)) {
-                  // console.log("NaN");
-                  setInputValue("");
-                } else if (value > 0 && value <= 99) {
-                  console.log("99", value);
-                  setInputValue(value);
-                } else {
-                  setInputValue(inputValue);
-                }
-              }}
-              value={inputValue}
-            >
-              <NumberInputField />
-              <NumberInputStepper />
-            </NumberInput>
+            <FormControl isInvalid={isError}>
+              <FormLabel fontSize="md" color="teal.500">
+                Hãy thử nhập 1 số
+              </FormLabel>
+              <NumberInput
+                placeholder="Thử một số"
+                min={1}
+                max={99}
+                onChange={(valueString) => {
+                  const value = parseInt(valueString);
+                  // console.log(value);
+                  if (isNaN(value)) {
+                    // console.log("NaN");
+                    setInputValue("");
+                  } else if (value > 0 && value <= 99) {
+                    console.log("99", value);
+                    setInputValue(value);
+                    debouncedHandleSubmit(value);
+                  } else {
+                    setInputValue(inputValue);
+                  }
+                }}
+                value={inputValue}
+              >
+                <NumberInputField />
+                <NumberInputStepper />
+              </NumberInput>
+              <FormHelperText>We'll never share your email.</FormHelperText>
+            </FormControl>
+
             <div className="mt-3 d-flex justify-content-center">
-              <Button colorScheme="teal" size="sm" onClick={handleSubmit}>
+              <Button
+                colorScheme="teal"
+                size="sm"
+                onClick={(e) => debouncedHandleSubmit(e)}
+              >
                 Kiểm tra
               </Button>
             </div>
