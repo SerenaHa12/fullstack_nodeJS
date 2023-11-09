@@ -2,14 +2,16 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { toast } from "react-toastify";
-const Form = () => {
-  const [form, setForm] = useState(false);
-  const [name, setName] = useState([]);
-  const [message, setMessage] = useState([]);
 
+
+const Form = ({ user }) => {
+  console.log(user.email);
+  const [form, setForm] = useState(false);
+  const [name, setName] = useState(user.email);
+  const [message, setMessage] = useState("Tôi cần trợ giúp bài tập về nhà");
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast.warning('Send request ...')
+    toast.warning("Send request ...");
 
     if (!message && !name) {
       toast.error("Please enter your email and message");
@@ -42,7 +44,8 @@ const Form = () => {
         <input
           type="email"
           name="user_email"
-          value={user.name}
+          // defaultValue={}
+          value={name}
           onChange={(e) => setName(e.target.value)}
           className="form-control"
         />

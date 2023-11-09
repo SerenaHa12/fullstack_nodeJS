@@ -5,7 +5,6 @@ import { Card, Button } from "react-bootstrap";
 
 const LoginBtn = () => {
   const { loginWithPopup, isLoading, isAuthenticated } = useAuth0();
-  console.log(isLoading);
   return (
     <>
       {!isAuthenticated && (

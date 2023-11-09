@@ -6,6 +6,12 @@ import Loading from "../componets/Loading";
 const Home = () => {
   const { user, isLoading, isAuthenticated } = useAuth0();
 
+  if (isAuthenticated) {
+    const user2 = { name: user.email}
+    console.log(user2.name);
+    // console.log(user);
+  }
+
   return (
     <>
       {isAuthenticated && (
@@ -33,7 +39,7 @@ const Home = () => {
               <div className="col-md-12">
                 <div className="card mx-auto">
                   <div className="card-body">
-                    <Form />
+                    <Form user={user}/>
                   </div>
                 </div>
               </div>
