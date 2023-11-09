@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Text } from "@chakra-ui/react";
 import {
@@ -21,6 +21,7 @@ import { debounce } from "lodash";
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [count, setCount] = useState(7);
+
   // console.log(count);
   const isError = inputValue === "";
 
@@ -64,7 +65,19 @@ const Home = () => {
     (e) => handleSubmit(e, inputValue),
     500
   );
-
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      if (count > 0) {
+        debouncedHandleSubmit(e);
+        console.log("hello");
+      } else {
+        // If no more attempts, restart the game
+        setCount(7);
+        setInputValue("");
+        toast.info("Bắt đầu lại trò chơi!");
+      }
+    }
+  };
   // console.log(inputValue);
 
   return (
@@ -103,12 +116,13 @@ const Home = () => {
                     setInputValue(inputValue);
                   }
                 }}
+                onKeyPress={handleKeyPress}
                 value={inputValue}
               >
                 <NumberInputField />
                 <NumberInputStepper />
               </NumberInput>
-              <FormHelperText>We'll never share your email.</FormHelperText>
+              <FormHelperText>Không mở Console để xem đáp án.</FormHelperText>
             </FormControl>
 
             <div className="mt-3 d-flex justify-content-center">

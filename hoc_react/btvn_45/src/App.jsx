@@ -9,9 +9,8 @@ import Home from "./pages/Home";
 // import layout
 import Header from "./layouts/Header";
 
-// import component
-import Loading from "./components/Loading";
 function App() {
+  toast.info("Chào mừng bạn đã đến với trò chơi đoán số");
   return (
     <>
       <div className="app-container">
@@ -30,7 +29,6 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      
     </>
   );
 }
