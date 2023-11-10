@@ -5,3 +5,24 @@ body {
 .css-wclpxa {
   flex: 0 0 100%;
 }
+
+.box-content {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.chakra-card__body {
+  margin: 0;
+}
+
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.table-warp {
+  gap: 20px;
+}

@@ -24,8 +24,16 @@ import {
   GridItem,
   Button,
   ButtonGroup,
+  Progress,
+  Heading,
+  Stack,
+  StackDivider,
+  Box,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
 } from "@chakra-ui/react";
-
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
 import MAX_TIME from "../../config";
@@ -43,20 +51,16 @@ const Home = () => {
     () => Math.floor(Math.random() * (RANGE_NUMBER - 1)) + 1,
     []
   );
+  console.log(checkNumber);
 
-  // console.log(sessions[1][0].count);
-  // console.log(sessions[1].length);
-
-  // load data from local storage
   useEffect(() => {
     const dataFromStr = localStorage.getItem("sessions");
     // console.log(dataFromStr);
     if (dataFromStr) {
       const sessions = JSON.parse(dataFromStr);
+      // console.log(sessions);
       setSessions(sessions);
-      const currentSession = sessions[0];
-      setCurrentSession(currentSession);
-      setCount(MAX_TIME - currentSession.length);
+      // setCount(MAX_TIME - currentSession.length);
       // console.log((MAX_TIME = currentSession.length));
     }
   }, [inputValue]);
@@ -79,9 +83,9 @@ const Home = () => {
     if (parsedInputValue === checkNumber) {
       toast.success("Chúc mừng, bạn đã đoán đúng!");
       // update sessions after wining
-      sessionsUpdated = [[], ...sessionsUpdated];
+      // sessionsUpdated = [[], ...sessionsUpdated];
       currentSessionUpdated = [];
-      countUpdated = MAX_TIME;
+      // countUpdated = MAX_TIME;
     } else {
       if (countUpdated >= 1) {
         if (checkNumber < parsedInputValue) {
@@ -91,23 +95,23 @@ const Home = () => {
         }
       } else {
         toast.error("Bạn đã hết số lần kiểm tra. Bạn đã thua!");
-        countUpdated = MAX_TIME;
-        sessionsUpdated = [[], ...sessionsUpdated];
+        // countUpdated = MAX_TIME;
+        // sessionsUpdated = [[], ...sessionsUpdated];
         currentSessionUpdated = [];
-        setTimeout(() => toast.info("Bắt đầu lại trò chơi!"), 2000);
       }
     }
 
     // update current session
     setCurrentSession(currentSessionUpdated);
     setCount(countUpdated);
+
     // update sessions
     setSessions(sessionsUpdated);
     localStorage.setItem("sessions", JSON.stringify(sessionsUpdated));
     setInputValue("");
   };
 
-  const debouncedHandleSubmit = debounce(() => handleSubmit(), 500);
+  const debouncedHandleSubmit = debounce(() => handleSubmit(), 100);
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -115,10 +119,42 @@ const Home = () => {
     }
   };
 
+  // btn play
+  const handlePlay = () => {
+    const sessionsUpdated = [[], ...sessions];
+    setCount(MAX_TIME);
+
+    setSessions(sessionsUpdated);
+    localStorage.setItem("sessions", JSON.stringify(sessionsUpdated));
+    setTimeout(() => toast.info("Bắt đầu lại trò chơi!"), 1000);
+  };
+
+  let valueProgressBar;
+  if (count === 0) {
+    valueProgressBar = 0;
+  } else if (count === 1) {
+    valueProgressBar = 14.3;
+  } else if (count === 2) {
+    valueProgressBar = 28.571;
+  } else if (count === 3) {
+    valueProgressBar = 42.857;
+  } else if (count === 4) {
+    valueProgressBar = 57.2;
+  } else if (count === 5) {
+    valueProgressBar = 71.5;
+  } else if (count === 6) {
+    valueProgressBar = 85.8;
+  } else if (count === 7) {
+    valueProgressBar = 100;
+  }
   return (
     <>
       <Container className="mt-3">
         <Row>
+          <div className="top">
+            <Progress value={valueProgressBar} size="sm" colorScheme="teal" />
+          </div>
+
           {/* CONTENT */}
           <div
             className="input-content"
@@ -135,92 +171,140 @@ const Home = () => {
             </Text>
           </div>
 
-          <div
-            className="table-warp"
-            style={{ display: "flex", overflow: "auto hidden" }}
-          >
-            {sessions.map((session, index) => (
-              <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                <GridItem w="100%" h="320">
-                  {/* TABLE */}
-                  <div className="input-table mt-3">
-                    <TableContainer>
-                      <Table
-                        variant="striped"
-                        colorScheme="teal"
-                        size="sm"
-                        key={index}
-                      >
-                        <TableCaption>Bảng lưu lại các lần chơi</TableCaption>
-                        <Thead>
-                          <Tr>
-                            <Th>Số lần nhập</Th>
-                            <Th isNumeric>Số nhập vào</Th>
-                          </Tr>
-                        </Thead>
-                        <Tbody>
-                          {session.map((item, index) => (
-                            <Tr key={index}>
-                              <Td>{item.count}</Td>
-                              <Td isNumeric>{item.value}</Td>
+          {count > 0 ? (
+            <div></div>
+          ) : (
+            <div
+              className="table-warp"
+              style={{ display: "flex", overflow: "auto hidden" }}
+            >
+              {sessions.map((session, index) => (
+                <Grid templateColumns="repeat(2, 1fr)" gap={6} key={index}>
+                  <GridItem w="100%" h="320">
+                    {/* TABLE */}
+                    <div className="input-table mt-3">
+                      <TableContainer>
+                        <Table
+                          variant="striped"
+                          colorScheme="teal"
+                          size="sm"
+                          key={index}
+                        >
+                          <TableCaption>Bảng lưu lại các lần chơi</TableCaption>
+                          <Thead>
+                            <Tr>
+                              <Th>Số lần nhập</Th>
+                              <Th isNumeric>Số nhập vào</Th>
                             </Tr>
-                          ))}
-                        </Tbody>
-                        <Tfoot>
-                          <Tr>
-                            <Th>Tỷ lệ đúng</Th>
-                            <Th isNumeric>multiply by</Th>
-                          </Tr>
-                        </Tfoot>
-                      </Table>
-                    </TableContainer>
-                  </div>
-                </GridItem>
-                <GridItem w="100%" h="300" bg="blue.500"></GridItem>
-              </Grid>
-            ))}
-          </div>
+                          </Thead>
+                          <Tbody>
+                            {session.map((item, index) => (
+                              <Tr key={index}>
+                                <Td>{item.count}</Td>
+                                <Td isNumeric>{item.value}</Td>
+                              </Tr>
+                            ))}
+                          </Tbody>
+                          <Tfoot>
+                            <Tr>
+                              <Th>Tỷ lệ đúng</Th>
+                              <Th isNumeric>multiply by</Th>
+                            </Tr>
+                          </Tfoot>
+                        </Table>
+                      </TableContainer>
+                    </div>
+                  </GridItem>
+                  <GridItem w="100%" h="300">
+                    <Card>
+                      <CardHeader as="b">Info Session:</CardHeader>
+                      <CardBody>
+                        <Stack divider={<StackDivider />} spacing="4">
+                          <Box className="box-content">
+                            <Heading size="xs" textTransform="uppercase">
+                              Lần chơi thứ:
+                            </Heading>
+                            <Text pt="2" fontSize="sm">
+                              {sessions.length - index} / {sessions.length}
+                            </Text>
+                          </Box>
+                          <Box className="box-content">
+                            <Heading size="xs" textTransform="uppercase">
+                              Số lần nhập tối đa:
+                            </Heading>
+                            <Text pt="2" fontSize="sm">
+                              {MAX_TIME}
+                            </Text>
+                          </Box>
+                          <Box className="box-content">
+                            <Heading size="xs" textTransform="uppercase">
+                              Tỷ lệ đúng
+                            </Heading>
+                            <Text pt="2" fontSize="sm">
+                              {count / session.length}.00 %
+                            </Text>
+                          </Box>
+                        </Stack>
+                      </CardBody>
+                    </Card>
+                  </GridItem>
+                </Grid>
+              ))}
+            </div>
+          )}
 
           {/* FORM */}
           <div className="input-number my-4">
-            <FormControl isInvalid={isError} onKeyPress={handleKeyPress}>
-              <FormLabel fontSize="md" color="teal.500">
-                Hãy thử nhập 1 số
-              </FormLabel>
-              <NumberInput
-                placeholder="Thử một số"
-                min={1}
-                max={99}
-                onChange={(valueString) => {
-                  const value = parseInt(valueString);
-                  // console.log(value);
-                  if (isNaN(value)) {
-                    // console.log("NaN");
-                    setInputValue("");
-                  } else if (value > 0 && value <= 99) {
-                    setInputValue(value);
-                    // debouncedHandleSubmit(value);
-                  } else {
-                    setInputValue(inputValue);
-                  }
-                }}
-                // onKeyPress={handleKeyPress}
-                value={inputValue}
-              >
-                <NumberInputField />
-                <NumberInputStepper />
-              </NumberInput>
-              <FormHelperText>Không mở Console để xem đáp án.</FormHelperText>
-            </FormControl>
+            {count === 0 ? (
+              <FormControl>
+                <FormHelperText>Bấm chơi lại nào</FormHelperText>
+              </FormControl>
+            ) : (
+              <FormControl isInvalid={isError} onKeyPress={handleKeyPress}>
+                <FormLabel fontSize="md" color="teal.500">
+                  Hãy thử nhập 1 số
+                </FormLabel>
+                <NumberInput
+                  placeholder="Thử một số"
+                  min={1}
+                  max={99}
+                  onChange={(valueString) => {
+                    const value = parseInt(valueString);
+                    // console.log(value);
+                    if (isNaN(value)) {
+                      // console.log("NaN");
+                      setInputValue("");
+                    } else if (value > 0 && value <= 99) {
+                      setInputValue(value);
+                      // debouncedHandleSubmit(value);
+                    } else {
+                      setInputValue(inputValue);
+                    }
+                  }}
+                  // onKeyPress={handleKeyPress}
+                  value={inputValue}
+                >
+                  <NumberInputField />
+                  <NumberInputStepper />
+                </NumberInput>
+                <FormHelperText>Không mở Console để xem đáp án.</FormHelperText>
+              </FormControl>
+            )}
 
             <div className="mt-3 d-flex justify-content-center">
-              <Button
-                colorScheme="teal"
-                size="sm"
-                onClick={(e) => debouncedHandleSubmit(e)}
-              >
-                Kiểm tra
-              </Button>
+              {count > 0 ? (
+                <Button
+                  colorScheme="teal"
+                  size="sm"
+                  onClick={(e) => debouncedHandleSubmit(e)}
+                >
+                  Kiểm tra
+                </Button>
+              ) : (
+                <Button colorScheme="teal" size="sm" onClick={handlePlay}>
+                  Chơi lại
+                </Button>
+              )}
             </div>
           </div>
         </Row>
