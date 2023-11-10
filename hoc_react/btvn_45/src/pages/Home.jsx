@@ -7,6 +7,15 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
 } from "@chakra-ui/react";
 import {
   FormControl,
@@ -17,37 +26,57 @@ import {
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
+import MAX_TIME from "../../config";
 
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
-  const [count, setCount] = useState(7);
-
-  // console.log(count);
+  const [count, setCount] = useState(MAX_TIME);
+  const [sessions, setSessions] = useState([]);
+  const [currentSession, setCurrentSession] = useState([]);
+  // console.log(MAX_TIME);
   const isError = inputValue === "";
 
   const checkNumber = useMemo(() => Math.floor(Math.random() * 99) + 1, []);
-  // console.log(checkNumber);
 
-  const handleSubmit = (e) => {
-    setInputValue(e.target.value);
+  // console.log(sessions[1][0].count);
+  // console.log(sessions[1].length);
 
+  // load data from local storage
+  useEffect(() => {
+    const dataFromStr = localStorage.getItem("sessions");
+    // console.log(dataFromStr);
+    if (dataFromStr) {
+      const sessions = JSON.parse(dataFromStr);
+      setSessions(sessions);
+      const currentSession = sessions[0];
+      setCurrentSession(currentSession);
+      setCount(MAX_TIME - currentSession.length);
+    }
+  }, []);
+
+  // handle submit
+  const handleSubmit = () => {
     if (!inputValue) {
       toast.error("Bạn phải nhập 1 số");
       return;
     }
 
     const parsedInputValue = parseInt(inputValue, 10);
-    // const checkNumber = useMemo(() => Math.floor(Math.random() * 99) + 1, []);
-    console.log(checkNumber);
+    let currentSessionUpdated = [
+      ...currentSession,
+      { count: currentSession.length + 1, value: parsedInputValue },
+    ];
+    let sessionsUpdated = [currentSessionUpdated, ...sessions.slice(1)];
+    let countUpdated = count - 1;
 
     if (parsedInputValue === checkNumber) {
       toast.success("Chúc mừng, bạn đã đoán đúng!");
-      setCount(7);
-      setInputValue("");
+      // update sessions after wining
+      sessionsUpdated = [[], ...sessionsUpdated];
+      currentSessionUpdated = [];
+      countUpdated = MAX_TIME;
     } else {
-      setCount(count - 1);
-
-      if (count > 1) {
+      if (countUpdated >= 1) {
         if (checkNumber < parsedInputValue) {
           toast.warning("Số bạn nhập lớn quá. Hãy nhập số nhỏ hơn chút nữa!");
         } else if (checkNumber > parsedInputValue) {
@@ -55,46 +84,82 @@ const Home = () => {
         }
       } else {
         toast.error("Bạn đã hết số lần kiểm tra. Bạn đã thua!");
-        setCount(7);
-        setInputValue("");
+        countUpdated = MAX_TIME;
+        sessionsUpdated = [[], ...sessionsUpdated];
+        currentSessionUpdated = [];
+        setTimeout(() => toast.info("Bắt đầu lại trò chơi!"), 2000);
       }
     }
+
+    // update current session
+    setCurrentSession(currentSessionUpdated);
+    setCount(countUpdated);
+    // update sessions
+    setSessions(sessionsUpdated);
+    localStorage.setItem("sessions", JSON.stringify(sessionsUpdated));
+    setInputValue("");
   };
 
-  const debouncedHandleSubmit = debounce(
-    (e) => handleSubmit(e, inputValue),
-    500
-  );
+  const debouncedHandleSubmit = debounce(() => handleSubmit(), 500);
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      if (count > 0) {
-        debouncedHandleSubmit(e);
-        console.log("hello");
-      } else {
-        // If no more attempts, restart the game
-        setCount(7);
-        setInputValue("");
-        toast.info("Bắt đầu lại trò chơi!");
-      }
+      debouncedHandleSubmit();
     }
   };
-  // console.log(inputValue);
 
   return (
     <>
       <Container className="mt-3">
         <Row>
-          <Text fontSize="3xl" color="teal.500" as="b">
-            Chào mừng bạn đến với trò chơi đoán số!
-          </Text>
-          <Text fontSize="3xl" color="teal.600" as="b">
-            Còn {count}/7 lần
-          </Text>
-          <Text fontSize="3xl" color="teal.700" as="b">
-            Bạn cần tìm kiếm một số từ 1 đến 99
-          </Text>
+          {/* CONTENT */}
+          <div
+            className="input-content"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            <Text fontSize="3xl" color="teal.500" as="b">
+              Chào mừng bạn đến với trò chơi đoán số!
+            </Text>
+            <Text fontSize="3xl" color="teal.600" as="b">
+              Còn {count}/{MAX_TIME} lần
+            </Text>
+            <Text fontSize="3xl" color="teal.700" as="b">
+              Bạn cần tìm kiếm một số từ 1 đến 99
+            </Text>
+          </div>
+
+          {/* TABLE */}
+          <div className="input-table">
+            <TableContainer>
+              <Table variant="striped" colorScheme="teal" size="sm">
+                <TableCaption>Bảng lưu lại các lần chơi</TableCaption>
+                <Thead>
+                  <Tr>
+                    <Th>Số lần nhập</Th>
+                    <Th isNumeric>Số nhập vào</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {sessions.map((session, index) => (
+                    <Tr key={index}>
+                      <Td>{session.length}</Td>
+                      <Td isNumeric>1</Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+                <Tfoot>
+                  <Tr>
+                    <Th>Tỷ lệ đúng</Th>
+                    <Th isNumeric>multiply by</Th>
+                  </Tr>
+                </Tfoot>
+              </Table>
+            </TableContainer>
+          </div>
+
+          {/* FORM */}
           <div className="input-number my-4">
-            <FormControl isInvalid={isError}>
+            <FormControl isInvalid={isError} onKeyPress={handleKeyPress}>
               <FormLabel fontSize="md" color="teal.500">
                 Hãy thử nhập 1 số
               </FormLabel>
@@ -111,12 +176,12 @@ const Home = () => {
                   } else if (value > 0 && value <= 99) {
                     console.log("99", value);
                     setInputValue(value);
-                    debouncedHandleSubmit(value);
+                    // debouncedHandleSubmit(value);
                   } else {
                     setInputValue(inputValue);
                   }
                 }}
-                onKeyPress={handleKeyPress}
+                // onKeyPress={handleKeyPress}
                 value={inputValue}
               >
                 <NumberInputField />

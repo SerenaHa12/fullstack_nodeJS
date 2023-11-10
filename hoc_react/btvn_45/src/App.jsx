@@ -8,12 +8,14 @@ import Home from "./pages/Home";
 
 // import layout
 import Header from "./layouts/Header";
+import ProgressBar from "./components/ProgressBar";
 
 function App() {
   toast.info("Chào mừng bạn đã đến với trò chơi đoán số");
   return (
     <>
       <div className="app-container">
+        <ProgressBar />
         <Header />
         <Home />
       </div>
