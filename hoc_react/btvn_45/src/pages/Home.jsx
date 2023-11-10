@@ -27,16 +27,20 @@ import { Button, ButtonGroup } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
 import MAX_TIME from "../../config";
+import { RANGE_NUMBER } from "../../config";
 
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [count, setCount] = useState(MAX_TIME);
   const [sessions, setSessions] = useState([]);
   const [currentSession, setCurrentSession] = useState([]);
-  // console.log(MAX_TIME);
+
   const isError = inputValue === "";
 
-  const checkNumber = useMemo(() => Math.floor(Math.random() * 99) + 1, []);
+  const checkNumber = useMemo(
+    () => Math.floor(Math.random() * (RANGE_NUMBER - 1)) + 1,
+    []
+  );
 
   // console.log(sessions[1][0].count);
   // console.log(sessions[1].length);
@@ -51,8 +55,9 @@ const Home = () => {
       const currentSession = sessions[0];
       setCurrentSession(currentSession);
       setCount(MAX_TIME - currentSession.length);
+      // console.log((MAX_TIME = currentSession.length));
     }
-  }, []);
+  }, [inputValue]);
 
   // handle submit
   const handleSubmit = () => {
@@ -124,12 +129,12 @@ const Home = () => {
               Còn {count}/{MAX_TIME} lần
             </Text>
             <Text fontSize="3xl" color="teal.700" as="b">
-              Bạn cần tìm kiếm một số từ 1 đến 99
+              Bạn cần tìm kiếm một số từ 1 đến {RANGE_NUMBER - 1}
             </Text>
           </div>
 
           {/* TABLE */}
-          <div className="input-table">
+          <div className="input-table mt-3">
             <TableContainer>
               <Table variant="striped" colorScheme="teal" size="sm">
                 <TableCaption>Bảng lưu lại các lần chơi</TableCaption>
@@ -140,12 +145,14 @@ const Home = () => {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {sessions.map((session, index) => (
-                    <Tr key={index}>
-                      <Td>{session.length}</Td>
-                      <Td isNumeric>1</Td>
-                    </Tr>
-                  ))}
+                  {sessions.map((session) =>
+                    session.map((item, index) => (
+                      <Tr key={index}>
+                        <Td>{item.count}</Td>
+                        <Td isNumeric>{item.value}</Td>
+                      </Tr>
+                    ))
+                  )}
                 </Tbody>
                 <Tfoot>
                   <Tr>
@@ -174,7 +181,6 @@ const Home = () => {
                     // console.log("NaN");
                     setInputValue("");
                   } else if (value > 0 && value <= 99) {
-                    console.log("99", value);
                     setInputValue(value);
                     // debouncedHandleSubmit(value);
                   } else {
