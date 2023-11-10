@@ -1,3 +1,7 @@
 body {
   touch-action: none;
 }
+
+.css-wclpxa {
+  flex: 0 0 100%;
+}

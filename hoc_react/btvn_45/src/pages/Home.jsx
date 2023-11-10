@@ -16,14 +16,16 @@ import {
   Td,
   TableCaption,
   TableContainer,
-} from "@chakra-ui/react";
-import {
   FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
+  Grid,
+  GridItem,
+  Button,
+  ButtonGroup,
 } from "@chakra-ui/react";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
 import MAX_TIME from "../../config";
@@ -133,35 +135,50 @@ const Home = () => {
             </Text>
           </div>
 
-          {/* TABLE */}
-          <div className="input-table mt-3">
-            <TableContainer>
-              <Table variant="striped" colorScheme="teal" size="sm">
-                <TableCaption>Bảng lưu lại các lần chơi</TableCaption>
-                <Thead>
-                  <Tr>
-                    <Th>Số lần nhập</Th>
-                    <Th isNumeric>Số nhập vào</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {sessions.map((session) =>
-                    session.map((item, index) => (
-                      <Tr key={index}>
-                        <Td>{item.count}</Td>
-                        <Td isNumeric>{item.value}</Td>
-                      </Tr>
-                    ))
-                  )}
-                </Tbody>
-                <Tfoot>
-                  <Tr>
-                    <Th>Tỷ lệ đúng</Th>
-                    <Th isNumeric>multiply by</Th>
-                  </Tr>
-                </Tfoot>
-              </Table>
-            </TableContainer>
+          <div
+            className="table-warp"
+            style={{ display: "flex", overflow: "auto hidden" }}
+          >
+            {sessions.map((session, index) => (
+              <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+                <GridItem w="100%" h="320">
+                  {/* TABLE */}
+                  <div className="input-table mt-3">
+                    <TableContainer>
+                      <Table
+                        variant="striped"
+                        colorScheme="teal"
+                        size="sm"
+                        key={index}
+                      >
+                        <TableCaption>Bảng lưu lại các lần chơi</TableCaption>
+                        <Thead>
+                          <Tr>
+                            <Th>Số lần nhập</Th>
+                            <Th isNumeric>Số nhập vào</Th>
+                          </Tr>
+                        </Thead>
+                        <Tbody>
+                          {session.map((item, index) => (
+                            <Tr key={index}>
+                              <Td>{item.count}</Td>
+                              <Td isNumeric>{item.value}</Td>
+                            </Tr>
+                          ))}
+                        </Tbody>
+                        <Tfoot>
+                          <Tr>
+                            <Th>Tỷ lệ đúng</Th>
+                            <Th isNumeric>multiply by</Th>
+                          </Tr>
+                        </Tfoot>
+                      </Table>
+                    </TableContainer>
+                  </div>
+                </GridItem>
+                <GridItem w="100%" h="300" bg="blue.500"></GridItem>
+              </Grid>
+            ))}
           </div>
 
           {/* FORM */}
