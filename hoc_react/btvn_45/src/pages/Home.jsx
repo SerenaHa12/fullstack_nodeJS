@@ -44,7 +44,7 @@ const Home = () => {
   const [count, setCount] = useState(MAX_TIME);
   const [sessions, setSessions] = useState([]);
   const [currentSession, setCurrentSession] = useState([]);
-
+  const [scrollIndex, setScrollIndex] = useState(0);
   const isError = inputValue === "";
 
   const checkNumber = useMemo(
@@ -64,6 +64,16 @@ const Home = () => {
       // console.log((MAX_TIME = currentSession.length));
     }
   }, [inputValue]);
+
+  useEffect(() => {
+    // Thêm sự kiện keydown khi component được tạo
+    document.addEventListener("keydown", handleKeyPress);
+
+    // Xóa sự kiện keydown khi component bị hủy
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [scrollIndex]);
 
   // handle submit
   const handleSubmit = () => {
@@ -116,6 +126,16 @@ const Home = () => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       debouncedHandleSubmit();
+    } else if (e.key === "ArrowRight") {
+      // Cuộn bảng sang phải
+      setScrollIndex((prevIndex) =>
+        prevIndex < sessions.length - 1 ? prevIndex + 1 : prevIndex
+      );
+    } else if (e.key === "ArrowLeft") {
+      // Cuộn bảng sang trái
+      setScrollIndex((prevIndex) =>
+        prevIndex > 0 ? prevIndex - 1 : prevIndex
+      );
     }
   };
 
