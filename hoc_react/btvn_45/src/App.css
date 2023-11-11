@@ -26,3 +26,15 @@ body {
 .table-warp {
   gap: 20px;
 }
+
+.carousel.slide {
+  flex: 0 0 100%;
+}
+
+.carousel-inner {
+  padding: 0 100px 80px;
+}
+
+.carousel-control-next-icon {
+  color: transparent;
+}

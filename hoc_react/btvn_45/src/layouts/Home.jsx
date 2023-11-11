@@ -1,12 +1,11 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { Container, Row, Carousel } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import { Text } from "@chakra-ui/react";
 import {
-  FormLabel,
-  Text,
-  SimpleGrid,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
+  NumberIncrementStepper,
   NumberDecrementStepper,
   Table,
   Thead,
@@ -18,6 +17,7 @@ import {
   TableCaption,
   TableContainer,
   FormControl,
+  FormLabel,
   FormErrorMessage,
   FormHelperText,
   Grid,
@@ -33,19 +33,13 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  ChakraProvider,
-  extendTheme,
-  VStack,
-  HStack,
-  Flex,
-  Tag,
 } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
 import MAX_TIME from "../../config";
 import { RANGE_NUMBER } from "../../config";
-// import { capsFirst } from "../utils";
-// import ChakraCarousel from "../components/ChakraCarousel";
+
+import Carousel from "react-bootstrap/Carousel";
 
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
@@ -59,7 +53,7 @@ const Home = () => {
     () => Math.floor(Math.random() * (RANGE_NUMBER - 1)) + 1,
     []
   );
-  // console.log(checkNumber);
+  console.log(checkNumber);
 
   useEffect(() => {
     const dataFromStr = localStorage.getItem("sessions");
@@ -206,12 +200,12 @@ const Home = () => {
               className="table-warp"
               style={{ display: "flex", overflow: "auto hidden" }}
             >
-              <Carousel data-bs-theme="dark">
-                {sessions.map((session, index) => (
-                  <Carousel.Item key={index}>
-                    <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                      <GridItem w="100%" h="320">
-                        {/* TABLE */}
+              {sessions.map((session, index) => (
+                <Grid templateColumns="repeat(2, 1fr)" gap={6} key={index}>
+                  <GridItem w="100%" h="320">
+                    {/* TABLE */}
+                    <Carousel data-bs-theme="dark">
+                      <Carousel.Item>
                         <div className="input-table mt-3">
                           <TableContainer>
                             <Table
@@ -220,7 +214,9 @@ const Home = () => {
                               size="sm"
                               key={index}
                             >
-                              <TableCaption></TableCaption>
+                              <TableCaption>
+                                Bảng lưu lại các lần chơi
+                              </TableCaption>
                               <Thead>
                                 <Tr>
                                   <Th>Số lần nhập</Th>
@@ -235,48 +231,53 @@ const Home = () => {
                                   </Tr>
                                 ))}
                               </Tbody>
-                              <Tfoot></Tfoot>
+                              <Tfoot>
+                                <Tr>
+                                  <Th>Tỷ lệ đúng</Th>
+                                  <Th isNumeric>multiply by</Th>
+                                </Tr>
+                              </Tfoot>
                             </Table>
                           </TableContainer>
                         </div>
-                      </GridItem>
-                      <GridItem w="100%" h="320">
-                        <Card>
-                          <CardHeader as="b">Info Session:</CardHeader>
-                          <CardBody>
-                            <Stack divider={<StackDivider />} spacing="4">
-                              <Box className="box-content">
-                                <Heading size="xs" textTransform="uppercase">
-                                  Lần chơi thứ:
-                                </Heading>
-                                <Text pt="2" fontSize="sm">
-                                  {sessions.length - index} / {sessions.length}
-                                </Text>
-                              </Box>
-                              <Box className="box-content">
-                                <Heading size="xs" textTransform="uppercase">
-                                  Số lần nhập tối đa:
-                                </Heading>
-                                <Text pt="2" fontSize="sm">
-                                  {MAX_TIME}
-                                </Text>
-                              </Box>
-                              <Box className="box-content">
-                                <Heading size="xs" textTransform="uppercase">
-                                  Tỷ lệ đúng
-                                </Heading>
-                                <Text pt="2" fontSize="sm">
-                                  {count / session.length}.00 %
-                                </Text>
-                              </Box>
-                            </Stack>
-                          </CardBody>
-                        </Card>
-                      </GridItem>
-                    </Grid>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
+                      </Carousel.Item>
+                    </Carousel>
+                  </GridItem>
+                  <GridItem w="100%" h="300">
+                    <Card>
+                      <CardHeader as="b">Info Session:</CardHeader>
+                      <CardBody>
+                        <Stack divider={<StackDivider />} spacing="4">
+                          <Box className="box-content">
+                            <Heading size="xs" textTransform="uppercase">
+                              Lần chơi thứ:
+                            </Heading>
+                            <Text pt="2" fontSize="sm">
+                              {sessions.length - index} / {sessions.length}
+                            </Text>
+                          </Box>
+                          <Box className="box-content">
+                            <Heading size="xs" textTransform="uppercase">
+                              Số lần nhập tối đa:
+                            </Heading>
+                            <Text pt="2" fontSize="sm">
+                              {MAX_TIME}
+                            </Text>
+                          </Box>
+                          <Box className="box-content">
+                            <Heading size="xs" textTransform="uppercase">
+                              Tỷ lệ đúng
+                            </Heading>
+                            <Text pt="2" fontSize="sm">
+                              {count / session.length}.00 %
+                            </Text>
+                          </Box>
+                        </Stack>
+                      </CardBody>
+                    </Card>
+                  </GridItem>
+                </Grid>
+              ))}
             </div>
           )}
 
