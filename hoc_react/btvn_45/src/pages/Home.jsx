@@ -206,7 +206,7 @@ const Home = () => {
               className="table-warp"
               style={{ display: "flex", overflow: "auto hidden" }}
             >
-              <Carousel data-bs-theme="dark">
+              <Carousel interval={null} data-bs-theme="dark">
                 {sessions.map((session, index) => (
                   <Carousel.Item key={index}>
                     <Grid templateColumns="repeat(2, 1fr)" gap={6}>
