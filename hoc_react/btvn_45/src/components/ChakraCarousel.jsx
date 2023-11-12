@@ -43,12 +43,12 @@ const ChakraCarousel = ({ children, gap }) => {
 
   const initSliderWidth = useCallback((width) => setSliderWidth(width), []);
 
-  let position;
+  // let position;
 
-  // const positions = useMemo(
-  //   () => children.map((_, index) => -Math.abs((itemWidth + gap) * index)),
-  //   [children, itemWidth, gap]
-  // );
+  const positions = useMemo(
+    () => children.map((_, index) => -Math.abs((itemWidth + gap) * index)),
+    [children, itemWidth, gap]
+  );
 
   const { breakpoints } = useTheme();
 
