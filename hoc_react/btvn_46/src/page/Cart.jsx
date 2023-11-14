@@ -2,8 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Button } from "react-bootstrap";
 
-const Card = () => {
+const Cart = () => {
   const cartItems = useSelector(state => state.cart.cart)
+  
+  console.log(cartItems);
   return (
     <div className='cart-container'>
       <h2>Cart Items</h2>
@@ -22,4 +24,4 @@ const Card = () => {
   )
 }
 
-export default Card
+export default Cart

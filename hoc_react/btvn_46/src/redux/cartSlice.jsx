@@ -8,6 +8,7 @@ const cartSlide = createSlice({
     reducers: {
         addtoCart: (state, action) => {
             state.cart.push(action.payload)
+            return state
         }
     }
 })

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
+import { NavLink } from "react-router-dom";
 const Header = () => {
   const cartItems = useSelector(state => state.cart.cart)
   return (
@@ -15,7 +15,7 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              <Nav.Link href="/cart">Cart<small>( {cartItems.length} )</small></Nav.Link>
+              <NavLink to="/cart">Cart<small>( {cartItems.length} )</small></NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
