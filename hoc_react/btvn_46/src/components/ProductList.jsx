@@ -6,36 +6,35 @@ import { toast } from "react-toastify";
 import ProductItem from "./ProductItem";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const getProducts = async () => {
+  const [productsList, setProductsList] = useState([]);
+  const getProduct = async () => {
     try {
       let res = await getProducts();
-    //   console.log("check", res);
 
-      const product = res.data.data.listProduct;
-
-      console.log("hi", product);
       if (res && res.data) {
-        setProducts(res.data.data);
-        toast.success("success");
+        setProductsList(res.data.data.listProduct);
+        toast.success("Lấy danh sách sản phẩm thành công");
       }
     } catch (err) {
-    //   toast.error("Lỗi khi lấy danh sách sản phẩm");
+        toast.error("Lỗi khi lấy danh sách sản phẩm");
     }
   };
 
   useEffect(() => {
-    getProducts();
+    getProduct();
   }, []);
   return (
     <>
       <div className="container-list_product">
-        {products &&
-          products.length > 0 &&
-          products.map((product) => {
-            return <ProductItem product={product} key={product._id} />;
-          })}
-      </div>
+      <h2>Product List</h2>
+      <Row>
+        {productsList &&
+          productsList.length > 0 &&
+          productsList.map((product) => (
+            <ProductItem product={product} key={product._id} />
+          ))}
+      </Row>
+    </div>
     </>
   );
 };

@@ -1,7 +1,8 @@
-import { getProducts } from "../api/productApi";
+
 import { ProductContext } from "../context/ProductContext";
 import { useContext } from "react";
 import { Button, Card } from "react-bootstrap";
+
 const ProductItem = ({ product }) => {
   const { addOrder } = useContext(ProductContext);
   // console.log(addOrder);
