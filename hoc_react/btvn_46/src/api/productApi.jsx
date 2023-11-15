@@ -5,4 +5,6 @@ const getProducts = async (limit = 8, page = 1) => {
   return { data: res, code: res.code };
 };
 
+
+
 export { getProducts };

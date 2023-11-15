@@ -1,14 +1,26 @@
-import AppRoutes from "./routes/AppRoutes"
-import Header from "./layout/Header"
+import AppRoutes from "./routes/AppRoutes";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import Header from "./layout/Header";
 import { ToastContainer } from "react-toastify";
 import Container from "react-bootstrap/Container";
-
+import { restoreCart } from "./redux/cartSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    console.log(storedCartProducts);
+    if (storedCartProducts) {
+      dispatch(restoreCart(storedCartProducts));
+    }
+  }, []);
 
   return (
     <>
-       <div className="app-container">
+      <div className="app-container">
         <Header />
         <Container>
           <AppRoutes />
@@ -27,7 +39,7 @@ function App() {
         theme="light"
       />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

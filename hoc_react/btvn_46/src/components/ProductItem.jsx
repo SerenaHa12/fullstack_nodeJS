@@ -1,43 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addtoCart } from "../redux/cartSlice";
+import { addtoCart, restoreCart } from "../redux/cartSlice";
 import { toast } from "react-toastify";
 
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
-  const [addedProducts, setAddedProducts] = useState([product]);
-
-  useEffect(() => {
-    const dataFromStr = localStorage.getItem("addedProducts");
-    if (dataFromStr) {
-      const storedProducts = JSON.parse(dataFromStr);
-      setAddedProducts(storedProducts);
-    }
-  }, []); 
+  const cartItems = useSelector((state) => state.cart);
 
   const handleAddToCart = () => {
-    try {
-      dispatch(addtoCart({ product }));
-      toast.success("Thêm sản phẩm thành công");
-      console.log("product", product);
+    dispatch(addtoCart(product));
 
-      setAddedProducts((prevAddedProducts) => [...prevAddedProducts, product]);
-      localStorage.setItem("addedProducts", JSON.stringify([...addedProducts, product]));
-      console.log(addedProducts);
-    } catch (err) {
-      toast.error("Thêm sản phẩm thất bại");
-    }
+    // try {
+    //   dispatch(addtoCart({ product }));
+    //   toast.success("Thêm sản phẩm thành công");
+    //   console.log("product", product);
+    //   setAddedProducts((prevAddedProducts) => [...prevAddedProducts, product]);
+    //   localStorage.setItem("addedProducts", JSON.stringify([...addedProducts, product]));
+    //   console.log(addedProducts);
+    // } catch (err) {
+    //   toast.error("Thêm sản phẩm thất bại");
+    // }
   };
-
-  // useEffect(() => {
-  //   const dataFromStr = localStorage.getItem("addedProducts");
-  //   console.log(dataFromStr);
-  //   if (dataFromStr) {
-  //     const addedProducts = JSON.parse(dataFromStr);
-  //     setAddedProducts(addedProducts)
-  //   }
-  // }, [addedProducts]);
+  console.log(cartItems);
+  useEffect(() => {
+    localStorage.setItem("cartProducts", JSON.stringify(cartItems));
+  }, [cartItems]);
+  console.log(cartItems);
 
   return (
     <Col sm={6} md={4} lg={3} xl={3}>
