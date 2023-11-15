@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart);
-
+  const cartItems = useSelector((state) => state.cart.cart);
 
   return (
     <div className="cart-container">

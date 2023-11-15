@@ -25,7 +25,6 @@ const ProductList = () => {
   useEffect(() => {
     getProduct();
   }, []);
-  console.log("check", productsList);
   return (
     <>
       <div className="container-list_product">

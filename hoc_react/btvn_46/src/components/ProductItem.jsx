@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addtoCart, restoreCart } from "../redux/cartSlice";
+import { addtoCart } from "../redux/cartSlice";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
@@ -22,16 +24,18 @@ const ProductItem = ({ product }) => {
     //   toast.error("Thêm sản phẩm thất bại");
     // }
   };
-  console.log(cartItems);
-  useEffect(() => {
-    localStorage.setItem("cartProducts", JSON.stringify(cartItems));
-  }, [cartItems]);
-  console.log(cartItems);
+  // console.log(cartItems);
+  // useEffect(() => {
+  //   localStorage.setItem("cartProducts", JSON.stringify(cartItems));
+  // }, [cartItems]);
+  // console.log(cartItems);
 
   return (
     <Col sm={6} md={4} lg={3} xl={3}>
       <Card style={{ marginBottom: "15px" }}>
-        <Card.Img variant="top" src={product.image} />
+        <Link to={`/product/${product.id}`}>
+          <Card.Img variant="top" src={product.image} />
+        </Link>
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>$ {product.price}</Card.Text>

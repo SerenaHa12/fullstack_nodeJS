@@ -8,37 +8,34 @@ const storedCartProducts = () => {
 const cartSlide = createSlice({
   name: "cart",
   initialState: {
-    cart: [],
+    cart: JSON.parse(localStorage.getItem("cartProducts") || "[]") || [],
   },
   reducers: {
     addtoCart: (state, action) => {
+      console.log(state.cart);
       const updatedProducts = [...state.cart];
       const actionProduct = action.payload;
-      const existProduct = updatedProducts.find(
+      const existProductIndex = updatedProducts.findIndex(
         (p) => p._id === actionProduct._id
       );
 
-      if (!existProduct) {
+      if (existProductIndex === -1) {
         actionProduct.amount = 1;
         updatedProducts.push(actionProduct);
       } else {
-        existProduct.amount++;
+        // Sử dụng Immer để thay đổ+i trạng thái mà không cần gán trực tiếp
+        updatedProducts[existProductIndex] = {
+          ...updatedProducts[existProductIndex],
+          amount: updatedProducts[existProductIndex].amount + 1,
+        };
       }
 
-      console.log("====================================");
-      console.log("updatedProducts", updatedProducts);
-      console.log("state", state);
-      console.log("====================================");
-
+      // Gán trạng thái mới cho state
       state.cart = updatedProducts;
-      // localStorage.setItem("cartProducts", JSON.stringify(updatedProducts));
-    },
-
-    restoreCart: (state, action) => {
-      state.cart = action.payload;
+      localStorage.setItem("cartProducts", JSON.stringify(updatedProducts));
     },
   },
 });
 
 export default cartSlide.reducer;
-export const { addtoCart, restoreCart } = cartSlide.actions;
+export const { addtoCart } = cartSlide.actions;

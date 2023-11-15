@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 const Header = () => {
   const cartItems = useSelector((state) => state.cart.cart);
+
   // console.log(cartItems.length);
   return (
     <div>
@@ -18,7 +19,7 @@ const Header = () => {
             <Nav>
               <NavLink to="/cart">
                 Cart
-                <small></small>
+                <small>( {cartItems.length} )</small>
               </NavLink>
             </Nav>
           </Navbar.Collapse>
