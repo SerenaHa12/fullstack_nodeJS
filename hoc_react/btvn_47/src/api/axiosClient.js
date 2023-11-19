@@ -1,56 +1,71 @@
+// call api
+import {config} from "./config.js";
 import axios from "axios";
-// import queryString from "query-string";
-const axiosClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  // headers: {
-  //   "X-Api-Key": apiKey,
-  // },
-  timeout: 5000,
+import queryString from 'query-string';
+
+const { SERVER_AUTH_API } = config;
+
+
+// import Cookies from 'universal-cookie';
+
+// const cookies = new Cookies();
+
+const axiosClient = axios.create(
+    (() => {
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        };
+        return {
+            baseURL: SERVER_AUTH_API,
+            headers
+        }
+    })()
+);
+
+axiosClient.interceptors.request.use(function (config) {
+    // console.log(apiKey);
+    config.headers['X-API-KEY'] = localStorage.getItem('apiKey');
+    return config;
 });
 
-// Add a request interceptor
-axiosClient.interceptors.request.use(
-  function (config) {
-    // Do something before request is sent
-    const apiKey = localStorage.getItem("apiKey");
-    config.headers["X-Api-Key"] = apiKey;
-    return config;
-  },
-  function (error) {
-    // Do something with request error
-    return Promise.reject(error);
-  }
-);
+function buildUrl(baseUrl, params) {
+    const query = queryString.stringify(params);
+    // console.log(url);
+    return `${baseUrl}?${query}`;
+}
 
-axiosClient.interceptors.response.use(
-  function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
-    return response.data ? response.data : { statusCode: response.status };
-  },
-  function (error) {
-    console.log("check error axios", error.name, error.message);
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      console.log(error.response.data);
-      console.log(error.response.data.message);
+export const apiClient = {
+    get: async (url, requestParam = null) => {
+        if (requestParam) {
+            url = buildUrl(url, requestParam);
+        }
+        // console.log(url);
+        const response = await axiosClient.get(url);
+        // console.log(response);
+        return response.data;
+    },
 
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    } else if (error.request) {
-      // The request was made but no response was received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-      // http.ClientRequest in node.js
-      console.log(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log("Error", error.message);
+    post: async (url, body = {}) => {
+        const response = await axiosClient.post(url, body);
+        // console.log(response);
+        return response.data;
+    },
+
+
+    patch: async (url, body = {}) => {
+        const response = await axiosClient.patch(url, body);
+        return response.data;
+    },
+
+
+    put: async (url, body = {}) => {
+        const response = await axiosClient.put(url, body);
+        return response.data;
+    },
+
+    delete: async (url) => {
+        const response = await axiosClient.delete(url);
+        return response.data;
     }
-    return Promise.reject(error);
-  }
-);
-
-export default axiosClient;
+};

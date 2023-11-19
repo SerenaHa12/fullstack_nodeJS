@@ -6,7 +6,9 @@ const getApiKeyLogin = async (email, apiKey) => {
 };
 
 const getTask = async (email, apiKey) => {
-  const res = await axiosClient.get(`/tasks`, {})
+  const res = await axiosClient.get(`/tasks`, {
+    
+  })
   return { data: res.data, code: res.code };
 }
 export { getApiKeyLogin, getTask };

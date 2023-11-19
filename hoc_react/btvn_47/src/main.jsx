@@ -4,9 +4,11 @@ import App from "./App.jsx";
 import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "../src/context/UserContext";
-import { ChakraProvider,extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import store from "./redux/store.jsx";
 
 const colors = {
   brand: {
@@ -21,11 +23,13 @@ const theme = extendTheme({ colors });
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <ChakraProvider theme={theme}>
-      <UserProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </UserProvider>
+      <Provider store={store}>
+        <UserProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </UserProvider>
+      </Provider>
     </ChakraProvider>
   </>
 );
