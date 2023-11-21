@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Header from "../../components/Header";
 import {
   Box,
   Input,
@@ -9,26 +10,46 @@ import {
   Flex,
   Center,
   Container,
+  FormControl,
 } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../redux/slice/authSlice";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const { userInfo, error } = useSelector((state) => state.auth);
+  console.log(userInfo);
+  
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = useState("dhchsgs12@gmail.com");
   const navigate = useNavigate();
   const { colorMode } = useColorMode();
 
-  const handleLogin = async (e) => {
+  // const [hideHeader, setHideHeader] = useState(false);
+
+  const handleLogin = (e) => {
     e.preventDefault();
+
     try {
       if (!email) {
         toast.error("Please enter your email");
-        // return;
+        return;
       }
+      dispatch(loginUser({ email: email }));
     } catch ({ error, data }) {
       toast.error(`Error: Tài khoản không tồn tại`);
     }
+    // setHideHeader(true);
   };
+
+  useEffect(() => {
+    const apiKey = localStorage.getItem("apiKey");
+    if (apiKey) {
+      navigate("/todos");
+    }
+  }, []);
 
   const handleBackToHome = () => {
     navigate("/");
@@ -49,13 +70,15 @@ const Login = () => {
             <Heading as="h2" size="xl" textAlign="center" mb={6}>
               Login
             </Heading>
-            <form onSubmit={handleLogin}>
+
+            <FormControl>
               <Box mb={4}>
                 <Input
                   type="email"
                   placeholder="Email"
                   onChange={(event) => setEmail(event.target.value)}
                   size="md"
+                  value={email}
                 />
               </Box>
               <Button
@@ -71,7 +94,7 @@ const Login = () => {
               <Link onClick={handleBackToHome} color="teal.500">
                 Back to Home
               </Link>
-            </form>
+            </FormControl>
           </Box>
         </Flex>
       </Container>

@@ -1,0 +1,9 @@
+.task-card {
+    position: relative;
+}
+.close-btn-task-card {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: red;
+}
