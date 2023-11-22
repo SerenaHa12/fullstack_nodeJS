@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { apiClient } from "../../api/axiosClient";
 import { FULFILLED, IDLE, PENDING, REJECTED } from "../../utils/constants";
+import { create } from "lodash";
 const initialState = {
   loading: false,
   taskData: {},
@@ -27,6 +28,23 @@ export const getTask = createAsyncThunk(
       });
 
       return taskDataFilter;
+    } catch (err) {
+      console.log(err);
+      return thunkApi.rejectWithValue({
+        code: e.response.status,
+        message: e.response.data.message,
+      });
+    }
+  }
+);
+
+export const addTask = createAsyncThunk(
+  "task/addTask",
+  async (body, thunkApi) => {
+    try {
+      const response = await apiClient.post("/tasks", body);
+      console.log("addTask", response);
+      return response;
     } catch (err) {
       console.log(err);
       return thunkApi.rejectWithValue({

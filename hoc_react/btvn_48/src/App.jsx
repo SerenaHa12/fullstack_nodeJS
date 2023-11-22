@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import AppRoutes from "./routes/AppRoutes";
-import Container from "react-bootstrap/Container";
+import { Container, Box } from "@chakra-ui/react";
 import { ToastContainer } from "react-toastify";
 // import { Container } from '@chakra-ui/react'
 function App() {
@@ -10,9 +10,11 @@ function App() {
     <>
       <div className="app-container">
         <Header />
-        <Container>
-          <AppRoutes />
-        </Container>
+        <Box p={4}>
+          <Container maxW="container.xl">
+            <AppRoutes />
+          </Container>
+        </Box>
       </div>
       <ToastContainer
         position="top-right"

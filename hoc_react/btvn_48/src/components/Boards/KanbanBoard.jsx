@@ -24,12 +24,14 @@ import {
   SortableContext,
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { Sort } from "@mui/icons-material";
+import ModalAddColumn from "../../modals/ModalAddColumn";
+import { useDisclosure } from "@chakra-ui/react";
+
 function KanbanBoard() {
   const { taskData, error } = useSelector((state) => state.task);
 
   const dispatch = useDispatch();
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   useEffect(() => {
     dispatch(getTask());
   }, []);
@@ -37,7 +39,6 @@ function KanbanBoard() {
   const handleDragEnd = (event) => {
     console.log("handleDragEnd", event);
   };
-
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <ChakraProvider>
@@ -53,9 +54,11 @@ function KanbanBoard() {
                 variant="outline"
                 size="md"
                 mt={4}
+                onClick={onOpen}
               >
                 Add Column
               </Button>
+              <ModalAddColumn isOpen={isOpen} onClose={onClose} />
             </Flex>
 
             <Divider />

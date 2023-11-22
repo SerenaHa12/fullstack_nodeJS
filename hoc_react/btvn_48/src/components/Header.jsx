@@ -48,17 +48,12 @@ const Header = () => {
   return (
     <>
       {!hideHeader && (
-        <Box bg="gray.800" p={4}>
+        <Box p={4}>
           <Container maxW="container.xl">
             <Flex alignItems="center">
               {/* Logo */}
               <Box>
-                <ChakraLink
-                  to="/"
-                  fontSize="xl"
-                  fontWeight="bold"
-                  color="white"
-                >
+                <ChakraLink to="/" fontSize="xl" fontWeight="bold">
                   Kanban
                 </ChakraLink>
               </Box>
@@ -74,17 +69,13 @@ const Header = () => {
                       <Link
                         to="/"
                         style={{
-                          color: "white",
                           fontWeight: "bold",
                           marginRight: "10px",
                         }}
                       >
                         Home
                       </Link>
-                      <Link
-                        to="/todos"
-                        style={{ color: "white", fontWeight: "bold" }}
-                      >
+                      <Link to="/todos" style={{ fontWeight: "bold" }}>
                         ToDo
                       </Link>
                     </Flex>
@@ -93,14 +84,13 @@ const Header = () => {
                   {/* Right side content */}
                   <Box ml="auto" display="flex" alignItems="center">
                     {userInfo && userInfo.apiKey && (
-                      <Box as="span" color="white" mr={4}>
+                      <Box as="span" mr={4}>
                         Welcome {userInfo.apiKey}
                       </Box>
                     )}
                     {userInfo && userInfo.apiKey === true ? (
                       <Button
                         variant="link"
-                        color="white"
                         onClick={handleLogout}
                         className="logout"
                       >
@@ -110,7 +100,6 @@ const Header = () => {
                       <Link
                         to="/login"
                         style={{
-                          color: "white",
                           fontWeight: "bold",
                           marginLeft: "10px",
                         }}
