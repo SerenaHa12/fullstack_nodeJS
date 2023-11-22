@@ -14,8 +14,9 @@ export const loginUser = createAsyncThunk(
   async (requestParams, thunkApi) => {
     try {
       const { data } = await apiClient.get("/api-key", requestParams);
-      if (data.apiKey) {
+      if (data.apiKey && requestParams.email) {
         localStorage.setItem("apiKey", data.apiKey);
+        localStorage.setItem("email", requestParams.email);
         return data.apiKey;
       }
     } catch (err) {

@@ -16,18 +16,18 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/slice/authSlice";
+import { authSlice } from "../../redux/slice/authSlice";
+
+const {reset: loginReset} = authSlice.actions
 
 const Login = () => {
   const { userInfo, error } = useSelector((state) => state.auth);
-  console.log(userInfo);
-  
+
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState("dhchsgs12@gmail.com");
   const navigate = useNavigate();
   const { colorMode } = useColorMode();
-
-  // const [hideHeader, setHideHeader] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -41,15 +41,15 @@ const Login = () => {
     } catch ({ error, data }) {
       toast.error(`Error: Tài khoản không tồn tại`);
     }
-    // setHideHeader(true);
   };
 
   useEffect(() => {
-    const apiKey = localStorage.getItem("apiKey");
-    if (apiKey) {
+    if (userInfo && userInfo.apiKey) {
+      toast.success("Đăng nhập thành công");
+      dispatch(loginReset());
       navigate("/todos");
     }
-  }, []);
+  }, [userInfo]);
 
   const handleBackToHome = () => {
     navigate("/");
