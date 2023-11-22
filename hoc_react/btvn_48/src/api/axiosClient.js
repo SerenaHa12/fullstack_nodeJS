@@ -28,11 +28,10 @@ function buildUrl(baseUrl, params) {
 
 export const apiClient = {
   get: async (url, requestParam = null) => {
-    if (requestParam) {
-      const req = buildUrl(url, requestParam);
-      const response = await axiosClient.get(req);
-      return response.data;
-    }
+    const req = buildUrl(url, requestParam);
+
+    const response = await axiosClient.get(req);
+    return response.data;
   },
 
   post: async (url, body = {}) => {
