@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -18,6 +18,10 @@ const LanguageSelect = ({ params }) => {
   const pathname = usePathname();
 
   console.log(pathname.split("/")[1]);
+  localStorage.setItem("language", pathname.split("/")[1]);
+  useEffect(() => {
+    localStorage.getItem("language");
+  }, [pathname]);
 
   return (
     <div className="">

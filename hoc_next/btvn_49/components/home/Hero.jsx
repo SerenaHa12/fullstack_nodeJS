@@ -66,7 +66,7 @@ const Hero = () => {
         </div>
 
         <div className="hidden md:flex absolute left-2/4 bottom-44 xl:bottom-12 items-center animate-bounce">
-          <TriangleDownIcon className="text-xl text-primary cursor-pointer" />
+          {/**<TriangleDownIcon className="text-xl text-primary cursor-pointer" />*/}
         </div>
       </div>
     </section>
