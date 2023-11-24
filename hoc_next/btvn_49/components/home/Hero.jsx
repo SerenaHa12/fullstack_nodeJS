@@ -9,11 +9,12 @@ import {
   TriangleDownIcon,
   StarIcon,
 } from "@chakra-ui/icons";
-
+import { useTranslations } from "next-intl";
 import DevImg from "../default/DevImg";
 import Social from "./Social";
 
 const Hero = () => {
+ 
   return (
     <section className="py-12 xl:py-24 h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover">
       <div className="container mx-auto">
@@ -70,7 +71,6 @@ const Hero = () => {
         <div className="hidden md:flex absolute left-2/4 bottom-44 xl:bottom-12 items-center animate-bounce">
           <TriangleDownIcon className="text-xl text-primary cursor-pointer" />
         </div>
-
       </div>
     </section>
   );
