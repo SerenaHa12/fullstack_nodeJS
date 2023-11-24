@@ -79,6 +79,10 @@
   @apply text-6xl xl:text-[60px] xl:leading-[60px] tracking-[-2px] font-extrabold;
 }
 
-.select-languge {
+/* .select-languge {
   @apply max-w-[80px];
+} */
+
+.section-title {
+  @apply text-3xl font-semibold relative w-max flex items-center justify-between gap-x-3;
 }

@@ -59,7 +59,7 @@ const Hero = () => {
 
           {/** right side hero */}
           <div className="hidden xl:flex relative">
-            <div className="bg-hero_shape2_light dark:ng-hero_shape2_dark w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-2"></div>
+            <div className="bg-hero_shape2_light dark:bg-hero_shape2_dark w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-2"></div>
             <DevImg
               containerStyles=" w-[295px] h-[376px] bg-no-repeat relative bg-bottom mr-[110px]"
               imgSource="/hero/developer.png"
@@ -68,7 +68,7 @@ const Hero = () => {
         </div>
 
         <div className="hidden md:flex absolute left-2/4 bottom-44 xl:bottom-12 items-center animate-bounce">
-          <TriangleDownIcon className="text-xl text-primary" />
+          <TriangleDownIcon className="text-xl text-primary cursor-pointer" />
         </div>
 
       </div>

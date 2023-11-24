@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-
+import { TriangleDownIcon } from "@chakra-ui/icons";
 import DevImg from "../default/DevImg";
 import {
   User2,
@@ -10,8 +10,8 @@ import {
   GraduationCap,
   Calendar,
   Briefcase,
+  Image,
 } from "lucide-react";
-
 import { BsFillRocketFill } from "react-icons/bs";
 
 const infoData = [
@@ -75,7 +75,62 @@ const AboutSection = () => {
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
-  return <div>About</div>;
+  return (
+    <section className="xl:h-[860px] pb-12 xl:py-24">
+      <div className="container mx-auto">
+        <div className="about-content">
+          <h2 className="section-title mb-8 xl:mb16 text-center mx-auto">
+            About me
+          </h2>
+        </div>
+
+        <div className="section-intro flex flex-col xl:flex-row">
+          {/**image */}
+          <div className="hidden xl:flex flex-1 relative">
+            <div className="bg-hero_shape2_light dark:bg-hero_shape2_dark w-[500px] h-[500px] bg-no-repeat absolute top-1 left-1"></div>
+            <DevImg
+              containerStyles=" w-[295px] h-[376px] bg-no-repeat relative bg-bottom top-2 left- ml-[60px] mt-[20px]"
+              imgSource="/hero/developer.png"
+              style={{ inset: "20px 40px" }}
+            />
+          </div>
+
+          {/**tab */}
+          <div className="flex-1">
+            <Tabs defaultValue="info">
+              <TabsList className="grid w-100 grid-cols-3">
+                <TabsTrigger
+                  value="info"
+                  className="py-2 px-4 text-center cursor-pointer border-b-2 border-transparent hover:border-yellow-600 dark:hover:border-violet-800 focus:outline-none"
+                >
+                  Persional Info
+                </TabsTrigger>
+                <TabsTrigger
+                  value="qu"
+                  className="py-2 px-4 text-center cursor-pointer border-b-2 border-transparent hover:border-yellow-600 dark:hover:border-violet-800 focus:outline-none"
+                >
+                  Qualifications
+                </TabsTrigger>
+                <TabsTrigger
+                  value="skill"
+                  className="py-2 px-4 text-center cursor-pointer border-b-2 border-transparent hover:border-yellow-600 dark:hover:border-violet-800 focus:outline-none"
+                >
+                  Skills
+                </TabsTrigger>
+              </TabsList>
+
+              {/**tab content */}
+              <div className="text-lg mt-12 xl:mt-8">
+                <TabsContent value="info">My info</TabsContent>
+                <TabsContent value="qu">My qualification</TabsContent>
+                <TabsContent value="skill">My skill</TabsContent>
+              </div>
+            </Tabs>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default AboutSection;

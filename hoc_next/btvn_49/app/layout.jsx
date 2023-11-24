@@ -1,12 +1,13 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-
+import { useLocale } from "next-intl";
+import { notFound } from "next/navigation";
 
 // componnent|default
 import Header from "@/components/default/Header";
 import Footer from "@/components/default/Footer";
 import { ThemeProvider } from "@/components/default/ThemeProvider";
+import { use } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute='class' defaultTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
           {children}
           <Footer />
