@@ -1,28 +1,28 @@
 {
   "Index": {
-    "title": "Xin chào!"
+    "title": "Bonjour!"
   },
   "navbar": {
-    "home": "Trang Chủ",
-    "about": "Về Tôi",
+    "home": "Accueil",
+    "about": "À propos",
     "product": "Projets",
-    "contact": "Liên Hệ"
+    "contact": "Contact"
   },
   "homepage": {
     "name": "Do Ha Chi",
-    "job": "Chuyên viên phát triển phần mềm",
-    "description": "Xin chào. Tôi Đỗ Hà Chi. Một lập trình viên Fullstack, thiết kế UI/UX làm việc tại Hà Nội, Việt Nam. Tôi có 2 năm kinh nghiệm trong lĩnh vực doanh nghiệp công nghệ sản xuất phần mềm.",
-    "hobby": "Im a photographer and crochet lover.",
-    "btn_contact": "Liên hệ",
-    "btn_download": "Xem CV"
+    "job": "Développeur web ",
+    "description": "Bonjour. Je m'appelle Do Ha Chi. Un programmeur Fullstack, concepteur UI/UX travaillant à Hanoi, Vietnam. J'ai 2 ans d'expérience dans le domaine des entreprises de technologie de fabrication de logiciels.",
+    "hobby": "Je suis photographe et passionnée de crochet.",
+    "btn_contact": "Contact",
+    "btn_download": "Télécharger"
   },
   "about": {
-    "tab-title-about": "Về tôi",
-    "section-name": "Về "
+    "tab-title-about": "À propos",
+    "section-name": "À propos"
 
   },
   "contact": {
-    "tab-title-contact": "Liên hệ"
+    "tab-title-contact": "Contact"
   },
   "project": {
     "tab-title-project": "Projets"
