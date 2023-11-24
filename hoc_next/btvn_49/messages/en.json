@@ -1,5 +1,29 @@
 {
     "Index": {
       "title": "Hello world!"
+    },
+    
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "product": "Product",
+      "contact": "Contact"
+    },
+    "homepage": {
+      "tab-title-home": "Home",
+      "name": "Do Ha Chi",
+      "job": "Web Developer",
+      "description": "Hi. Im DO Ha Chi. A passionate Fullstack Developer - UI/UX Designer based in Hanoi, Vietnam. I have 2 years experience Developer Bussiness.",
+      "hobby": "Im a photographer and crochet lover.",
+      "btn_contact": "Contact",
+      "btn_download": "Download"
+    },
+    "about": {
+      "tab-title-about": "About",
+      "section-name": "About"
+    },
+    "contact": {
+      "tab-title-contact": "Contact"
     }
-  }
+}
+    

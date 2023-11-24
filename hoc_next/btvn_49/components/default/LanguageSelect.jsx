@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Select,
@@ -9,22 +10,34 @@ import {
 import { BsGlobeAmericas } from "react-icons/bs";
 
 import Flag from "react-flagkit";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-const LanguageSelect = () => {
+const LanguageSelect = ({ params }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  console.log(pathname.split("/")[1]);
+
   return (
     <div className="">
-      <Select>
+      <Select
+        defaultValue={pathname.split("/")[1]}
+        onValueChange={(value) => {
+          router.replace("/" + value);
+        }}
+      >
         <SelectTrigger className="w-[80px]">
           <SelectValue placeholder={<BsGlobeAmericas size={18} />} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="us" className="">
+          <SelectItem value="en">
             <Flag country="US" size={18} />
           </SelectItem>
-          <SelectItem value="vn" className="">
+          <SelectItem value="vn">
             <Flag country="VN" size={18} />
           </SelectItem>
-          <SelectItem value="french" className="">
+          <SelectItem value="fr">
             <Flag country="FR" size={18} />
           </SelectItem>
         </SelectContent>

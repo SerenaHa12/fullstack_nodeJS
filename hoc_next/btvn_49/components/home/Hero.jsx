@@ -14,7 +14,8 @@ import DevImg from "../default/DevImg";
 import Social from "./Social";
 
 const Hero = () => {
- 
+  const t = useTranslations("homepage");
+
   return (
     <section className="py-12 xl:py-24 h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover">
       <div className="container mx-auto">
@@ -23,17 +24,13 @@ const Hero = () => {
             {/** left side hero */}
             <div className="hero-content">
               <h1 className="h1 text-zinc-700 dark:text-zinc-50">Do Ha Chi</h1>
-              <h3 className="text-orange-800 font-semibold mb-4">
-                Web Developer
-              </h3>
+              <h3 className="text-orange-800 font-semibold mb-4">{t("job")}</h3>
               <div className="title">
                 <p className="text-sm mb-2 text-zinc-600  dark:text-gray-400 max-w-[490px] mx-auto xl:mx-0">
-                  Hi. Im DO Ha Chi. A passionate Fullstack Developer - UI/UX
-                  Designer based in Hanoi, Vietnam. I have 2 years experience
-                  Developer Bussiness.
+                  {t("description")}
                 </p>
                 <p className="text-sm dark:text-neutral-50 text-bold mb-4">
-                  Im a photographer and crochet lover.
+                  {t("hobby")}
                 </p>
               </div>
             </div>
@@ -41,12 +38,12 @@ const Hero = () => {
               <Link href="/contact">
                 <Button className="gap-x-2">
                   <ExternalLinkIcon size={18} />
-                  Contact
+                  {t("btn_contact")}
                 </Button>
               </Link>
               <Button variant="secondary" className="gap-x-2">
                 <DownloadIcon size={18} />
-                Download CV
+                {t("btn_download")}
               </Button>
             </div>
 

@@ -1,20 +1,27 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
-const links = [
-  { path: "/", name: "Home" },
-  { path: "/about", name: "About" },
-  { path: "/product", name: "Product" },
-  { path: "/contact", name: "Contact" },
-];
-
 const Nav = ({ containerStyles, linkStyles, underlineStyles }) => {
+  const t = useTranslations("navbar");
+  console.log(t);
+  console.log(t("home"));
+
+  const links = [
+    { path: "/", name: "home" },
+    { path: "/about", name: "about" },
+    { path: "/product", name: "product" },
+    { path: "/contact", name: "contact" },
+  ];
+
   const pathname = usePathname();
   return (
     <nav className={`${containerStyles}`}>
       {links.map((link, index) => {
+        console.log(link.name);
+        const translatedName = t(link.name);
+
         return (
           <Link
             href={link.path}
@@ -30,7 +37,7 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles }) => {
                 className={`${underlineStyles}`}
               ></motion.span>
             )}
-            {link.name}
+            {translatedName}
           </Link>
         );
       })}

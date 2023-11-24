@@ -1,5 +1,31 @@
 {
-    "Index": {
-      "title": "Xin chao!"
-    }
+  "Index": {
+    "title": "Xin chào!"
+  },
+  "navbar": {
+    "home": "Trang Chủ",
+    "about": "Về Tôi",
+    "product": "Sản Phẩm",
+    "contact": "Liên Hệ"
+  },
+  "homepage": {
+    "name": "Do Ha Chi",
+    "job": "Chuyên viên phát triển phần mềm",
+    "description": "Xin chào. Tôi Đỗ Hà Chi. Một lập trình viên Fullstack, thiết kế UI/UX làm việc tại Hà Nội, Việt Nam. Tôi có 2 năm kinh nghiệm trong lĩnh vực doanh nghiệp công nghệ sản xuất phần mềm.",
+    "hobby": "Đam mê chụp film và đi cafe.",
+    "btn_contact": "Liên hệ",
+    "btn_download": "Xem CV"
+  },
+  "about": {
+    "tab-title-about": "Về tôi",
+    "section-name": "Về tôi"
+
+  },
+  "contact": {
+    "tab-title-contact": "Liên hệ"
+  },
+  "project": {
+    "tab-title-project": "Sản phẩm"
   }
+}
+  

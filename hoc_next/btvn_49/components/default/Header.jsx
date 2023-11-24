@@ -12,14 +12,14 @@ const Header = () => {
   const [header, setHeader] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const scrollYPosition = window.addEventListener("scroll", () => {
-      window.scrollY > 50 ? setHeader(true) : setHeader(false);
-    });
+  // useEffect(() => {
+  //   const scrollYPosition = window.addEventListener("scroll", () => {
+  //     window.scrollY > 50 ? setHeader(true) : setHeader(false);
+  //   });
 
-    // remove event
-    return () => window.removeEventListener("scroll", scrollYPosition);
-  }, []);
+  //   // remove event
+  //   return () => window.removeEventListener("scroll", scrollYPosition);
+  // }, []);
   return (
     <header
       className={`${
