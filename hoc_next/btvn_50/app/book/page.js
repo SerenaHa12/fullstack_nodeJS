@@ -1,4 +1,4 @@
-import BookingForm from "@/components/book/BookingForm";
+import BookingForm from "@/components/form/BookingForm";
 import React from "react";
 
 const BookPage = () => {
