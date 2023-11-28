@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -38,8 +38,28 @@ import {
 } from "../ui/form";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { DateRange } from "react-day-picker";
+import { addDays } from "date-fns";
+
+const FormSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+})
 
 const BookingForm = () => {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      username: "",
+    },
+  })
+
+  const [date, setDate] = useState("");
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+ 
   return (
     <section className="py-12 xl:py-24 h-[84vh] xl:pt-28 container mx-auto items-center text-center">
       <div className="container mx-auto">
@@ -49,6 +69,7 @@ const BookingForm = () => {
           <div className="hidden xl:flex relative">
             <div className="bg-book dark:bg-book w-[480px] h-[492px] bg-no-repeat"></div>
           </div>
+
           <div className="flex max-w-[600px] flex-col mx-auto xl:mx-0 justify-center xl:text-left">
             <Card className="w-[600px] border-none">
               <CardHeader className="text-center">
@@ -58,8 +79,8 @@ const BookingForm = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Form>
-                  <form>
+                <Form {...form}>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid w-full items-center gap-4">
                       <div className="flex flex-col space-y-1.5">
                         <Label htmlFor="name">Email or Phone Number</Label>
@@ -91,8 +112,104 @@ const BookingForm = () => {
                         />
                       </div>
 
-                      <div className="flex flex-col space-y-1.5">
-                        
+                      <div className="flex justify-between">
+                        <div className="flex flex-col">
+                          <Label className="mb-1">From</Label>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant={"outline"}
+                                className={cn(
+                                  "w-[240px] justify-start text-left font-normal",
+                                  !date && "text-muted-foreground"
+                                )}
+                              >
+                                <CalendarIcon className="mr-2 h-4 w-4" />
+                                {date ? (
+                                  format(date, "PPP")
+                                ) : (
+                                  <span>Pick a date</span>
+                                )}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              align="start"
+                              className="flex w-auto flex-col space-y-2 p-2"
+                            >
+                              <Select
+                                onValueChange={(value) =>
+                                  setDate(addDays(new Date(), parseInt(value)))
+                                }
+                              >
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select" />
+                                </SelectTrigger>
+                                <SelectContent position="popper">
+                                  <SelectItem value="0">Today</SelectItem>
+                                  <SelectItem value="1">Tomorrow</SelectItem>
+                                  <SelectItem value="3">In 3 days</SelectItem>
+                                  <SelectItem value="7">In a week</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <div className="rounded-md border">
+                                <Calendar
+                                  mode="single"
+                                  selected={date}
+                                  onSelect={setDate}
+                                />
+                              </div>
+                            </PopoverContent>
+                          </Popover>
+                        </div>
+
+                        <div className="flex flex-col">
+                          <Label className="mb-1">To</Label>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant={"outline"}
+                                className={cn(
+                                  "w-[240px] justify-start text-left font-normal",
+                                  !date && "text-muted-foreground"
+                                )}
+                              >
+                                <CalendarIcon className="mr-2 h-4 w-4" />
+                                {date ? (
+                                  format(date, "PPP")
+                                ) : (
+                                  <span>Pick a date</span>
+                                )}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              align="start"
+                              className="flex w-auto flex-col space-y-2 p-2"
+                            >
+                              <Select
+                                onValueChange={(value) =>
+                                  setDate(addDays(new Date(), parseInt(value)))
+                                }
+                              >
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select" />
+                                </SelectTrigger>
+                                <SelectContent position="popper">
+                                  <SelectItem value="0">Today</SelectItem>
+                                  <SelectItem value="1">Tomorrow</SelectItem>
+                                  <SelectItem value="3">In 3 days</SelectItem>
+                                  <SelectItem value="7">In a week</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <div className="rounded-md border">
+                                <Calendar
+                                  mode="single"
+                                  selected={date}
+                                  onSelect={setDate}
+                                />
+                              </div>
+                            </PopoverContent>
+                          </Popover>
+                        </div>
                       </div>
                     </div>
                   </form>
