@@ -34,6 +34,7 @@ const Hero = () => {
                 </p>
               </div>
             </div>
+            
             <div className="hero-buttons flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12">
               <Link href="/contact">
                 <Button className="gap-x-2">
