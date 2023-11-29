@@ -1,9 +1,10 @@
-import React from 'react'
+export const metadata = {
+  title: "Package",
+};
+import PackageList from "./PackageList";
 
-const PackagePage = () => {
-  return (
-    <div>PackagePage</div>
-  )
-}
+const PackagePage = async () => {
+  return <PackageList />;
+};
 
-export default PackagePage
+export default PackagePage;
