@@ -6,9 +6,8 @@ import { AvatarIcon } from "@radix-ui/react-icons";
 const ProfileToggle = () => {
   return (
     <div className="flex items-center px-2">
-      <Link href="/auth" className={buttonVariants}>
-        <AvatarIcon className="h-[1.2rem] w-[1.2rem] transition-all text-zinc-950 dark:text-zinc-100" />
-      </Link>
+      <Link href="/login" className="mx-2">Login</Link>
+      <Link href="/register">Register</Link>
     </div>
   );
 };
