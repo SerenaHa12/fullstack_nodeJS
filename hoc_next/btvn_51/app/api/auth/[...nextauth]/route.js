@@ -4,9 +4,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions = {
   jwt: {
-    secret: "jwt-secret",
     expiresIn: 60 * 60 * 24,
   },
+  secret: "secret",
   // Configure one or more authentication providers
   providers: [
     GithubProvider({
