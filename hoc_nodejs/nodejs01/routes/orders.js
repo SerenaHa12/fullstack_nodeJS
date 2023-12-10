@@ -1,16 +1,8 @@
 import express from "express";
 const router = express.Router();
 
+import userController from "../controllers/user.controllers.js";
+
 //HTTP GET
-router.get("/", (req, res) => {
-  res.send("<h1>Danh sách đơn hàng</h1>");
-});
-
-router.get("/completed", (req, res) => {
-  res.send("<h1>Đơn hàng đã hoàn thành</h1>");
-});
-
-router.get("/cancel", (req, res) => {
-  res.send("<h1>Đơn hàng đã hủy</h1>");
-});
+router.get('/', userController.index)
 export default router;

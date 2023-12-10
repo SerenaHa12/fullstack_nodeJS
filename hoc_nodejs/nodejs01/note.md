@@ -12,3 +12,8 @@
 # common JS mặc định sẽ thao common
 - Es5 commonJS -> sử dụng require
 - Es6 module -> sử dụng import/ export
+
+# Layout
+- Header
+- Body --> View
+- Footer
