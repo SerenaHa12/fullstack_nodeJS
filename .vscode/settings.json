@@ -1,3 +1,15 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "local_db",
+            "group": "postgres",
+            "database": "db04",
+            "username": "postgres"
+        }
+    ]
 }
