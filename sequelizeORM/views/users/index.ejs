@@ -1,0 +1,39 @@
+<h1>Danh sách người dùng</h1>
+<hr />
+
+<form action="">
+  <select name="status" id="status">
+    <option value="all">Tất cả</option>
+    <option value="active">Hoạt động</option>
+    <option value="inactive">Không hoạt dộng</option>
+  </select>
+  <input type="search" name="keyword" placeholder="Tìm từ khóa" />
+  <button>Tìm kiếm</button>
+</form>
+<hr />
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Tên</th>
+      <th>Email</th>
+      <th>Trạng thái</th>
+      <th>Thời gian</th>
+      <th>Sửa</th>
+      <th>Xóa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach((user, index) => { %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.status ? 'Kích hoạt' : 'Pending' %></td>
+      <td><%= moment(user.created_at).format('DD/MM/YYYY HH:mm:ss') %></td>
+      <td><a href="#">Sửa</a></td>
+      <td><a href="#">Xóa</a></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
