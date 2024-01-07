@@ -1,9 +1,13 @@
 exports.getIndex = (req, res, next) => {
-  res.send("hello user");
+  res.render("index.ejs");
 };
 
 exports.showForm = (req, res) => {
   res.render("form");
+};
+
+exports.showView = (req, res) => {
+  res.render("view");
 };
 
 exports.uploadFile = (req, res) => {

@@ -59,6 +59,13 @@ module.exports = (app) => {
 
   router.post("/uploadfile", upload.single("myFile"), controller.uploadFile);
 
-  router.post("/uploadmultiple", upload.array("myFiles", controller.uploadMultiple));
+  router.post(
+    "/uploadmultiple",
+    upload.array("myFiles", controller.uploadMultiple)
+  );
+
+  // router.post("/view/index", controller.showView);
+  router.get("/view/index", controller.showView);
+
   app.use(router);
 };
