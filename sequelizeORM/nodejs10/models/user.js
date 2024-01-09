@@ -28,6 +28,8 @@ module.exports = (sequelize, DataTypes) => {
       tableName: "users",
       createdAt: "created_at",
       updatedAt: "updated_at",
+      // paranoid: true,
+      // deletedAt: "deleted_at",
     }
   );
   return User;

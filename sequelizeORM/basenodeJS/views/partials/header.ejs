@@ -1,0 +1,10 @@
+<header>
+  Header
+  <ul>
+    <% headerMenu.forEach( item => { %>
+    <li>
+      <a href="<%= item.link %>"><%= item.label %></a>
+    </li>
+    <% }) %>
+  </ul>
+</header>

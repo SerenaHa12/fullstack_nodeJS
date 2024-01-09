@@ -1,14 +1,17 @@
 <h1>Danh sách người dùng</h1>
+<a href="/users/add" class="btn btn-primary">Thêm mới</a>
+<a href="/users/edit" class="btn btn-primary">Sửa</a>
+
 <hr />
 
-<form action="">
+<form action="" class="mb-3">
   <select name="status" id="status">
     <option value="all">Tất cả</option>
     <option value="active">Hoạt động</option>
     <option value="inactive">Không hoạt dộng</option>
   </select>
   <input type="search" name="keyword" placeholder="Tìm từ khóa" />
-  <button>Tìm kiếm</button>
+  <button class="btn btn-primary">Tìm kiếm</button>
 </form>
 <hr />
 <table border="1" width="100%">
@@ -37,3 +40,16 @@
     <% }) %>
   </tbody>
 </table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <!--  for( let index = 1; index <= totalPage; index++ ) { 
+      <li class="page-item"></li> -->
+
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>

@@ -22,9 +22,11 @@ module.exports = (app) => {
   var upload = multer({ storage: storage });
 
   router.get("/", controller.getIndex);
+
   router.get("/name", function (req, res) {
     res.send("hello chi");
   });
+
   router.get("/name/*", function (req, res) {
     res.send("hello chi *");
   });
@@ -61,10 +63,10 @@ module.exports = (app) => {
 
   router.post(
     "/uploadmultiple",
-    upload.array("myFiles", controller.uploadMultiple)
+    upload.array("myFiles"),
+    controller.uploadMultiple
   );
 
-  // router.post("/view/index", controller.showView);
   router.get("/view/index", controller.showView);
 
   app.use(router);

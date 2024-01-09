@@ -1,5 +1,9 @@
 exports.getIndex = (req, res, next) => {
-  res.render("index.ejs");
+  // console.log(res.locals.masterMenu);
+  res.render("index.ejs", {
+    name: "Do Ha Chi",
+    age: 20,
+  });
 };
 
 exports.showForm = (req, res) => {
@@ -7,7 +11,7 @@ exports.showForm = (req, res) => {
 };
 
 exports.showView = (req, res) => {
-  res.render("view");
+  res.render("view", { layout: "./master2" });
 };
 
 exports.uploadFile = (req, res) => {
@@ -22,7 +26,7 @@ exports.uploadFile = (req, res) => {
 };
 
 exports.uploadMultiple = (req, res) => {
-  const files = req.file;
+  const files = req.files;
   console.log(1);
   if (!files) {
     const error = new Error("Please upload a file");

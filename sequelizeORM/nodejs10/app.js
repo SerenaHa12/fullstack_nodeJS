@@ -8,7 +8,9 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-
+const expressLayouts = require("express-ejs-layouts");
+const session = require("express-session");
+const flash = require("flash");
 var app = express();
 
 // view engine setup
@@ -20,6 +22,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: "f8",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+app.use(flash());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

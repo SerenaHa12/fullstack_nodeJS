@@ -16,6 +16,32 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 app.set("layout", "master.ejs");
 
+app.use((req, res, next) => {
+  (res.locals.masterMenu = {
+    headerMenu: [
+      {
+        label: "home",
+        link: "/",
+      },
+      {
+        label: "git",
+        link: "https://github.com/SerenaHa12",
+      },
+    ],
+    footerMenu: [
+      {
+        label: "home",
+        link: "/",
+      },
+      {
+        label: "git",
+        link: "https://github.com/SerenaHa12",
+      },
+    ],
+  }),
+    next();
+});
+
 require("./routes/route")(app);
 
 app.listen(process.env.PORT, function () {
