@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "@whatsapp-clone/backend",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -18,7 +18,7 @@
     "helmet": "^7.1.0",
     "pg": "^8.11.3",
     "socket.io": "^4.7.3",
-    "yup": "^1.3.3"
+    "@whatsapp-clone/common": "1.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

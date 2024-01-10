@@ -1,6 +1,7 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Button, ButtonGroup, Heading, Text, VStack } from "@chakra-ui/react";
-// import { formSchema } from "@whatsapp-clone/common";
+import { formSchema } from "@whatsapp-clone/common";
+// import { formSchema } from "../../../../common/index";
 import { Form, Formik } from "formik";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
@@ -14,7 +15,7 @@ const Register = () => {
   return (
     <Formik
       initialValues={{ username: "", password: "" }}
-      // validationSchema={formSchema}
+      validationSchema={formSchema}
       onSubmit={(values, actions) => {
         const vals = { ...values };
         actions.resetForm();
