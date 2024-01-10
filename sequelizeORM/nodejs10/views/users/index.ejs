@@ -1,29 +1,48 @@
 <h1>Danh sách người dùng</h1>
-<a href="/users/add" class="btn btn-primary">Thêm mới</a>
-<a href="/users/edit" class="btn btn-primary">Sửa</a>
-
-<hr />
-
+<a href="/users/add" class="btn btn-primary mb-2">Thêm mới</a>
 <form action="" class="mb-3">
-  <select name="status" id="status">
-    <option value="all">Tất cả</option>
-    <option value="active">Hoạt động</option>
-    <option value="inactive">Không hoạt dộng</option>
-  </select>
-  <input type="search" name="keyword" placeholder="Tìm từ khóa" />
-  <button class="btn btn-primary">Tìm kiếm</button>
+  <div class="row">
+    <div class="col-3">
+      <select name="status" class="form-select">
+        <option value="all">Tất cả</option>
+        <option value="active">Kích hoạt</option>
+        <option value="inactive">Chưa kích hoạt</option>
+      </select>
+    </div>
+    <div class="col-3">
+      <select name="group" class="form-select">
+        <option value="">Tất cả nhóm</option>
+        <% groups.forEach(group => { %>
+        <option value="<%= group.id %>"><%= group.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="col-4">
+      <input
+        type="search"
+        class="form-control"
+        name="keyword"
+        placeholder="Từ khóa..."
+      />
+    </div>
+    <div class="col-2 d-grid">
+      <button class="btn btn-primary">Tìm kiếm</button>
+    </div>
+  </div>
 </form>
-<hr />
-<table border="1" width="100%">
+
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>STT</th>
+      <th width="5%">STT</th>
       <th>Tên</th>
       <th>Email</th>
+      <th>Điện thoại</th>
+      <th>Nhóm</th>
       <th>Trạng thái</th>
       <th>Thời gian</th>
-      <th>Sửa</th>
-      <th>Xóa</th>
+      <th width="5%">Sửa</th>
+      <th width="5%">Xóa</th>
     </tr>
   </thead>
   <tbody>
@@ -32,24 +51,39 @@
       <td><%= index+1 %></td>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
-      <td><%= user.status ? 'Kích hoạt' : 'Pending' %></td>
+      <td><%= user.phones?.phone %></td>
+      <td><%= user.group?.name %></td>
+      <td><%= user.status ? 'Kích hoạt': 'Chưa kích hoạt' %></td>
       <td><%= moment(user.created_at).format('DD/MM/YYYY HH:mm:ss') %></td>
-      <td><a href="#">Sửa</a></td>
-      <td><a href="#">Xóa</a></td>
+      <td>
+        <a href="/users/edit/<%= user.id %>" class="btn btn-warning">Sửa</a>
+      </td>
+      <td>
+        <form
+          action="/users/delete/<%= user.id %>"
+          onsubmit="return confirm('Bạn có chắc?')"
+          method="post"
+        >
+          <button class="btn btn-danger">Xóa</button>
+        </form>
+      </td>
     </tr>
     <% }) %>
   </tbody>
 </table>
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <!--  for( let index = 1; index <= totalPage; index++ ) { 
-      <li class="page-item"></li> -->
-
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+<ul class="pagination">
+  <% if (page > 1) { %>
+  <li class="page-item">
+    <a class="page-link" href="?page=<%= +page-1 %>">Trước</a>
+  </li>
+  <% } %> <% for( let index = 1; index <= totalPage; index++ ) { %>
+  <li class="page-item <%= page == index ? 'active': '' %>">
+    <a class="page-link" href="?page=<%= index %>"><%= index %></a>
+  </li>
+  <% } %> <% if (page < totalPage) { %>
+  <li class="page-item">
+    <a class="page-link" href="?page=<%= +page+1 %>">Sau</a>
+  </li>
+  <% } %>
+</ul>
