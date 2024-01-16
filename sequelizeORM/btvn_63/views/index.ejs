@@ -1,0 +1,43 @@
+<%- contentFor('header') %>
+
+<div>
+  <form action="" method="post">
+    <h1>Gửi email</h1>
+    <input type="text" placeholder="name" name="email" />
+    <br />
+    <input type="text" placeholder="title" name="title" />
+    <br />
+    <input type="text" placeholder="description" name="description" />
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Description</th>
+        <th>Time</th>
+        <th><button class="btn btn-primary">View</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dữ liệu 1A</td>
+        <td>Dữ liệu 1B</td>
+        <td>Dữ liệu 1C</td>
+      </tr>
+      <tr>
+        <td>Dữ liệu 2A</td>
+        <td>Dữ liệu 2B</td>
+        <td>Dữ liệu 2C</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<%- contentFor('footer') %>
+<h1>This is the footer</h1>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mail</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <% /* Define an required placeholder for the header. If a page doesn't
+      define a header, there will be an error when rendering. */ %> <%- header
+      %>
+    </header>
+
+    <%- body %>
+
+    <footer>
+      <% /* Define an optional placeholder for the footer. If a page doesn't
+      define a footer, this section will simply be empty. */ %> <%-
+      defineContent('footer') %>
+    </footer>
+  </body>
+</html>
