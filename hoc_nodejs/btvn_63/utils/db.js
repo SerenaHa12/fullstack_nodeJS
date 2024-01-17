@@ -7,7 +7,5 @@ module.exports = postgres({
   database: DB_DATABASE, // Name of database to connect to
   username: DB_USER, // Username of database user
   password: DB_PASSWORD, // Password of database user
-  ssl: {
-    require: true,
-  },
+  ssl: "require",
 });
