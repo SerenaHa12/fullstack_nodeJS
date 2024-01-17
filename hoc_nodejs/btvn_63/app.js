@@ -8,6 +8,7 @@ var logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const flash = require("connect-flash");
+const nodemailer = require("nodemailer");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -19,6 +20,29 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
+
+// node mailer setup
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com", // Host Mail server
+  port: 465,
+  secure: true,
+  auth: {
+    // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+    user: process.env.USER,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
+
+const mailOptions = {
+  from: {
+    name: "Ha Chi",
+    address: process.env.USER,
+  }, // sender address
+  to: [], // list of receivers
+  subject: "Hello ✔", // Subject line
+  text: "Hello world?", // plain text body
+  html: "<b>Hello world?</b>", // html body
+};
 
 app.use(
   session({
