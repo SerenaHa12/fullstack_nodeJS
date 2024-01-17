@@ -33,8 +33,9 @@ module.exports = {
       req.flash("msg", "Gửi email thành công");
       return res.redirect("/users");
     } catch (e) {
+      console.log(e);
       const errors = Object.fromEntries(
-        e?.inner.map((item) => [item.path, item.message])
+        e?.inner?.map((item) => [item.path, item.message])
       );
       req.flash("errors", errors);
       req.flash("old", req.body);
