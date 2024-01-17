@@ -9,6 +9,7 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const flash = require("connect-flash");
 const nodemailer = require("nodemailer");
+const MemoryStore = require("memorystore")(session);
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -48,6 +49,9 @@ app.use(
   session({
     secret: "f8",
     resave: false,
+    store: new MemoryStore({
+      checkPeriod: 86400000, // prune expired entries every 24h
+    }),
     saveUninitialized: true,
   })
 );
