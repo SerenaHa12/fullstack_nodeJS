@@ -1,0 +1,12 @@
+Các lệnh chạy
+
+1. npx express-generator -g: Khởi tạo dự án express
+2. express --view=ejs: Chọn template engine là ejs
+3. npm i dotenv
+4. npm i --save sequelize
+5. npm i --save pg pg-hstore: cài db
+6. npm i --save-dev sequelize-cli: khởi tạo db
+
+migration: lưu lại cấu trúc bảng của db
+
+7. npx sequelize-cli model:generate --name User --attributes name:string,email:string -> tạo một model

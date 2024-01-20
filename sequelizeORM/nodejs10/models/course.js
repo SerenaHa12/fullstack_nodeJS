@@ -9,11 +9,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Course.hasMany(models.User, {
-        foreignKey: "course_id",
-        as: "users",
-      });
-
       Course.belongsToMany(models.User, {
         through: "users_courses",
         foreignKey: "course_id",
@@ -29,11 +24,12 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       name: DataTypes.STRING,
+      price: DataTypes.INTEGER,
     },
     {
       sequelize,
       modelName: "Course",
-      tableName: "course",
+      tableName: "courses",
       createdAt: "created_at",
       updatedAt: "updated_at",
     }

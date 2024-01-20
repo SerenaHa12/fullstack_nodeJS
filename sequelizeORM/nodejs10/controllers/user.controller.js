@@ -1,17 +1,14 @@
 const moment = require("moment");
 const model = require("../models/index");
 const { Op } = require("sequelize");
+const courseUtils = require("../utils/courses.utils");
 const User = model.User;
 const Group = model.Group;
 const Course = model.Course;
 module.exports = {
   index: async (req, res) => {
     const { status, keyword, group } = req.query;
-    const filter = {
-      // deleted_at: {
-      //   [Op.not]: null,
-      // },
-    };
+    const filter = {};
     if (status === "active" || status === "inactive") {
       filter.status = status === "active" ? true : false;
     }
@@ -32,7 +29,7 @@ module.exports = {
     if (group) {
       filter.group_id = group;
     }
-    const limit = 3;
+    const limit = 2;
     const { page = 1 } = req.query;
 
     const offset = (page - 1) * limit;
@@ -51,42 +48,34 @@ module.exports = {
           model: model.Group,
           as: "group",
         },
-        {
-          model: model.Course,
-          as: "course",
-        },
       ],
     });
     const totalPage = Math.ceil(count / limit);
     const groups = await Group.findAll({
       order: [["name", "asc"]],
     });
-
+    res.render("users/index", { users, moment, totalPage, page, groups, req });
+  },
+  add: async (req, res) => {
     const courses = await Course.findAll({
       order: [["name", "asc"]],
     });
-    // const getPhone = async (user) => {
-    //   const phones = await user.getPhone();
-    //   console.log(phones.phone);
-    // };
-    res.render("users/index", { users, moment, totalPage, page, groups });
-  },
-  add: (req, res) => {
-    res.render("users/add");
+    res.render("users/add", { courses });
   },
   handleAdd: async (req, res, next) => {
     const body = req.body;
-    const courses = body.courses;
-    // console.log(courses);
+    const courses = !Array.isArray(body.courses)
+      ? [body.courses]
+      : body.courses;
     try {
       const user = await User.create({
         name: body.name,
         email: body.email,
-        status: +body.status,
+        status: +body.status === 1,
       });
+
       if (user) {
         if (courses.length) {
-          // courses.forEach((course) => {
           for (let i = 0; i < courses.length; i++) {
             const course = await Course.findByPk(courses[i]);
             await user.addCourse(course);
@@ -109,21 +98,16 @@ module.exports = {
           as: "courses",
         },
       });
-      console.log(user);
+
       if (!user) {
         throw new Error("User không tồn tại");
       }
-      // const phones = await user.getPhone();
-      // const phone = phones.phone;
-      // console.log(phone);
-      // const phones = await model.Phone.findOne({
-      //   where: {
-      //     phone: "0123456789",
-      //   },
-      // });
-      // const userByPhone = await phones.getUser();
-      // console.log(userByPhone);
-      res.render("users/edit", { user });
+
+      const courses = await Course.findAll({
+        order: [["name", "asc"]],
+      });
+
+      res.render("users/edit", { user, courses, courseUtils });
     } catch (e) {
       return next(e);
     }
@@ -140,13 +124,14 @@ module.exports = {
         email: body.email,
         status: +body.status === 1,
       },
-      { where: { id } }
+      {
+        where: { id },
+      }
     );
     if (status && courses.length) {
       const coursesRequest = await Promise.all(
         courses.map((courseId) => Course.findByPk(courseId))
       );
-      console.log(coursesRequest);
       const user = await User.findByPk(id);
       await user.setCourses(coursesRequest);
     }
