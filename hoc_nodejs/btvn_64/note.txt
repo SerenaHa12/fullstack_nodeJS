@@ -10,3 +10,19 @@ Các lệnh chạy
 migration: lưu lại cấu trúc bảng của db
 
 7. npx sequelize-cli model:generate --name User --attributes name:string,email:string -> tạo một model
+
+
+# migration
+- migration
+- migrate
+
+1. Tạo bảng
+npx sequelize-cli migration:generate --name=add_column_posts_table
+
+2. Chạy
+npx sequelize-cli db:migrate
+
+3. Tạo dữ liệu
+
+4. Lưu dữ liệu
+npx sequelize-cli db:seed:all

@@ -36,6 +36,7 @@
       value="<%= user.password %>"
     />
   </div>
+  
   <!-- trạng thái -->
   <div class="mb-3">
     <label for="">Trạng thái</label>
@@ -43,6 +44,19 @@
         <option value="0" <%= !user.status ? 'selected': '' %>>Chưa kích hoạt</option>
       <option value="1" <%= user.status ? 'selected': '' %>>Kích hoạt</option>
     </select>
+  </div>
+
+  <!-- khóa học -->
+  <div class="mb-3">
+    <label for="">Khóa học</label>
+    <% courses.forEach(course => { %>
+    <div class="flex flex-3">
+      <label class="mb-3 d-block">
+        <input type="checkbox" name="courses" value="<%= course.id %>" <%= courseUtils.isCourse(user, course.id) ? 'checked': '' %>/> <%=
+        course.name %>
+      </label>
+    </div>
+    <% }) %>
   </div>
 
   <button class="btn btn-primary">Lưu</button>

@@ -1,13 +1,16 @@
 const moment = require("moment");
 const model = require("../models/index");
+const courseUtils = require("../utils/courses.utils");
 const User = model.User;
+const Group = model.Group;
+const Course = model.Course;
 
 // thêm object toán tử của sequelize
 const { Op } = require("sequelize");
 
 module.exports = {
   index: async (req, res) => {
-    const { status, keyword } = req.query;
+    const { status, keyword, group } = req.query;
     const filter = {};
     if (status === "active" || status === "inactive") {
       filter.status = status === "active" ? true : false;
@@ -31,6 +34,9 @@ module.exports = {
         },
       ];
     }
+    if (group) {
+      filter.group_id = group;
+    }
     //   test xem có nhận model không
     // findAll là phương thức của sequelize dùng để lấy tất cả các dữ liệu
 
@@ -46,6 +52,19 @@ module.exports = {
       where: filter,
       limit,
       offset,
+      // sử lý thêm phone
+      include: [
+        {
+          model: model.Phone,
+          // phải khai báo trong model
+          as: "phones",
+        },
+        {
+          model: model.Group,
+          // phải khai báo trong model
+          as: "group",
+        },
+      ],
 
       // 2. lấy những users có status kích hoạt
       // where: { status: true },
@@ -60,15 +79,33 @@ module.exports = {
 
       // 4. tìm theo 2 điều kiện: vừa kích hoạt vừa filter theo tên
     });
-    console.log(count);
+    // console.log(count);
     // console.log("users", users);
     const totalPage = Math.ceil(count / limit);
-    res.render("users/index", { users, moment, totalPage, page });
+
+    // sử lý get phone
+    // const getPhone = async (user) => {
+    //   // console.log(user);
+    //   const phones = await user.getPhone();
+    //   console.log(phones.phone);
+
+    //   return phones.getPhone();
+    // };
+
+    // Xử lý GROUP
+    const groups = await Group.findAll({
+      order: [["name", "asc"]],
+    });
+
+    res.render("users/index", { users, moment, totalPage, page, groups, req });
   },
 
   // get add form
-  add: (req, res) => {
-    res.render("users/add");
+  add: async (req, res) => {
+    const courses = await Course.findAll({
+      order: [["name", "asc"]],
+    });
+    res.render("users/add", { courses });
   },
 
   // handle add form
@@ -76,11 +113,29 @@ module.exports = {
     const body = req.body;
     // console.log(body);
 
+    // const courses = body.courses;
+    // console.log(courses);
+
+    const courses = !Array.isArray(body.courses)
+      ? [body.courses]
+      : body.courses;
+
     // để thêm dữ liệu
     try {
-      const user = await User.create(body);
-      console.log(user);
+      const user = await User.create({
+        name: body.name,
+        email: body.email,
+        status: +body.status === 1,
+      });
+      // console.log(user);
+
       if (user) {
+        if (courses.length) {
+          for (let i = 0; i < courses.length; i++) {
+            const course = await Course.findByPk(courses[i]);
+            await user.addCourse(course);
+          }
+        }
         return res.redirect("/users");
       }
     } catch (e) {
@@ -98,12 +153,38 @@ module.exports = {
     try {
       const user = await User.findOne({
         where: { id },
+        include: {
+          model: Course,
+          as: "courses",
+        },
       });
+
+      // console.log(user);
 
       if (!user) {
         throw new Error("User không tồn tại");
       }
-      res.render("users/edit", { user });
+
+      // truy vấn từ user -> ra số điện thoại
+      // const phones = await user.getPhone();
+      // const phone = phones.phone;
+      // console.log(phone);
+
+      // truy vấn userByPhone
+      // kỹ thuật lazy loading
+      // const phones = await model.Phone.findOne({
+      //   where: {
+      //     phone: "0123456789",
+      //   },
+      // });
+      // const userByPhone = await phones.getUser();
+      // console.log(userByPhone);
+
+      const courses = await Course.findAll({
+        order: [["name", "asc"]],
+      });
+
+      res.render("users/edit", { user, courses, courseUtils });
     } catch (e) {
       return next(e);
     }
@@ -130,10 +211,32 @@ module.exports = {
   handleEdit: async (req, res) => {
     const { id } = req.params;
     const body = req.body;
-    await User.update(body, {
-      where: { id },
-    });
-    return res.redirect("/users/edit/" + id);
+    // const courses = body.courses;
+    const courses = !Array.isArray(body.courses)
+      ? [body.courses]
+      : body.courses;
+    const status = await User.update(
+      {
+        name: body.name,
+        email: body.email,
+        status: +body.status === 1,
+      },
+      {
+        where: { id },
+      }
+    );
+    if (status && courses.length) {
+      // console.log(courses);
+
+      const coursesRequest = await Promise.all(
+        courses.map((courseId) => Course.findByPk(courseId))
+      );
+      // console.log(coursesRequest);
+
+      const user = await User.findByPk(id);
+      await user.setCourses(coursesRequest);
+    }
+    return res.redirect("/users");
   },
 
   // delete a user
@@ -163,4 +266,9 @@ module.exports = {
   - Đưa limit, offset vào query (sql, orm)
   - Xử lý hiển thị: Danh sách, phân trang
  *
+ */
+
+/**
+ * BẪY QUERY N+1
+ * KỸ THUẬT
  */

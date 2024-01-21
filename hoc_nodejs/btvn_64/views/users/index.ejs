@@ -7,16 +7,25 @@
     <div class="col-3">
       <select name="status" class="form-select">
         <option value="all">Tất cả</option>
-        <option value="active">Kích hoạt</option>
-        <option value="inactive">Chưa kích hoạt</option>
+        <option value="active" <%= req.query.status === 'active' ? 'selected': '' %>>Kích hoạt</option>
+        <option value="inactive" <%= req.query.status === 'inactive' ? 'selected': '' %>>Chưa kích hoạt</option>
       </select>
     </div>
-    <div class="col-7 flex">
+    <div class="col-3">
+      <select name="group" class="form-select">
+        <option value="">Tất cả nhóm</option>
+        <% groups.forEach(group => { %>
+        <option value="<%= group.id %>" <%= +req.query.group === +group.id ? 'selected': '' %> ><%= group.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="col-4 flex">
       <input
         type="search"
         name="keyword"
         placeholder="Từ khóa ..."
         class="form-control"
+        value="<%= req.query.keyword %>"
       />
     </div>
     <div class="col-2 d-grid">
@@ -33,7 +42,7 @@
       <th>Tên</th>
       <th>Email</th>
       <th>Điện thoại</th>
-      <!-- <th>Nhóm</th> -->
+      <th>Nhóm</th>
       <th>Trạng thái</th>
       <th>Thời gian</th>
       <th width="5%">Sửa</th>
@@ -47,7 +56,7 @@
       <td><%= user.name %></td>
       <td><%= user.email %></td>
       <td><%= user.phones?.phone %></td>
-
+      <td><%= user.group?.name %></td>
       <td><%= user.status ? 'Kích hoạt': 'Chưa kích hoạt' %></td>
       <td><%= moment(user.created_at).format('DD/MM/YYYY HH:mm:ss') %></td>
       <td>
