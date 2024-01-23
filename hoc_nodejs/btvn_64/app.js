@@ -8,9 +8,17 @@ var logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
+const localPassport = require("./passports/local.passport");
+const googlePassport = require("./passports/google.passport");
+const { User } = require("./models/index");
+const authMiddleware = require("./middlewares/auth.middleware");
+const guestMiddleware = require("./middlewares/guest.middleware");
 
+// connect route
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var authRouter = require("./routes/auth");
 
 var app = express();
 
@@ -24,6 +32,23 @@ app.use(
 );
 app.use(flash());
 
+// cấu hình passport
+// bắt buộc phải cấu hình passport sau session
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  const user = await User.findByPk(id);
+  done(null, user);
+});
+
+passport.use("local", localPassport);
+passport.use("google", googlePassport);
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -35,6 +60,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/auth", guestMiddleware, authRouter);
+// gọi middleware auth.middleware
+// cho route auth lên trên để chặn -> đăng nhập mới dc sử dụng
+app.use(authMiddleware);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 

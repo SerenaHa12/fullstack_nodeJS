@@ -45,6 +45,7 @@
       <th>Nhóm</th>
       <th>Trạng thái</th>
       <th>Thời gian</th>
+      <th>Quyền</th>
       <th width="5%">Sửa</th>
       <th width="5%">Xóa</th>
     </tr>
@@ -53,12 +54,15 @@
     <% users.forEach((user, index) => { %>
     <tr>
       <td><%= index+1 %></td>
-      <td><%= user.name %></td>
+      <td><%= user.fullname %></td>
       <td><%= user.email %></td>
       <td><%= user.phones?.phone %></td>
       <td><%= user.group?.name %></td>
       <td><%= user.status ? 'Kích hoạt': 'Chưa kích hoạt' %></td>
       <td><%= moment(user.created_at).format('DD/MM/YYYY HH:mm:ss') %></td>
+      <td> 
+        <a href="/users/edit/<%= user.id %>" class="btn btn-info">Phân quyền</a>
+      </td>
       <td>
         <a href="/users/edit/<%= user.id %>" class="btn btn-warning">Sửa</a>
       </td>

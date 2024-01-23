@@ -53,18 +53,18 @@ module.exports = {
       limit,
       offset,
       // sử lý thêm phone
-      include: [
-        {
-          model: model.Phone,
-          // phải khai báo trong model
-          as: "phones",
-        },
-        {
-          model: model.Group,
-          // phải khai báo trong model
-          as: "group",
-        },
-      ],
+      // include: [
+      //   {
+      //     model: model.Phone,
+      //     // phải khai báo trong model
+      //     as: "phones",
+      //   },
+      //   {
+      //     model: model.Group,
+      //     // phải khai báo trong model
+      //     as: "group",
+      //   },
+      // ],
 
       // 2. lấy những users có status kích hoạt
       // where: { status: true },
@@ -93,11 +93,12 @@ module.exports = {
     // };
 
     // Xử lý GROUP
-    const groups = await Group.findAll({
-      order: [["name", "asc"]],
-    });
+    // const groups = await Group.findAll({
+    //   order: [["name", "asc"]],
+    // });
+    const groups = [];
 
-    res.render("users/index", { users, moment, totalPage, page, groups, req });
+    res.render("users/index", { users, moment, totalPage, groups, page, req });
   },
 
   // get add form

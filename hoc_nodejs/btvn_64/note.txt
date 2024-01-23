@@ -26,3 +26,7 @@ npx sequelize-cli db:migrate
 
 4. Lưu dữ liệu
 npx sequelize-cli db:seed:all
+
+---------------------------------------------------------------------------------------------------
+Dịch vụ gửi mail:
+- Mail Gun

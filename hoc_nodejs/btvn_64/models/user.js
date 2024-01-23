@@ -9,24 +9,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
       //   kết nối bẳng User với Phone
-      User.hasOne(models.Phone, {
-        foreignKey: "user_id",
-        as: "phones",
-      });
-
+      // User.hasOne(models.Phone, {
+      //   foreignKey: "user_id",
+      //   as: "phones",
+      // });
       // kết nối User với Group
-      User.belongsTo(models.Group, {
-        foreignKey: "group_id",
-        as: "group",
-      });
-
+      // User.belongsTo(models.Group, {
+      //   foreignKey: "group_id",
+      //   as: "group",
+      // });
       // kết nối User với course
-      User.belongsToMany(models.Course, {
-        through: "users_courses",
-        foreignKey: "user_id",
-        as: "courses",
+      // User.belongsToMany(models.Course, {
+      //   through: "users_courses",
+      //   foreignKey: "user_id",
+      //   as: "courses",
+      // });
+
+      User.belongsTo(models.Provider, {
+        foreignKey: "provider_id",
+        as: "provider",
       });
     }
   }
@@ -37,9 +39,11 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
       },
-      name: DataTypes.STRING,
+      fullname: DataTypes.STRING,
       email: DataTypes.STRING,
+      password: DataTypes.STRING,
       status: DataTypes.BOOLEAN,
+      provider_id: DataTypes.INTEGER,
     },
     {
       sequelize,
@@ -53,8 +57,8 @@ module.exports = (sequelize, DataTypes) => {
        * khi code chức năng xóa mềm -> nên xử lý bằng trường time
        * để khi filter
        */
-      paranoid: true,
-      deletedAt: "deleted_at",
+      // paranoid: true,
+      // deletedAt: "deleted_at",
     }
   );
   return User;

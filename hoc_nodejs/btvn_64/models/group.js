@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       //   kết nối Group với User
-      Group.hasMany(models.User, {
-        foreignKey: "group_id",
-        as: "users",
-      });
+      // Group.hasMany(models.User, {
+      //   foreignKey: "group_id",
+      //   as: "users",
+      // });
     }
   }
   Group.init(

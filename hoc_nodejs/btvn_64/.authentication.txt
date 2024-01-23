@@ -1,7 +1,51 @@
 # Authentication
 - Mật khẩu phải được mã hóa (1 chiều)
-    Cách 1: md5, sha1 -> không được an toàn
+    Cách 1: encrypt: md5, sha1 -> không được an toàn
+        MD5 Hash: 32 ký tự
+        SHA1 Hash: 40 ký tự
+        - Sau nhiều lần mã hóa kết quả vẫn giống y hệt nhau
+        - luồng hoạt động: để authentication sẽ kiểm tra mã encrypt với mật khẩu (mật khẩu thô) đã lưu
+        - giống JWT
+
+    Cách 2: hash: bcrypt -> an toàn
+        - mỗi lần mã hóa dù cùng dữ liệu đầu vào nhưng -> hash khác nhau
+        - tuy nhiên phải thay đổi lại cách verify
+----------------------------------------------------------------------------------------------------------
 
 # Session-Based 
+- verify được email, password hợp lệ với database 
+-> lấy dc thông tin user lưu vào Session
+----------------------------------------------------------------------------------------------------------
 
 # Token-Based
+- verify được email, password hợp lệ với database 
+-> lấy được thông tin user lưu vào JWT(Token)
+----------------------------------------------------------------------------------------------------------
+
+- thưu viện bcrypt
+-> cho phép hash password thô thanhfd dạng mã hóa-> có hàm compare để xử lý authen
+----------------------------------------------------------------------------------------------------------
+
+- encode, decode: mã hóa 2 chiều
+- hash: hàm băng
+----------------------------------------------------------------------------------------------------------
+
+- thư viện passport: khá giống next auth
+
+----------------------------------------------------------------------------------------------------------
+# Database Đăng nhập 
+
+users 
+- id 
+- name 
+- email 
+- password
+- provider_id
+
+providers
+- id 
+- name (tên provider)  
+ví dụ fb, gg, email, github 
+
+luồng đăng nhập mạng xã hội:
+- OpenId || OpenAuth 

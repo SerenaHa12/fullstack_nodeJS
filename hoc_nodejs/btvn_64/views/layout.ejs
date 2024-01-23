@@ -10,8 +10,21 @@
     />
   </head>
   <body>
-    <main class="py-3">
-      <div class="container"><%- body %></div>
-    </main>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <%- include('./partials/header.ejs') %>
+
+        <!-- Body Content -->
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4 mt-4">
+          <%- body %>
+        </main>
+      </div>
+
+      <!-- Footer -->
+      <footer class="fixed-bottom bg-light text-center p-3">
+        <p>&copy; 2024 Your Website</p>
+      </footer>
+    </div>
   </body>
 </html>
