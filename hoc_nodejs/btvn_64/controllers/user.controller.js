@@ -2,8 +2,7 @@ const moment = require("moment");
 const model = require("../models/index");
 const courseUtils = require("../utils/courses.utils");
 const User = model.User;
-const Group = model.Group;
-const Course = model.Course;
+const bcrypt = require("bcrypt");
 
 // thêm object toán tử của sequelize
 const { Op } = require("sequelize");
@@ -103,40 +102,42 @@ module.exports = {
 
   // get add form
   add: async (req, res) => {
-    const courses = await Course.findAll({
-      order: [["name", "asc"]],
-    });
-    res.render("users/add", { courses });
+    // const courses = await Course.findAll({
+    //   order: [["name", "asc"]],
+    // });
+    res.render("users/add");
   },
 
   // handle add form
   handleAdd: async (req, res, next) => {
     const body = req.body;
+    const hashPassword = bcrypt.hashSync(body.password, 10);
     // console.log(body);
 
     // const courses = body.courses;
     // console.log(courses);
 
-    const courses = !Array.isArray(body.courses)
-      ? [body.courses]
-      : body.courses;
+    // const courses = !Array.isArray(body.courses)
+    //   ? [body.courses]
+    //   : body.courses;
 
     // để thêm dữ liệu
     try {
       const user = await User.create({
-        name: body.name,
+        fullname: body.fullname,
         email: body.email,
+        password: hashPassword,
         status: +body.status === 1,
       });
       // console.log(user);
 
       if (user) {
-        if (courses.length) {
-          for (let i = 0; i < courses.length; i++) {
-            const course = await Course.findByPk(courses[i]);
-            await user.addCourse(course);
-          }
-        }
+        // if (courses.length) {
+        //   for (let i = 0; i < courses.length; i++) {
+        //     const course = await Course.findByPk(courses[i]);
+        //     await user.addCourse(course);
+        //   }
+        // }
         return res.redirect("/users");
       }
     } catch (e) {
@@ -154,10 +155,10 @@ module.exports = {
     try {
       const user = await User.findOne({
         where: { id },
-        include: {
-          model: Course,
-          as: "courses",
-        },
+        // include: {
+        //   model: Course,
+        //   as: "courses",
+        // },
       });
 
       // console.log(user);
@@ -181,11 +182,11 @@ module.exports = {
       // const userByPhone = await phones.getUser();
       // console.log(userByPhone);
 
-      const courses = await Course.findAll({
-        order: [["name", "asc"]],
-      });
+      // const courses = await Course.findAll({
+      //   order: [["name", "asc"]],
+      // });
 
-      res.render("users/edit", { user, courses, courseUtils });
+      res.render("users/edit", { user, courseUtils });
     } catch (e) {
       return next(e);
     }
@@ -213,12 +214,13 @@ module.exports = {
     const { id } = req.params;
     const body = req.body;
     // const courses = body.courses;
-    const courses = !Array.isArray(body.courses)
-      ? [body.courses]
-      : body.courses;
+    // const courses = !Array.isArray(body.courses)
+    //   ? [body.courses]
+    //   : body.courses;
     const status = await User.update(
       {
-        name: body.name,
+        fullname: body.fullname,
+        password: body.password,
         email: body.email,
         status: +body.status === 1,
       },
@@ -226,16 +228,16 @@ module.exports = {
         where: { id },
       }
     );
-    if (status && courses.length) {
+    if (status) {
       // console.log(courses);
 
-      const coursesRequest = await Promise.all(
-        courses.map((courseId) => Course.findByPk(courseId))
-      );
+      // const coursesRequest = await Promise.all(
+      //   courses.map((courseId) => Course.findByPk(courseId))
+      // );
       // console.log(coursesRequest);
 
       const user = await User.findByPk(id);
-      await user.setCourses(coursesRequest);
+      // await user.setCourses(coursesRequest);
     }
     return res.redirect("/users");
   },

@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       //   kết nối Course với User
-      Course.belongsToMany(models.User, {
-        through: "users_courses",
-        foreignKey: "course_id",
-      });
+      // Course.belongsToMany(models.User, {
+      //   through: "users_courses",
+      //   foreignKey: "course_id",
+      // });
     }
   }
   Course.init(

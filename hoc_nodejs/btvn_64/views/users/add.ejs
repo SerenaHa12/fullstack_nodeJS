@@ -3,10 +3,10 @@
 <form action="" method="post" class="mb-3">
   <!-- name -->
   <div class="mb-3">
-    <label for="name">Tên</label>
+    <label for="fullname">Tên</label>
     <input
       type="text"
-      name="name"
+      name="fullname"
       class="form-control"
       placeholder="Nhập tên..."
     />
@@ -41,17 +41,6 @@
       <option value="1">Kích hoạt</option>
       <option value="0">Chưa kích hoạt</option>
     </select>
-  </div>
-
-  <!-- khóa học -->
-  <div class="mb-3">
-    <label for="">Khóa học</label>
-    <% courses.forEach(course => { %>
-    <label class="mb-3 d-block">
-      <input type="checkbox" name="courses" value="<%= course.id %>" /> <%=
-      course.name %>
-    </label>
-    <% }) %>
   </div>
 
   <button class="btn btn-primary">Lưu</button>
